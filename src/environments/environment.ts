@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  base_url: 'http://localhost:16209/api',
+  azure_IoT: 'http://mosiotalzheimer.azureiotcentral.com/api'
 };
 
 /*

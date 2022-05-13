@@ -6,7 +6,11 @@ const routes: Routes = [
   {
     path: '',
     component: Tab3Page,
-  }
+  },
+  {
+    path: 'voice',
+    loadChildren: () => import('../voice/voice.module').then( m => m.VoicePageModule)
+  },
 ];
 
 @NgModule({

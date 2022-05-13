@@ -6,7 +6,19 @@ const routes: Routes = [
   {
     path: '',
     component: Tab1Page,
-  }
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('../profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'patientAccess',
+    loadChildren: () => import('../patient-access/patient-access.module').then( m => m.PatientAccessPageModule)
+  },
+  {
+    path: 'relatedPerson',
+    loadChildren: () => import('../rel-person/rel-person.module').then( m => m.RelPersonPageModule)
+  },
 ];
 
 @NgModule({
