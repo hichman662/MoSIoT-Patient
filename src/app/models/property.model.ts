@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-export class Condition {
+export class Property {
+
           Id: number;
           Name?: string;
-          Disease?: number;
-
+          Type?: number;
+          Value?: number;
+          ValueProperty?: any;
 }

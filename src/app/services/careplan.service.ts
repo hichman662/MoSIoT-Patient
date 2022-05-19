@@ -86,8 +86,14 @@ public getCareActivityById( uid: number): Observable<object>{
 
 public getCareActivityByIdScenario( uid: number): Observable<object>{
   if (!uid) { uid = null; }
-  return this.http.get <CareActivity>(`${environment.base_url}/IMCareActivity/CareActivitiesScenario?idIoTScenario=${uid}` );
+  return this.http.get <CareActivity>(`${environment.base_url}/IMCareActivity/CareActivitiesScenario?idIoTScenario=${uid}`);
 }
+
+public getCareActivityByTimeByIdScenario( uid: number): Observable<object>{
+  if (!uid) { uid = null; }
+  return this.http.get <CareActivity>(`${environment.base_url}/IMCareActivity/ReadByTime?idscenario=${uid}`);
+}
+
 
 /* public createCareActivity( data: CareActivity ): Observable<object> {
   return this.http.post(`${environment.base_url}/IMCareActivity/New_`, data);

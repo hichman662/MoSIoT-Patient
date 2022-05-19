@@ -3,10 +3,6 @@ ion-content {
     border-radius: 20px;
 }
 
-ion-menu-button {
-    color: rgb(0, 47, 255);
-}
-
 ion-title {
     text-align: left;
     font-size: 18px;
@@ -45,33 +41,36 @@ ion-header {
     background-color: rgba(180, 199, 136) !important;
 }
 
+ion-img {
+    align-content: flex-end;
+    width: 90px;
+}
+
+ion-avatar {
+    border-radius: 100px;
+}
+
 ion-icon {
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
 }
 
 ion-card {
     align-content: center;
-    --ion-background-color: transparent !important;
-    --ion-border-color: transparent !important;
-    box-shadow: none;
-    width: 60%;
+    --ion-background-color: rgba(255, 255, 255, 0.795) !important;
+    --ion-border-color: rgba(187, 187, 187, 0.795) !important;
+    box-shadow: rgb(134, 134, 134) !important;
+    width: 100%;
     height: 60%;
     margin-left: 30px;
 }
 
 ion-label {
-    justify-content: center;
-    align-content: center;
-    text-align: center;
+    justify-content: left;
+    align-content: left;
+    text-align: left;
     font-size: 16px;
     color: black;
-}
-
-.pati-card {
-    margin-left: 10px;
-    width: 90%;
-    height: 90%;
 }
 
 
@@ -79,10 +78,6 @@ ion-label {
 
 
 /* Works - pass "my-custom-class" in cssClass to increase specificity */
-
-ion-card {
-    box-shadow: none !important
-}
 
 ion-toolbar {
     --background: rgba(180, 199, 136) !important;

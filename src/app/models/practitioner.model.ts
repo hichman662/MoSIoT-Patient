@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-shadow */
 
-import { RelatedPersonData} from './relatedPersonData.model';
+import { PractitionerData} from './practitionerData.model';
 
-export class RelatedPerson {
+export class Practitioner {
       Id: number;
       Name?: string;
       Description?: string;
-      RpData?: RelatedPersonData;
+      PractitionerData?: PractitionerData;
 }
-

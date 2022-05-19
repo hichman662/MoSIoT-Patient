@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/type-annotation-spacing */
-export class Measure {
+export class ValueCommunication {
   Id: number;
-  Name?: string;
-  Description?:string;
-  LOINCcode?:string;
+  Severity: number;
+  Message: string;
+  SendDate: Date;
 }

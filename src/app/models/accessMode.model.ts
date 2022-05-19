@@ -5,14 +5,11 @@ import { AdaptationRequest } from './adaptationRequest.model';
 import { AdaptationTypeRequired } from './adaptationTypeRequired.model';
 
 export class AccessMode {
-  constructor(
-    Id: number,
-    Name?: string,
-    Description?: string,
-    TypeAccessMode?: number,
-    AdaptationType?: AdaptationTypeRequired [],
-    AdaptationRequest?: AdaptationRequest[],
-    AdaptationDetail?: AdaptationDetailRequired[]
-        )
-  {}
+    Id: number;
+    Name?: string;
+    Description?: string;
+    TypeAccessMode?: number;
+    AdaptationType?: AdaptationTypeRequired [];
+    AdaptationRequest?: AdaptationRequest[];
+    AdaptationDetail?: AdaptationDetailRequired[];
 }

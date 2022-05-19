@@ -1,10 +1,6 @@
-/* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable @typescript-eslint/naming-convention */
-
-export class Goal {
+export class Nutrition {
     Id: number;
     Name: string;
     Description: string;
-
-    LOINCcode: string;
 }
