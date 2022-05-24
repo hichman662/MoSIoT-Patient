@@ -1,15 +1,3 @@
-<!-- <ion-header [translucent]="true">
-    <ion-toolbar>
-        <ion-menu-button slot="start" autoHide="false"></ion-menu-button>
-        <ion-title class="text-center">
-            Notification
-        </ion-title>
-    </ion-toolbar>
-</ion-header> -->
-
-<!--
-  ////
- -->
 <ion-header>
 
     <ion-toolbar id="mainToolbar">
@@ -17,45 +5,17 @@
         <ion-buttons slot="start">
             <ion-menu-button slot="start" autoHide="false"></ion-menu-button>
         </ion-buttons>
+        <ion-label id="title"><strong>Notifications</strong></ion-label>
+        <ion-card slot="end" color="transparent" class="pati-card">
+            <ion-img src='assets/icon/notification.png'></ion-img>
+
+        </ion-card>
     </ion-toolbar>
-    <ion-row class="topRow">
-        <ion-col size="4" class="ion-align-self-start">
 
-        </ion-col>
-        <ion-col size="4" class="ion-align-self-center">
-            <ion-card color="transparent" class="pati-card">
-                <ion-img src='assets/icon/notification.png'></ion-img>
-
-            </ion-card>
-        </ion-col>
-        <ion-col size="4" class="ion-align-self-end">
-        </ion-col>
-
-    </ion-row>
-    <ion-row class="bottomRow">
-        <ion-col size="1" class="ion-align-self-start">
-
-        </ion-col>
-        <ion-col size="10" class="ion-align-self-center">
-
-            <ion-list-header>
-                <ion-label class="text-top">Notification</ion-label>
-            </ion-list-header>
-
-        </ion-col>
-        <ion-col size="1" class="ion-align-self-end">
-
-        </ion-col>
-
-    </ion-row>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-header collapse="condense">
-        <ion-toolbar class="toolbarNotification">
-            <ion-title class="text-center" size="midium">Today-Wed Feb 9</ion-title>
-        </ion-toolbar>
-    </ion-header>
+
     <ion-list>
         <ion-row *ngFor="let careActivity of careActivityByTime">
             <ion-item>

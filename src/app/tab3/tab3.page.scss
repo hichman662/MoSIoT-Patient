@@ -1,10 +1,7 @@
 ion-content {
-    --background: url('/') 0 0/100% 100% no-repeat;
+    --background: url('/assets/icon/backW.jpg') 0 0/100% 100% no-repeat;
+    //--background: url('/') 0 0/100% 100% no-repeat;
     border-radius: 20px;
-}
-
-ion-menu-button {
-    color: rgb(0, 47, 255);
 }
 
 ion-title {
@@ -22,56 +19,42 @@ ion-title {
     max-width: 100%;
     max-height: auto;
     text-align: center;
-    background-color: rgba(221, 230, 225, 0.24);
+    background-color: rgba(255, 254, 254, 0);
     margin-top: 2px;
-    margin-left: 3px;
+    margin-left: 0px;
     margin-bottom: 6px;
-    margin-right: 3px;
     border-radius: 20px;
-    box-shadow: 10px;
+    box-shadow: 20px;
 }
 
 ion-header {
     text-align: center;
     align-content: center;
-    background-color: rgb(240, 133, 133) !important;
+    background-color: rgba(180, 199, 136) !important;
 }
 
-ion-icon {
-    width: 30px;
-    height: 30px;
+ion-img {
+    align-content: flex-end;
+    width: 90px;
+}
+
+ion-avatar {
+    border-radius: 100px;
 }
 
 ion-card {
-    align-content: center;
-    --ion-background-color: transparent !important;
-    --ion-border-color: transparent !important;
-    box-shadow: none;
-    width: 60%;
-    height: 60%;
-    margin-left: 30px;
+    --ion-background-color: rgba(240, 243, 231, 0) !important;
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
 }
 
 ion-label {
-    justify-content: center;
-    align-content: center;
-    text-align: center;
+    justify-content: left;
+    align-content: left;
+    text-align: left;
     font-size: 16px;
     color: black;
-}
-
-.pati-card {
-    margin-left: 10px;
-    width: 90%;
-    height: 90%;
-}
-
-.bottomRow {
-    margin-top: -30px;
-}
-
-.topRow {
-    margin-top: -20px;
 }
 
 
@@ -80,12 +63,25 @@ ion-label {
 
 /* Works - pass "my-custom-class" in cssClass to increase specificity */
 
-ion-card {
-    box-shadow: none !important
+ion-toolbar {
+    --background: rgb(220, 230, 198) !important;
 }
 
-ion-toolbar {
-    --background: rgb(240, 133, 133) !important;
+#image-toolbar {
+    align-content: flex-end;
+    width: 50px;
+    box-shadow: none;
+    border: none;
+}
+
+#title {
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+
+.pati-card {
+    width: 15%;
+    height: 10%;
 }
 
 .text-top {
@@ -124,12 +120,8 @@ ion-loading {
 
 .iconText>ion-col>ion-label {
     position: flex;
-    font-size: 12px;
+    font-size: 20px;
     margin-left: 10px;
-}
-
-app-component-telemetry {
-    width: 100%;
 }
 
 ion-segment-button {
@@ -143,6 +135,16 @@ ion-segment-button {
     border-radius: 50%;
 }
 
-.my-custom-menu {
-    --width: 500px;
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: -25%;
+    margin-left: 5%;
+}
+
+.card-subtitle {
+    font-size: medium;
+    margin-top: 5%;
+    margin-left: 20%;
+    text-align: center;
 }

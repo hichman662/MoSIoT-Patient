@@ -1,3 +1,4 @@
+import { DetailProfileComponent } from './detail-profile/detail-profile.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +16,6 @@ import { ProfilePage } from './profile.page';
     IonicModule,
     ProfilePageRoutingModule
   ],
-  declarations: [ProfilePage]
+  declarations: [ProfilePage,DetailProfileComponent]
 })
 export class ProfilePageModule {}

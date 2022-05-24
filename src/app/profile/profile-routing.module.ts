@@ -7,10 +7,6 @@ const routes: Routes = [
   {
     path: '',
     component: ProfilePage
-  },
-  {
-    path: 'detail-profile',
-    loadChildren: () => import('./detail-profile/detail-profile.module').then( m => m.DetailProfilePageModule)
   }
 ];
 

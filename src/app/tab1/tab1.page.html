@@ -1,11 +1,15 @@
 <ion-header>
 
-    <ion-toolbar color="primary">
+    <ion-toolbar>
 
         <ion-buttons slot="start">
             <ion-back-button text="Home" defaultHref="/tabs" icon="chevron-back-outline"></ion-back-button>
         </ion-buttons>
-        <ion-label class="text-top">Patient Section</ion-label>
+        <ion-label id="title"><strong>Patient Section</strong></ion-label>
+        <ion-card slot="end" color="transparent" class="pati-card">
+            <ion-img id="image-toolbar" src='assets/icon/patientN.png'></ion-img>
+
+        </ion-card>
     </ion-toolbar>
     <!--  <ion-row class="topRow">
         <ion-col size="4" class="ion-align-self-start">
@@ -41,35 +45,46 @@
 
 <ion-content [fullscreen]="true">
     <section id="dashboardSection">
-        <ion-grid>
-            <ion-row>
-                <ion-card [routerLink]="['profile']">
+        <ion-row>
+            <ion-card [routerLink]="['profile']">
+                <ion-col size="4">
                     <ion-img src='assets/icon/pati.png'></ion-img>
-                    <ion-label>Patient Data</ion-label>
-                </ion-card>
-            </ion-row>
-        </ion-grid>
-        <ion-grid>
-            <ion-row>
+                </ion-col>
+                <ion-col size="8">
 
-                <ion-card class="vital-card" [routerLink]="['patientAccess']">
+                    <div class="card-title">My Data</div>
+                    <div class="card-subtitle">Consult your profile data</div>
 
-                    <ion-label>Patient Access</ion-label>
+                </ion-col>
+            </ion-card>
+        </ion-row>
+        <ion-row>
+            <ion-card [routerLink]="['profile']">
+                <ion-col size="4">
                     <ion-img src='assets/icon/access.png'></ion-img>
-                </ion-card>
+                </ion-col>
+                <ion-col size="8">
 
-            </ion-row>
-        </ion-grid>
-        <ion-grid>
-            <ion-row [routerLink]="['relatedPerson']">
-                <ion-card>
-                    <ion-col size="12">
-                        <ion-label class="ion-align-self-start">Related Persons</ion-label>
-                        <ion-img class="ion-align-self-end" src='assets/icon/family.png'></ion-img>
-                    </ion-col>
-                </ion-card>
-            </ion-row>
-        </ion-grid>
+                    <div class="card-title">Access mode</div>
+                    <div class="card-subtitle">Your access mode to the system</div>
+
+                </ion-col>
+            </ion-card>
+        </ion-row>
+        <ion-row>
+            <ion-card [routerLink]="['profile']">
+                <ion-col size="4">
+                    <ion-img src='assets/icon/family.png'></ion-img>
+                </ion-col>
+                <ion-col size="8">
+
+                    <div class="card-title">Related person</div>
+                    <div class="card-subtitle">Persons accessing to your data</div>
+
+                </ion-col>
+            </ion-card>
+        </ion-row>
+
     </section>
 
 </ion-content>

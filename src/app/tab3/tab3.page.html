@@ -1,4 +1,3 @@
-<!-- <ion-header [translucent]="true"> -->
 <ion-header>
 
     <ion-toolbar>
@@ -6,77 +5,57 @@
         <ion-buttons slot="start">
             <ion-back-button text="Home" defaultHref="/tabs" icon="chevron-back-outline"></ion-back-button>
         </ion-buttons>
+        <ion-label id="title"><strong>Device Section</strong></ion-label>
+        <ion-card slot="end" color="transparent" class="pati-card">
+            <ion-img id="image-toolbar" src='assets/icon/devices.png'></ion-img>
+
+        </ion-card>
     </ion-toolbar>
-    <ion-row class="topRow">
-        <ion-col size="4" class="ion-align-self-start">
 
-        </ion-col>
-        <ion-col size="4" class="ion-align-self-end">
-            <ion-card color="transparent" class="pati-card">
-                <ion-img src='assets/icon/device.png'></ion-img>
-
-            </ion-card>
-        </ion-col>
-        <ion-col size="4" class="ion-align-self-center">
-        </ion-col>
-
-    </ion-row>
-    <ion-row class="bottomRow">
-        <ion-col size="1" class="ion-align-self-start">
-
-        </ion-col>
-        <ion-col size="10" class="ion-align-self-center">
-
-            <ion-list-header>
-                <ion-label class="text-top">Device Section</ion-label>
-            </ion-list-header>
-
-        </ion-col>
-        <ion-col size="1" class="ion-align-self-end">
-
-        </ion-col>
-
-    </ion-row>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
     <section id="dashboardSection">
-        <ion-grid>
-            <ion-row>
-
-                <ion-col size="6" class="ion-align-self-center" [routerLink]="['device']">
-                    <ion-card color="transparent" class="disability-card">
-                        <ion-img src='assets/icon/devices.png'></ion-img>
-                        <ion-label>Devices</ion-label>
-                    </ion-card>
+        <ion-row>
+            <ion-card [routerLink]="['profile']">
+                <ion-col size="4">
+                    <ion-img src='assets/icon/device.png'></ion-img>
                 </ion-col>
-                <ion-col size="6" class="ion-align-self-end" [routerLink]="['telemetry']">
-                    <ion-card color="transparent" class="deviceTemplate-card">
-                        <ion-img src='assets/icon/telemetries.png'></ion-img>
-                        <ion-label>Telemetries</ion-label>
-                    </ion-card>
+                <ion-col size="8">
+
+                    <div class="card-title">Device</div>
+                    <div class="card-subtitle">Devices which you carrying on</div>
+
                 </ion-col>
-            </ion-row>
-            <ion-row>
-                <ion-col size="6" class="ion-align-self-start" [routerLink]="['voice']">
-                    <ion-card color="transparent" class="nurse-card">
-                        <ion-img src='assets/icon/micro.png'></ion-img>
-                        <ion-label>Voice recognition</ion-label>
-                    </ion-card>
+            </ion-card>
+        </ion-row>
+        <ion-row>
+            <ion-card [routerLink]="['profile']">
+                <ion-col size="4">
+                    <ion-img src='assets/icon/telemetries.png'></ion-img>
                 </ion-col>
+                <ion-col size="8">
 
-                <!--  <ion-col size="6" class="ion-align-self-end" [routerLink]="['patientAccess']">
-                    <ion-card text-center color="transparent" class="vital-card">
-                        <ion-img src='assets/icon/access.png'></ion-img>
-                        <ion-label>Patient Access</ion-label>
-                    </ion-card>
-                </ion-col> -->
+                    <div class="card-title">Telemetries</div>
+                    <div class="card-subtitle">Information transferred by devices</div>
 
-            </ion-row>
+                </ion-col>
+            </ion-card>
+        </ion-row>
+        <ion-row>
+            <ion-card [routerLink]="['profile']">
+                <ion-col size="4">
+                    <ion-img src='assets/icon/micro.png'></ion-img>
+                </ion-col>
+                <ion-col size="8">
 
+                    <div class="card-title">Microphone</div>
+                    <div class="card-subtitle">Test the microphone</div>
 
-        </ion-grid>
+                </ion-col>
+            </ion-card>
+        </ion-row>
+
     </section>
 
 </ion-content>

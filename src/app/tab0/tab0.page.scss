@@ -1,5 +1,6 @@
 ion-content {
-    --background: url('/') 0 0/100% 100% no-repeat;
+    --background: url('/assets/icon/backW.jpg') 0 0/100% 100% no-repeat;
+    //--background: url('/') 0 0/100% 100% no-repeat;
     border-radius: 20px;
 }
 
@@ -64,8 +65,8 @@ ion-label {
 
 .pati-card {
     margin-left: 10px;
-    width: 90%;
-    height: 90%;
+    width: 15%;
+    height: 10%;
 }
 
 .bottomRow {
@@ -128,12 +129,8 @@ ion-card {
     box-shadow: none !important
 }
 
-ion-toolbar {
-    --background: rgba(192, 219, 96, 0.938);
-}
-
 #mainToolbar {
-    --background: rgba(219, 125, 96, 0.938) !important;
+    --background: rgba(133, 116, 110, 0.253) !important;
 }
 
 .text-top {
@@ -197,4 +194,14 @@ ion-segment-button {
 
 ion-select {
     --width: 500%;
+}
+
+#title {
+    font-size: 20px;
+    color: #fff;
+}
+
+.pati-card {
+    width: 25%;
+    height: 10%;
 }
