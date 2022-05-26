@@ -58,6 +58,10 @@ const routes: Routes = [
   {
     path: 'voice',
     loadChildren: () => import('./voice/voice.module').then( m => m.VoicePageModule)
+  },
+  {
+    path: 'nutrition',
+    loadChildren: () => import('./nutrition/nutrition.module').then( m => m.NutritionPageModule)
   }
 ];
 @NgModule({

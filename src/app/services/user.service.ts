@@ -22,7 +22,7 @@ export class UserService {
   isLoggedIn = false;
   token = '';
 
-private newUser: UserData = new UserData(0, new Date(), '','','', '',false,1, false,'');
+private newUser: UserData = null;
 constructor(private http: HttpClient,
                private router: Router,
                private storage: Storage) {
@@ -34,13 +34,7 @@ public getAllUsers(): Observable<object>{
 }
 
 public createUser( data: UserData ): Observable<object> {
-  return this.http.post(`${environment.base_url}/User/New_`, data)
-  .pipe(
-    tap((res: any)=>{
-      const {Id ,BirhDate, Surnames, Address, Phone, Photo,IsActive, Type, IsDiseased,Email } = res;
-      this.newUser = new UserData(Id ,BirhDate, Surnames, Address, Phone, Photo,IsActive, Type, IsDiseased,Email);
-    })
-  );
+  return this.http.post(`${environment.base_url}/User/New_`, data);
 }
 
 /* login( formData: loginForm) {
