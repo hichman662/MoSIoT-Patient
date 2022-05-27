@@ -18,7 +18,7 @@
 
     <ion-list>
         <ion-row *ngFor="let careActivity of careActivityByTime">
-            <ion-item>
+            <ion-item [routerLink]="['detail-care-activity',careActivity['Id']]">
                 <ion-col size="3">
                     {{careActivity.TimeAct|date:'shortTime'}}<br>
                     <br> {{careActivity.TimeAct|date}}

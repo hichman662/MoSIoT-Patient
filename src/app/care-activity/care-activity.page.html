@@ -1,9 +1,95 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>care-activity</ion-title>
-  </ion-toolbar>
+
+    <ion-toolbar id="mainToolbar">
+        <ion-buttons slot="start">
+            <ion-back-button text="Care Plan Section" defaultHref="/tabs/tab2" icon="chevron-back-outline"></ion-back-button>
+        </ion-buttons>
+
+        <ion-card slot="end" color="transparent" class="pati-card">
+            <ion-img src='assets/icon/careActivityW.png'></ion-img>
+
+            <ion-label id="title"><strong>Care Activities</strong></ion-label>
+        </ion-card>
+
+    </ion-toolbar>
+
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
 
+    <ion-list>
+        <ion-row *ngFor="let careActivity of careActivityByTime">
+            <ion-item [routerLink]="['detail-care-activity',careActivity['Id']]">
+                <ion-col size="3">
+                    {{careActivity.TimeAct|date:'shortTime'}}<br>
+                    <br> {{careActivity.TimeAct|date}}
+                    <br>
+                </ion-col>
+                <ion-col size="2">
+                    <ion-img *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 1 " src='assets/icon/medication.png'></ion-img>
+                    <ion-img *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 2 " src='assets/icon/nutrition.png'></ion-img>
+                    <ion-img *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 3 " src='assets/icon/communication.png'></ion-img>
+                    <ion-img *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 4 " src='assets/icon/appointment.png'></ion-img>
+                    <br>
+                </ion-col>
+                <ion-col size="7">
+
+                    <ion-item *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 1 "><strong>Medication</strong></ion-item>
+                    <ion-item *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 2"><strong>Nutrition</strong></ion-item>
+                    <ion-item *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 3"><strong>Communication</strong></ion-item>
+                    <ion-item *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 4"><strong>Appointment</strong></ion-item>
+                    <ion-item class="h6">{{careActivity.Name}}</ion-item>
+                    <ion-select class="align-left">
+                        <ion-select-option value="u">Discard</ion-select-option>
+                        <ion-select-option value="c">Complete</ion-select-option>
+                        <ion-select-option value="r">Pendent</ion-select-option>
+
+
+                    </ion-select>
+                    <!-- <ion-toggle class="" toggle-class="toggle-assertive" color="danger"> </ion-toggle>-->
+
+                </ion-col>
+            </ion-item>
+        </ion-row>
+
+    </ion-list>
+    <!-- <ion-toolbar>
+      <ion-title class="toolbarNotification">Tomorrow-Thu Feb 10</ion-title>
+  </ion-toolbar>
+  <ion-list>
+      <ion-row>
+          <ion-item>
+              <ion-col size="3">
+                  11:00 AM <br> 45 m
+
+              </ion-col>
+              <ion-col size="2">
+                  <ion-img src='assets/icon/appointment.png'></ion-img>
+              </ion-col>
+              <ion-col size="7">
+                  <ion-item><strong>Appointment</strong></ion-item>
+                  <ion-item class="h6">Alicante Hospital</ion-item>
+
+              </ion-col>
+          </ion-item>
+      </ion-row>
+      <ion-row>
+          <ion-item>
+              <ion-col size="3">
+                  12:00 AM <br> 20 m
+                  <br>
+
+              </ion-col>
+              <ion-col size="2">
+                  <ion-img src='assets/icon/nutrition.png'></ion-img>
+
+              </ion-col>
+              <ion-col size="7">
+                  <ion-item><strong>Nutrition</strong></ion-item>
+                  <ion-item class="h6">Nuts - 1 Apple</ion-item>
+
+              </ion-col>
+          </ion-item>
+      </ion-row>
+  </ion-list> -->
 </ion-content>
