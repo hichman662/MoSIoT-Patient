@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { UserService } from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
@@ -15,6 +16,7 @@ import { Storage } from '@ionic/storage';
 export class LoginPage implements OnInit {
   public formSubmit = false;
   public waiting = false;
+  public token = '';
 
   public loginForm = this.fb.group({
     Email: ['', [Validators.required, Validators.email]],
@@ -33,7 +35,7 @@ async  ngOnInit() {
     this.router.navigateByUrl('/tabs', { replaceUrl:true });
   }
 
-/*   login(): any {
+  login(): any {
     this.formSubmit = true;
     if (!this.loginForm.valid) {
       console.warn('error in the form');
@@ -43,7 +45,10 @@ async  ngOnInit() {
     this.userService.login( this.loginForm.value)
       .subscribe( (res: any) => {
         this.waiting = false;
-        this.router.navigateByUrl('/scenarios', { replaceUrl:true });
+        this.storage.set('token', res);
+
+        this.getEscenarioDePaciente(res);
+        this.router.navigateByUrl('/tabs', { replaceUrl:true });
       }, (err: any) => {
         console.warn('Error respuesta api', err);
         if(err.status === 401) {
@@ -66,10 +71,18 @@ async  ngOnInit() {
         this.waiting = false;
       });
 
-    } */
+    }
 
   campoValido(campo: string ){
     return this.loginForm.get(campo)?.valid || !this.formSubmit;
+  }
+
+  getEscenarioDePaciente(token: string){
+    this.userService.getEscenarioByCliente(token)
+    .subscribe((res: any)=>{
+    console.log(res);
+this.storage.set('idEscenario',res);
+    });
   }
 
 }

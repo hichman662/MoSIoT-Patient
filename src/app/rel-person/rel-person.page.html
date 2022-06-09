@@ -1,9 +1,61 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>rel-person</ion-title>
-  </ion-toolbar>
+
+    <ion-toolbar id="mainToolbar">
+        <ion-buttons slot="start">
+            <ion-back-button text="Patient Section" defaultHref="/tabs/tab1" icon="chevron-back-outline"></ion-back-button>
+        </ion-buttons>
+
+        <ion-card slot="end" color="transparent" class="pati-card">
+            <ion-img src='assets/icon/familyW.png'></ion-img>
+
+            <ion-label id="title"><strong>Related persons</strong></ion-label>
+        </ion-card>
+
+    </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
+    <ion-card-header [hidden]="!relPersonNull" color="warning" class="animate__animated animate__fadeInLeft animate__slow">
+        <ion-icon size="large" name="warning-outline"></ion-icon> No Related Person has been added to this scenario. To add a Related Person, press the Add button.
+    </ion-card-header>
+
+    <ion-list>
+        <div class="patient" *ngFor="let relatedPerson of relatedPersons">
+
+            <ion-item-sliding #slidingItem>
+
+                <ion-item class="item" detail [routerLink]="['detail-rel-person',relatedPerson['Id']]">
+                    <ion-avatar slot="start">
+                        <img src="assets/icon/family.png">
+
+                    </ion-avatar>
+
+                    <ion-label> {{relatedPerson['Name']}}</ion-label>
+
+
+                </ion-item>
+
+
+                <ion-item-options side="end" (ionSwipe)="deleterelatedPerson(slidingItem,relatedPerson['Id'], relatedPerson['Name'])">
+                    <ion-item-option color="danger" expandable (click)="deleterelatedPerson(slidingItem,relatedPerson['Id'], relatedPerson['Name'])">
+
+                        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+
+                    </ion-item-option>
+
+                </ion-item-options>
+
+                <ion-item-options side="start">
+
+                    <ion-item-option color="success" expandable (click)="closeSliding(slidingItem)" [routerLink]="['edit-device-template',relatedPerson['Id']]">
+
+                        <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+
+                    </ion-item-option>
+                </ion-item-options>
+            </ion-item-sliding>
+        </div>
+    </ion-list>
 
 </ion-content>

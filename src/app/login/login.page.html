@@ -46,12 +46,13 @@
                     </ion-row>
                     <ion-row>
                         <ion-col>
-                            <ion-button class="btn btn-success" (click)="start();" type="submit" [disabled]="waiting" fill="solid" expand="full">
+                            <ion-button class="btn btn-success" (click)="login();" type="submit" [disabled]="waiting" fill="solid" expand="full">
                                 <ion-spinner name="" color="danger" *ngIf="waiting"></ion-spinner>Login
                             </ion-button>
                         </ion-col>
                     </ion-row>
                     <ion-row class="text-justify">
+
                         <!--   <ion-col>
                             <ion-label>
                                 <h3>Forgot password</h3>
