@@ -35,7 +35,7 @@ async  ngOnInit() {
     this.router.navigateByUrl('/tabs', { replaceUrl:true });
   }
 
-  login(): any {
+   login(): any {
     this.formSubmit = true;
     if (!this.loginForm.valid) {
       console.warn('error in the form');
@@ -48,7 +48,6 @@ async  ngOnInit() {
         this.storage.set('token', res);
 
         this.getEscenarioDePaciente(res);
-        this.router.navigateByUrl('/tabs', { replaceUrl:true });
       }, (err: any) => {
         console.warn('Error respuesta api', err);
         if(err.status === 401) {
@@ -77,11 +76,15 @@ async  ngOnInit() {
     return this.loginForm.get(campo)?.valid || !this.formSubmit;
   }
 
-  getEscenarioDePaciente(token: string){
+getEscenarioDePaciente(token: string){
     this.userService.getEscenarioByCliente(token)
     .subscribe((res: any)=>{
-    console.log(res);
-this.storage.set('idEscenario',res);
+
+      if (res != null){
+        this.storage.set('idScenario',res);
+        this.userService.setIdEscenario(res);
+        this.router.navigateByUrl('/tabs', { replaceUrl:true });
+      }
     });
   }
 

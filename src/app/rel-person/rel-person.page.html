@@ -2,7 +2,7 @@
 
     <ion-toolbar id="mainToolbar">
         <ion-buttons slot="start">
-            <ion-back-button text="Patient Section" defaultHref="/tabs/tab1" icon="chevron-back-outline"></ion-back-button>
+            <ion-back-button id="return" text="Patient Section" defaultHref="/tabs/tab1" icon="chevron-back-outline"></ion-back-button>
         </ion-buttons>
 
         <ion-card slot="end" color="transparent" class="pati-card">
@@ -48,7 +48,7 @@
 
                 <ion-item-options side="start">
 
-                    <ion-item-option color="success" expandable (click)="closeSliding(slidingItem)" [routerLink]="['edit-device-template',relatedPerson['Id']]">
+                    <ion-item-option color="success" expandable (click)="closeSliding(slidingItem)" [routerLink]="['edit-related-person',relatedPerson['Id']]">
 
                         <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
 

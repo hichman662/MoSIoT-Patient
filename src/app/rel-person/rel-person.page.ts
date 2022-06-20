@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from '../services/patient.service';
 import { RelatedPerson } from '../models/relatedPerson.model';
-
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-rel-person',
   templateUrl: './rel-person.page.html',
@@ -13,28 +13,29 @@ import { RelatedPerson } from '../models/relatedPerson.model';
 export class RelPersonPage implements OnInit {
 
   public relatedPersons: RelatedPerson[] = [];
-  public idScenario: number = 720896;
+  public idScenario: number;
   relPersonNull= false;
 
   constructor(
     private patientService: PatientService,
     public router: Router,
     public alertController: AlertController,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    private storage: Storage
   ) { }
 
   ngOnInit() {
   }
 
   ionViewWillEnter(){
-    this.callRelatedPerson();
-/*     this.storage.get('idScenario').then((val) => {
+
+   this.storage.get('idScenario').then((val) => {
       this.idScenario = val;
-      console.log('inja id escenario: ' ,this.idScenario);
+      console.log('aqui id escenario: ' ,this.idScenario);
       if(this.idScenario != null){
         this.callRelatedPerson();
       }
-    }); */
+    });
 
   }
 

@@ -17,7 +17,7 @@ export class ProfilePage implements OnInit {
   public patientName: '';
   public patientDescrip: '';
   public patientData: UserData ;
-  public idScenario: number = 720896;
+  public idScenario: number ;
   segmentModel = 'details';
   load: boolean = false;
 
@@ -25,12 +25,13 @@ export class ProfilePage implements OnInit {
     public router: Router,
     private storage: Storage) { }
 
-  ngOnInit() {
-this.callingPatient();
-    /* this.storage.get('idUsuario').then((val) => {
+ async ngOnInit() {
+
+     await this.storage.get('idScenario').then((val) => {
       this.idScenario = val;
-        this.callingPatient();
-    });*/
+
+    });
+    this.callingPatient();
   }
 
 callingPatient(){
@@ -48,5 +49,6 @@ callingPatient(){
     console.log(err);
   });
 }
+
 
 }

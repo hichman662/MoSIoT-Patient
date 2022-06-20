@@ -57,10 +57,10 @@ public deletePractitioner(uid) {
   return this.http.delete(`${environment.base_url}/Practitioner/Destroy?p_practitioner_oid=${uid}`);
 }
 
-// Related Person
+/* // Related Person
 public getAllRelatedPerson(): Observable<object>{
   return this.http.get(`${environment.base_url}/RelatedPerson/ReadAll`);
-}
+} */
 public getRelatedPersonById( uid: number): Observable<object>{
   if (!uid) { uid = null; }
   return this.http.get <RelatedPerson>(`${environment.base_url}/RelatedPerson/${uid}` );

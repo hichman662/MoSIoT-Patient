@@ -23,6 +23,7 @@ export class UserService {
 
   isLoggedIn = false;
   private token = '';
+  private idEscenario: number ;
   private headers = new HttpHeaders;
 
 private newUser: UserData = null;
@@ -78,12 +79,20 @@ getToken(): string {
   return this.token;
 }
 
+getIdEscenario(): number {
+
+  return this.idEscenario;
+}
+
+setIdEscenario(id: number){
+  this.idEscenario = id;
+}
+
+
+
 public getEscenarioByCliente(token: string): Observable<any>{
 
-console.log(token);
 this.headers = new HttpHeaders ({'Authorization': token});
-
-console.log(this.headers);
 return this.http.post<any>(`${environment.base_url}/IoTScenario_Secure/DamePorPaciente`, null,{headers:this.headers});
 
 }

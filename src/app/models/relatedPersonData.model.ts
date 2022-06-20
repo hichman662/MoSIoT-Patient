@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 export class RelatedPersonData {
-  Id: number;
+    Id: number;
     BirthDate?: Date;
     Surnames?: string;
     Address?: string;
@@ -11,4 +11,6 @@ export class RelatedPersonData {
     Type?: number;
     IsDiseased?: boolean;
     Email?: string;
+    Name?: string;
+    Description?: string;
 }
