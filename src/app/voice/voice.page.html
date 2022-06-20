@@ -1,9 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>voice</ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Voice
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">Blank</ion-title>
+        </ion-toolbar>
+    </ion-header>
 
+    <div id="container">
+        <br/>
+        <ion-button color="dark" expand="full" (click)="checkPermission()">check Permission</ion-button>
+
+
+        <br/>
+        <ion-button color="dark" expand="full" (click)="requestPermission()">request Permission</ion-button>
+
+
+        <br/>
+        <ion-button color="dark" expand="full" (click)="startListening()">Start listening</ion-button>
+
+    </div>
 </ion-content>
