@@ -6,5 +6,4 @@ export class Disability {
     Name: string;
     Type?: number;
     Severity?: number;
-    Origin_oid?: number;
 }

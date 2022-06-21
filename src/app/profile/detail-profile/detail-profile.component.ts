@@ -51,8 +51,11 @@ this.callingPatientDetails();
     this.load= true;
 
      this.patientProfile = res[0].PatientProfile;
-     this.diseases = res[0].Diseases;
-     this.disabilities = res[0].Disabilities;
+     console.log(this.patientProfile);
+     this.diseases = res[0].PatientProfile.Diseases;
+     console.log(this.diseases);
+     this.disabilities = res[0].PatientProfile.Disabilities;
+     console.log(this.disabilities);
 
   }, (err) => {
     console.log(err);

@@ -3,19 +3,16 @@
 
 import { Condition } from './condition.model';
 import { Disability } from './disability.model';
-import { AccessMode } from './accessMode.model';
 
 export class PatientProfile {
 
       Id: number;
       Name?: string;
       Description?: string;
-      AccessMode?: AccessMode[];
       PreferredLanguage?: number;
       Region?: string;
       HazardAvoidance?: number;
       Disability?: Disability[];
-      CarePlan_oid?: number[];
       Diseases?: Condition[];
 
 }

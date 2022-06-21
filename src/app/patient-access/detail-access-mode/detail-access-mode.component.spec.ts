@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { DetailAccessModePage } from './detail-access-mode.page';
+import { DetailAccessModeComponent } from './detail-access-mode.component';
 
-describe('DetailAccessModePage', () => {
-  let component: DetailAccessModePage;
-  let fixture: ComponentFixture<DetailAccessModePage>;
+describe('DetailAccessModeComponent', () => {
+  let component: DetailAccessModeComponent;
+  let fixture: ComponentFixture<DetailAccessModeComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ DetailAccessModePage ],
+      declarations: [ DetailAccessModeComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DetailAccessModePage);
+    fixture = TestBed.createComponent(DetailAccessModeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

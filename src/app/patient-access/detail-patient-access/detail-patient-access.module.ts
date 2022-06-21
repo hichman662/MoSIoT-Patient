@@ -1,6 +1,8 @@
+import { MatExpansionModule } from '@angular/material/expansion';
+import { DetailAccessModeComponent } from './../detail-access-mode/detail-access-mode.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -13,8 +15,10 @@ import { DetailPatientAccessPage } from './detail-patient-access.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailPatientAccessPageRoutingModule
+    DetailPatientAccessPageRoutingModule,
+    ReactiveFormsModule,
+    MatExpansionModule
   ],
-  declarations: [DetailPatientAccessPage]
+  declarations: [DetailPatientAccessPage, DetailAccessModeComponent]
 })
 export class DetailPatientAccessPageModule {}
