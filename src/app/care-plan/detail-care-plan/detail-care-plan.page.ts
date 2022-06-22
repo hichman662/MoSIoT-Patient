@@ -27,29 +27,20 @@ export class DetailCarePlanPage implements OnInit {
   public carePlanDescription: string;
   public goals: Goal[];
   public targets: Target[];
+  load = false;
   carePlanDetailNull = false;
   segmentModel = 'details';
   patientProfileId: number;
-  carePlanTemplateList: CarePlanTemplate[] =[];
-  carePlantemplateForm: FormGroup;
   idcarePlantemplate: number;
   public attriubute: Attribute[] = [];
   private idPassedByURL: number = null;
   constructor(
     private carePlanService: CarePlanService,
-    private entityService: EntityService,
     private route: ActivatedRoute,
-    private storage: Storage,
     public alertController: AlertController,
     public toastController: ToastController
 
-  ) {
-      this.carePlantemplateForm = new FormGroup({
-      idCarePlanTemplate: new FormControl(Number, [
-        Validators.required
-      ])
-    });
-  }
+  ) { }
 
 
   ngOnInit() {
@@ -59,14 +50,16 @@ export class DetailCarePlanPage implements OnInit {
   }
 
   callCarePlanDetail(){
-
+    this.load = true;
     this.carePlanService.getCarePlanById(this.idPassedByURL)
     .subscribe((res: CarePlan ) => {
     if(res.CarePlanTemplate != null){
+      this.load = false;
       this.carePlanDetailNull = false;
+      console.log(res);
       this.carePlanName = res.Name;
       this.carePlanDescription = res.Description;
-      // this.carePlanTemplate = res.CarePlanTemplate;
+      this.carePlanTemplate = res.CarePlanTemplate;
        this.goals = res.CarePlanTemplate.Goals;
        this.targets =  res.CarePlanTemplate.Goals[0].Targets;
        console.log(this.targets);

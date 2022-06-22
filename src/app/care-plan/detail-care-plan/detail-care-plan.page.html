@@ -2,13 +2,13 @@
 
     <ion-toolbar id="mainToolbar">
         <ion-buttons slot="start">
-            <ion-back-button id="return" text="Patient Section" defaultHref="/tabs/tab2/carePlan" icon="chevron-back-outline"></ion-back-button>
+            <ion-back-button id="return" text="Care Plans" defaultHref="/tabs/tab2/carePlan" icon="chevron-back-outline"></ion-back-button>
         </ion-buttons>
 
         <ion-card slot="end" color="transparent" class="pati-card">
             <ion-img src='assets/icon/carePlansW.png'></ion-img>
 
-            <ion-label id="title" *ngIf="carePlan !== undefined"><strong>{{carePlan.Name}}</strong></ion-label>
+            <ion-label id="title" *ngIf="carePlan !== undefined"><strong>{{carePlanTemplate.Title}}</strong></ion-label>
         </ion-card>
 
     </ion-toolbar>
@@ -29,23 +29,58 @@
         </ion-segment-button>
     </ion-segment>
 
-    <ion-card-header [hidden]="!carePlanDetailNull" color="warning" class="animate__animated animate__fadeInLeft animate__slow">
-        <ion-icon size="large" name="warning-outline"></ion-icon> No Care Plan Template has been added to this Care Plan. To add Care Plan Template, select one.
+    <ion-card-header [hidden]="!carePlanDetailNull">
+
     </ion-card-header>
     <div class="segment" *ngIf="segmentModel === 'details'" [hidden]="carePlanDetailNull">
-        <div *ngFor="let attr of attriubute">
+        <ion-spinner class="spin" *ngIf="load" name="bubbles"></ion-spinner>
+        <ion-list *ngIf="!load">
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="receipt-outline"></ion-icon>Name</ion-list-header>
+            <ion-item>
 
-            <ion-list>
+                <ion-label text-wrap> {{carePlanTemplate.Name}}</ion-label>
+            </ion-item>
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="receipt-outline"></ion-icon>Description</ion-list-header>
+            <ion-item>
 
-                <ion-list-header>
-                    <ion-icon class="segmentIcon" name="person-outline"></ion-icon>{{attr.Name}}</ion-list-header>
-                <ion-item>
-                    <ion-label> {{attr.ValueAttr}}</ion-label>
-                </ion-item>
+                <ion-label> {{carePlanTemplate.Description}}</ion-label>
 
-            </ion-list>
+            </ion-item>
 
-        </div>
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="heart-half-outline"></ion-icon>Duration Days</ion-list-header>
+            <ion-item>
+
+                <ion-label> {{carePlanTemplate.DurationDays}}</ion-label>
+
+            </ion-item>
+
+
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="male-female-outline"></ion-icon>Intent</ion-list-header>
+            <ion-item>
+                <ion-label *ngIf="carePlanTemplate.Intent === 1"> Proposal</ion-label>
+                <ion-label *ngIf="carePlanTemplate.Intent === 2"> Plan</ion-label>
+                <ion-label *ngIf="carePlanTemplate.Intent === 3"> Order</ion-label>
+                <ion-label *ngIf="carePlanTemplate.Intent === 4"> Option</ion-label>
+            </ion-item>
+
+
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="male-female-outline"></ion-icon>Status</ion-list-header>
+            <ion-item>
+                <ion-label *ngIf="carePlanTemplate.Status === 1"> Draft</ion-label>
+                <ion-label *ngIf="carePlanTemplate.Status === 2"> Active</ion-label>
+                <ion-label *ngIf="carePlanTemplate.Status === 3"> On Hold</ion-label>
+                <ion-label *ngIf="carePlanTemplate.Status === 4"> Revoked</ion-label>
+                <ion-label *ngIf="carePlanTemplate.Status === 5"> Completed</ion-label>
+                <ion-label *ngIf="carePlanTemplate.Status === 6"> Canceled</ion-label>
+            </ion-item>
+
+
+        </ion-list>
 
     </div>
     <div class="segment" *ngIf="segmentModel === 'goals'">
