@@ -1,6 +1,7 @@
+import { MatExpansionModule } from '@angular/material/expansion';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -13,7 +14,9 @@ import { DetailCarePlanPage } from './detail-care-plan.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailCarePlanPageRoutingModule
+    DetailCarePlanPageRoutingModule,
+    ReactiveFormsModule,
+    MatExpansionModule
   ],
   declarations: [DetailCarePlanPage]
 })

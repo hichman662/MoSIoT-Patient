@@ -12,133 +12,80 @@
 
     </ion-toolbar>
 
-    <ion-header>
+</ion-header>
+<ion-content>
+    <ion-segment scrollable="true" mode="md" [(ngModel)]="segmentModel" lines="none">
+        <ion-segment-button value="details">
+            <ion-icon name="receipt-outline"></ion-icon>
+            <ion-label>Personal Data</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="profile">
+            <ion-icon name="receipt-outline"></ion-icon>
+            <ion-label>Hospital Data </ion-label>
+        </ion-segment-button>
+    </ion-segment>
 
 
-
-        <!--  <ion-row>
-        <ion-col size="4" class="ion-align-self-start">
-
-        </ion-col>
-        <ion-col size="4" class="ion-align-self-center">
-            <ion-card color="transparent" class="deviceTemplate-card">
-                <ion-img src='assets/icon/patiW.png'></ion-img>
-
-            </ion-card>
-        </ion-col>
-        <ion-col size="4" class="ion-align-self-end">
-        </ion-col>
-
-    </ion-row>
-    <ion-row>
-        <ion-col size="1" class="ion-align-self-start">
-
-        </ion-col>
-        <ion-col size="10" class="ion-align-self-center">
-
+    <div class="segment" *ngIf="segmentModel === 'details'">
+        <ion-spinner class="spin" *ngIf="!load" name="bubbles"></ion-spinner>
+        <ion-list *ngIf="load">
             <ion-list-header>
-                <ion-label class="text-top">{{ patientName}}</ion-label>
+                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Name</ion-list-header>
+            <ion-item>
 
-            </ion-list-header>
+                <ion-label text-wrap> {{patientData.Name}}</ion-label>
+            </ion-item>
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Surname</ion-list-header>
+            <ion-item>
 
-        </ion-col>
-        <ion-col size="1" class="ion-align-self-end">
+                <ion-label text-wrap> {{patientData.Surnames}}</ion-label>
+            </ion-item>
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="at-outline"></ion-icon>Email</ion-list-header>
+            <ion-item>
 
-        </ion-col>
+                <ion-label> {{patientData.Email}}</ion-label>
 
-    </ion-row>
-    <ion-row>
-        <ion-col size="1" class="ion-align-self-start">
-
-        </ion-col>
-        <ion-col size="10" class="ion-align-self-center">
-
+            </ion-item>
             <ion-list-header>
 
-                <ion-label class="text-top">
-                    <h4>{{ patientDescrip}}</h4>
-                </ion-label>
-            </ion-list-header>
-
-        </ion-col>
-        <ion-col size="1" class="ion-align-self-end">
-
-        </ion-col>
-
-    </ion-row> -->
-        <ion-segment scrollable="true" mode="md" [(ngModel)]="segmentModel" lines="none">
-            <ion-segment-button value="details">
-                <ion-icon name="receipt-outline"></ion-icon>
-                <ion-label>Personal Data</ion-label>
-            </ion-segment-button>
-            <ion-segment-button value="profile">
-                <ion-icon name="receipt-outline"></ion-icon>
-                <ion-label>Hospital data </ion-label>
-            </ion-segment-button>
-        </ion-segment>
-    </ion-header>
-    <ion-content>
-
-        <div class="segment" *ngIf="segmentModel === 'details'">
-            <ion-spinner class="spin" *ngIf="!load" name="bubbles"></ion-spinner>
-            <ion-list *ngIf="load">
-                <ion-list-header>
-                    <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Name</ion-list-header>
-                <ion-item>
-
-                    <ion-label text-wrap> {{patientData.Name}}</ion-label>
+                <ion-icon class="segmentIcon" name="power-outline"></ion-icon>Active Status</ion-list-header>
+            <ion-item>
+                <ion-item [hidden]="patientData.IsActive === true">
+                    <ion-label>Disactive</ion-label>
                 </ion-item>
-                <ion-list-header>
-                    <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Surname</ion-list-header>
-                <ion-item>
-
-                    <ion-label text-wrap> {{patientData.Surnames}}</ion-label>
+                <ion-item [hidden]="patientData.IsActive === false">
+                    <ion-label>Active</ion-label>
                 </ion-item>
-                <ion-list-header>
-                    <ion-icon class="segmentIcon" name="at-outline"></ion-icon>Email</ion-list-header>
-                <ion-item>
 
-                    <ion-label> {{patientData.Email}}</ion-label>
+                <!-- <ion-label> {{$any(patientData)?.IsActive}}</ion-label> -->
 
+            </ion-item>
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="heart-half-outline"></ion-icon>Is Diseased</ion-list-header>
+            <ion-item>
+
+                <ion-item [hidden]="patientData.IsDiseased === false">
+                    <ion-label>Yes</ion-label>
                 </ion-item>
-                <ion-list-header>
-
-                    <ion-icon class="segmentIcon" name="power-outline"></ion-icon>Active Status</ion-list-header>
-                <ion-item>
-                    <ion-item [hidden]="patientData.IsActive === true">
-                        <ion-label>Disactive</ion-label>
-                    </ion-item>
-                    <ion-item [hidden]="patientData.IsActive === false">
-                        <ion-label>Active</ion-label>
-                    </ion-item>
-
-                    <!-- <ion-label> {{$any(patientData)?.IsActive}}</ion-label> -->
-
+                <ion-item [hidden]="patientData.IsDiseased === true">
+                    <ion-label>No</ion-label>
                 </ion-item>
-                <ion-list-header>
-                    <ion-icon class="segmentIcon" name="heart-half-outline"></ion-icon>Is Diseased</ion-list-header>
-                <ion-item>
 
-                    <ion-item [hidden]="patientData.IsDiseased === false">
-                        <ion-label>Yes</ion-label>
-                    </ion-item>
-                    <ion-item [hidden]="patientData.IsDiseased === true">
-                        <ion-label>No</ion-label>
-                    </ion-item>
+            </ion-item>
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="male-female-outline"></ion-icon>Gender</ion-list-header>
+            <ion-item>
+                <ion-label *ngIf="patientData.Type === 1"> Male</ion-label>
+                <ion-label *ngIf="patientData.Type === 2"> Female</ion-label>
+                <ion-label *ngIf="patientData.Type === 3"> Other</ion-label>
+                <ion-label *ngIf="patientData.Type === 4"> Unknown</ion-label>
 
-                </ion-item>
-                <ion-list-header>
-                    <ion-icon class="segmentIcon" name="male-female-outline"></ion-icon>Gender</ion-list-header>
-                <ion-item>
-                    <ion-label *ngIf="patientData.Type === 1"> Male</ion-label>
-                    <ion-label *ngIf="patientData.Type === 2"> Female</ion-label>
-                    <ion-label *ngIf="patientData.Type === 3"> Other</ion-label>
-                    <ion-label *ngIf="patientData.Type === 4"> Unknown</ion-label>
-
-                </ion-item>
-            </ion-list>
-        </div>
-        <div class="segment" *ngIf="segmentModel === 'profile'">
-            <app-detail-profile></app-detail-profile>
-        </div>
-    </ion-content>
+            </ion-item>
+        </ion-list>
+    </div>
+    <div class="segment" *ngIf="segmentModel === 'profile'">
+        <app-detail-profile></app-detail-profile>
+    </div>
+</ion-content>

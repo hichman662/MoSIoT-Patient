@@ -115,11 +115,8 @@
 
         </mat-expansion-panel>
     </div>
-
 </div>
-
 <div *ngIf="segmentModel === 'disabilities'">
-
     <div class="container" *ngFor="let disability of disabilities">
         <mat-expansion-panel details>
             <mat-expansion-panel-header slot="start">
@@ -129,9 +126,7 @@
                         <ion-label>{{disability.Name}}</ion-label>
                     </ion-item>
                 </mat-panel-title>
-
             </mat-expansion-panel-header>
-
             <ion-item-sliding>
                 <ion-item-options side="start">
                     <ion-item-option color="danger" (click)="null" expandable>
@@ -139,36 +134,23 @@
                     </ion-item-option>
                 </ion-item-options>
             </ion-item-sliding>
-
             <ion-card>
                 <ion-item>
-
                     <ion-label>Disability type</ion-label>
-
                     <ion-badge *ngIf="disability.Type === 1"> Auditory</ion-badge>
                     <ion-badge *ngIf="disability.Type === 2"> Cognitive</ion-badge>
                     <ion-badge *ngIf="disability.Type === 3"> Physical</ion-badge>
                     <ion-badge *ngIf="disability.Type === 4"> Speech</ion-badge>
                     <ion-badge *ngIf="disability.Type === 5"> Visual</ion-badge>
-
                 </ion-item>
                 <ion-item>
-
                     <ion-label>Severity</ion-label>
-
                     <ion-badge *ngIf="disability.Severity === 1"> Severe</ion-badge>
                     <ion-badge *ngIf="disability.Severity === 2"> Moderate</ion-badge>
                     <ion-badge *ngIf="disability.Severity === 3"> Mild</ion-badge>
-
-
                 </ion-item>
-
             </ion-card>
-
         </mat-expansion-panel>
-
-
-
     </div>
 
 </div>

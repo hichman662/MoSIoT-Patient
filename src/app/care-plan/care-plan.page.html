@@ -1,9 +1,29 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>care-plan</ion-title>
-  </ion-toolbar>
+
+    <ion-toolbar id="mainToolbar">
+        <ion-buttons slot="start">
+            <ion-back-button id="return" text="Care Plan Section" defaultHref="/tabs/tab2" icon="chevron-back-outline"></ion-back-button>
+        </ion-buttons>
+
+        <ion-card slot="end" color="transparent" class="pati-card">
+            <ion-img src='assets/icon/carePlansW.png'></ion-img>
+
+            <ion-label id="title"><strong>Care Plans</strong></ion-label>
+        </ion-card>
+
+    </ion-toolbar>
+
 </ion-header>
-
 <ion-content>
-
+    <ion-card-header [hidden]="!carePlanNull" color="warning" class="animate__animated animate__fadeInLeft animate__slow">No Care Plan has been added to this scenario. To add Care Plan, press the Add button.</ion-card-header>
+    <ion-list>
+        <div class="carePlan" *ngFor="let carePlan of carePlans">
+            <ion-item class="item" detail [routerLink]="['detail-care-plan',carePlan['Id']]">
+                <ion-avatar slot="start">
+                    <img src="assets/icon/carePlans.png">
+                </ion-avatar>
+                <ion-label> {{carePlan['Name']}}</ion-label>
+            </ion-item>
+        </div>
+    </ion-list>
 </ion-content>
