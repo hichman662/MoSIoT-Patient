@@ -1,0 +1,46 @@
+<ion-header>
+
+    <ion-toolbar id="mainToolbar">
+        <ion-buttons slot="start">
+            <ion-back-button id="return" text="Vital Signs" defaultHref="/tabs/tab2/vitalSign" icon="chevron-back-outline"></ion-back-button>
+        </ion-buttons>
+
+        <ion-card slot="end" color="transparent" class="pati-card">
+            <ion-img src='assets/icon/vitalSignsW.png'></ion-img>
+
+            <ion-label id="title" *ngIf="vitalSign!== undefined"><strong>{{vitalSign.Name}}</strong></ion-label>
+        </ion-card>
+
+    </ion-toolbar>
+
+</ion-header>
+<ion-content>
+
+    <div class="segment" *ngIf="segmentModel === 'details'">
+        <ion-spinner class="spin" *ngIf="load" name="bubbles"></ion-spinner>
+        <ion-list *ngIf="!load">
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Name</ion-list-header>
+            <ion-item>
+
+                <ion-label text-wrap> {{measureVitalSign.Name}}</ion-label>
+            </ion-item>
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="at-outline"></ion-icon>Description</ion-list-header>
+            <ion-item>
+
+                <ion-label> {{measureVitalSign.Description}}</ion-label>
+
+            </ion-item>
+            <ion-list-header>
+
+                <ion-icon class="segmentIcon" name="power-outline"></ion-icon>LOINCcode</ion-list-header>
+            <ion-item>
+                <ion-label> {{measureVitalSign.LOINCcode}}</ion-label>
+
+            </ion-item>
+
+        </ion-list>
+    </div>
+
+</ion-content>

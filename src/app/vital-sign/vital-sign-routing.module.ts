@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: VitalSignPage
+  },
+  {
+    path: 'detail-vital-sign/:Id',
+    loadChildren: () => import('./detail-vital-sign/detail-vital-sign.module').then( m => m.DetailVitalSignPageModule)
   }
 ];
 

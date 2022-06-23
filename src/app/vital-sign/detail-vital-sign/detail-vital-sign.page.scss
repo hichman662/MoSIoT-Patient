@@ -15,18 +15,10 @@ ion-title {
     background-color: rgba(192, 219, 96, 0.938);
 }
 
-ion-col {
-    --background: rgba(133, 116, 110, 0.253) !important;
-}
-
 .text-top {
     font-weight: bold;
     font-size: 22px;
     margin-right: 10px;
-}
-
-.item {
-    --ion-background-color: rgba(255, 255, 255, 0.048) !important;
 }
 
 #dashboardSection {
@@ -67,7 +59,6 @@ ion-card {
 ion-label {
     justify-content: center;
     align-content: center;
-    text-align: center;
     font-size: 16px;
     color: black;
 }
@@ -187,14 +178,14 @@ app-component-telemetry {
 }
 
 ion-segment-button {
-    width: 10px;
-    margin-top: 2px;
-    margin-left: 4px;
-    margin-right: 4px;
-    font-size: 10px;
+    width: 40px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 8px;
     border: none;
-    background-color: rgb(27, 25, 25);
-    border-radius: 50%;
+    background-color: rgb(248, 248, 248);
+    border-radius: 0%;
 }
 
 .my-custom-menu {
