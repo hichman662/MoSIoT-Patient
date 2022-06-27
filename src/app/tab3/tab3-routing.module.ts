@@ -8,6 +8,10 @@ const routes: Routes = [
     component: Tab3Page,
   },
   {
+    path: 'device',
+    loadChildren: () => import('../device/device.module').then( m => m.DevicePageModule)
+  },
+  {
     path: 'voice',
     loadChildren: () => import('../voice/voice.module').then( m => m.VoicePageModule)
   },

@@ -8,7 +8,7 @@
         <ion-card slot="end" color="transparent" class="pati-card">
             <ion-img src='assets/icon/carePlansW.png'></ion-img>
 
-            <ion-label id="title" *ngIf="carePlan !== undefined"><strong>{{carePlanTemplate.Title}}</strong></ion-label>
+            <ion-label id="title" *ngIf="!load"><strong>{{carePlanTemplate.Name}}</strong></ion-label>
         </ion-card>
 
     </ion-toolbar>
@@ -84,18 +84,17 @@
 
     </div>
     <div class="segment" *ngIf="segmentModel === 'goals'">
-        <div class="container" *ngFor="let goal of goals|keyvalue">
+        <div class="container" *ngFor="let goal of goals">
             <mat-expansion-panel details>
                 <mat-expansion-panel-header slot="start">
                     <mat-panel-title>
                         <ion-item>
                             <ion-icon class="segmentIcon" name="list-circle-outline"></ion-icon>
-                            <ion-label>{{goal.value['Name']}}</ion-label>
+                            <ion-label>{{goal.Name}}</ion-label>
                         </ion-item>
                     </mat-panel-title>
 
                 </mat-expansion-panel-header>
-
                 <ion-item-sliding>
                     <ion-item-options side="start">
                         <ion-item-option color="danger" (click)="null" expandable>
@@ -107,54 +106,54 @@
                 <ion-card>
                     <ion-item>
 
-                        <ion-label text-wrap>Description</ion-label>
-                        <ion-badge text-wrap> {{goal.value['Description']}}</ion-badge>
+                        <ion-label>Description</ion-label>
+                        <ion-badge text-wrap> {{goal.Description}}</ion-badge>
                     </ion-item>
                     <ion-item>
 
                         <ion-label>Priority</ion-label>
 
-                        <!--  <ion-badge *ngIf="goal.Priority === 1"> High</ion-badge>
-                      <ion-badge *ngIf="goal.Priority === 2"> Medium</ion-badge>
-                      <ion-badge *ngIf="goal.Priority === 3"> Low</ion-badge> -->
+                        <ion-badge *ngIf="goal.Priority === 1"> High</ion-badge>
+                        <ion-badge *ngIf="goal.Priority === 2"> Medium</ion-badge>
+                        <ion-badge *ngIf="goal.Priority === 3"> Low</ion-badge>
                     </ion-item>
                     <ion-item>
 
                         <ion-label>Status</ion-label>
 
-                        <!--   <ion-badge *ngIf="goal.Status === 1"> Draft</ion-badge>
-                      <ion-badge *ngIf="goal.Status === 2"> Active</ion-badge>
-                      <ion-badge *ngIf="goal.Status === 3"> On Hold</ion-badge>
-                      <ion-badge *ngIf="goal.Status === 4"> Revoked</ion-badge>
-                      <ion-badge *ngIf="goal.Status === 5"> Completed</ion-badge>
-                      <ion-badge *ngIf="goal.Status === 6"> Canceled</ion-badge> -->
+                        <ion-badge *ngIf="goal.Status === 1"> Draft</ion-badge>
+                        <ion-badge *ngIf="goal.Status === 2"> Active</ion-badge>
+                        <ion-badge *ngIf="goal.Status === 3"> On Hold</ion-badge>
+                        <ion-badge *ngIf="goal.Status === 4"> Revoked</ion-badge>
+                        <ion-badge *ngIf="goal.Status === 5"> Completed</ion-badge>
+                        <ion-badge *ngIf="goal.Status === 6"> Canceled</ion-badge>
                     </ion-item>
                     <ion-item>
 
                         <ion-label>Category</ion-label>
 
-                        <!-- <ion-badge *ngIf="goal.Category === 1"> Dietary</ion-badge>
-                      <ion-badge *ngIf="goal.Category === 2"> Safety</ion-badge>
-                      <ion-badge *ngIf="goal.Category === 3"> Behavioral</ion-badge>
-                      <ion-badge *ngIf="goal.Category === 4"> Physiotherapy</ion-badge> -->
+                        <ion-badge *ngIf="goal.Category === 1"> Dietary</ion-badge>
+                        <ion-badge *ngIf="goal.Category === 2"> Safety</ion-badge>
+                        <ion-badge *ngIf="goal.Category === 3"> Behavioral</ion-badge>
+                        <ion-badge *ngIf="goal.Category === 4"> Physiotherapy</ion-badge>
 
                     </ion-item>
-                    <ion-item>
+                    <!--  <ion-item>
                         <ion-label>Outcome Code</ion-label>
-                        <ion-badge> {{goal.value['OutcomeCode']}}</ion-badge>
-                    </ion-item>
+                        <ion-badge> {{goal.OutcomeCode}}</ion-badge>
+                    </ion-item> -->
                 </ion-card>
             </mat-expansion-panel>
         </div>
     </div>
     <div class="segment" *ngIf="segmentModel === 'targets'">
-        <div class="container" *ngFor="let target of targets|keyvalue">
+        <div class="container" *ngFor="let target of targets">
             <mat-expansion-panel details>
                 <mat-expansion-panel-header slot="start">
                     <mat-panel-title>
                         <ion-item>
                             <ion-icon class="segmentIcon" name="list-circle-outline"></ion-icon>
-                            <ion-label>{{target.value['Description']}}</ion-label>
+                            <ion-label>{{target.Description}}</ion-label>
                         </ion-item>
                     </mat-panel-title>
 
@@ -172,14 +171,14 @@
                     <ion-item>
 
                         <ion-label text-wrap>DesiredValue</ion-label>
-                        <ion-badge text-wrap> {{target.value['DesiredValue']}}</ion-badge>
+                        <ion-badge text-wrap> {{target.DesiredValue}}</ion-badge>
                     </ion-item>
 
                     <ion-item>
 
                         <ion-label>Due Date</ion-label>
 
-                        <ion-badge> {{target.value['DueDate'] | date}}</ion-badge>
+                        <ion-badge> {{target.DueDate | date}}</ion-badge>
                     </ion-item>
                 </ion-card>
             </mat-expansion-panel>

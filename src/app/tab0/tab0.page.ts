@@ -1,7 +1,4 @@
 /* eslint-disable @typescript-eslint/quotes */
-
-
-
 /* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 import { CarePlanService } from './../services/careplan.service';
@@ -15,6 +12,7 @@ import { UserService } from './../services/user.service';
   styleUrls: ['./tab0.page.scss'],
 })
 export class Tab0Page implements OnInit {
+  load = false;
   textByValue = false;
   token = '';
 private idScenario: number;
@@ -38,6 +36,7 @@ public careActivityByTime: CareActivityByTime[] = null;
 }
 
  callCareActivityByTime() {
+  this.load = false;
   this.idScenario = this.userService.getIdEscenario();
   console.log(this.idScenario);
   if(this.idScenario === undefined){
@@ -52,7 +51,7 @@ public careActivityByTime: CareActivityByTime[] = null;
   this.careplanService.getCareActivityByTimeByIdScenario(this.idScenario)
   .subscribe((res: CareActivityByTime[])=>{
     this.careActivityByTime = res;
-
+    this.load = true;
 });
 }
 

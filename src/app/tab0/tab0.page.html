@@ -15,8 +15,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-    <ion-list>
+    <ion-spinner class="spin" *ngIf="!load" name="bubbles"></ion-spinner>
+    <ion-list *ngIf="load">
         <ion-row *ngFor="let careActivity of careActivityByTime">
             <ion-item [routerLink]="['detail-care-activity',careActivity['Id']]">
                 <ion-col size="3">
