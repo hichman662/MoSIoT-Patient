@@ -66,6 +66,10 @@ const routes: Routes = [
   {
     path: 'device',
     loadChildren: () => import('./device/device.module').then( m => m.DevicePageModule)
+  },
+  {
+    path: 'practitioner',
+    loadChildren: () => import('./practitioner/practitioner.module').then( m => m.PractitionerPageModule)
   }
 ];
 @NgModule({

@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {of, Observable} from 'rxjs';
 import { RelatedPerson } from '../models/relatedPerson.model';
+import { Practitioner } from '../models/practitioner.model';
 
 @Injectable({
   providedIn: 'root'
@@ -49,13 +50,15 @@ public assignPatientProfile(patientId: number, patientProfileId: number): Observ
 }
 
 // Practitioner
-public getAllPractitioner(): Observable<object>{
-  return this.http.get(`${environment.base_url}/Practitioner/ReadAll`);
+public getPractitionerById( uid: number): Observable<object>{
+  if (!uid) { uid = null; }
+  return this.http.get <Practitioner>(`${environment.base_url}/Practitioner/${uid}` );
+}
+public getPractitionerByIdScenario( uid: number): Observable<object>{
+  if (!uid) { uid = null; }
+  return this.http.get <Practitioner>(`${environment.base_url}/Practitioner/Practitioners?idIoTScenario=${uid}` );
 }
 
-public deletePractitioner(uid) {
-  return this.http.delete(`${environment.base_url}/Practitioner/Destroy?p_practitioner_oid=${uid}`);
-}
 
 /* // Related Person
 public getAllRelatedPerson(): Observable<object>{
