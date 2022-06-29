@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
+import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
     MatFormFieldModule,
     MatInputModule
     ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SpeechRecognition],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SpeechRecognition,TextToSpeech],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

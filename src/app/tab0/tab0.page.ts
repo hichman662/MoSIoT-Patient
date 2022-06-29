@@ -51,6 +51,9 @@ public careActivityByTime: CareActivityByTime[] = null;
   this.careplanService.getCareActivityByTimeByIdScenario(this.idScenario)
   .subscribe((res: CareActivityByTime[])=>{
     this.careActivityByTime = res;
+    console.log(this.careActivityByTime);
+    const myJSON = JSON.stringify(this.careActivityByTime);
+    console.log(myJSON);
     this.load = true;
 });
 }

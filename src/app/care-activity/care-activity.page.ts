@@ -1,3 +1,4 @@
+import { UserService } from './../services/user.service';
 import { Router } from '@angular/router';
 /* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable @typescript-eslint/no-inferrable-types */
@@ -13,13 +14,15 @@ import { Component, OnInit } from '@angular/core';
 export class CareActivityPage implements OnInit {
 
   textByValue = false;
-  private idScenario: number = 720896;
+  private idScenario: number ;
   public careActivityByTime: CareActivityByTime[] = [];
     constructor(
-      private careplanService: CarePlanService
+      private careplanService: CarePlanService,
+      private userService: UserService
     ) { }
 
     ngOnInit() {
+      this.idScenario = this.userService.getIdEscenario();
       this.callCareActivityByTime() ;
     }
 

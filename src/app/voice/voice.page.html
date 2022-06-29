@@ -24,6 +24,15 @@
 
         <br/>
         <ion-button color="dark" expand="full" (click)="startListening()">Start listening</ion-button>
-
+        <ion-list>
+            <ion-item-sliding *ngFor="let item of text_sentences">
+                <ion-item>
+                    <ion-label text-wrap (touchstart)="startReading(item)">{{item}}</ion-label>
+                </ion-item>
+                <!-- <ion-item-options side="end">
+                    <ion-item-option (touchstart)="startReading(item)">Speak</ion-item-option>
+                </ion-item-options> -->
+            </ion-item-sliding>
+        </ion-list>
     </div>
 </ion-content>
