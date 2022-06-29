@@ -6,6 +6,7 @@ import { CareActivityByTime } from './../models/careActivityByTime.model';
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { UserService } from './../services/user.service';
+
 @Component({
   selector: 'app-tab0',
   templateUrl: './tab0.page.html',
@@ -15,6 +16,7 @@ export class Tab0Page implements OnInit {
   load = false;
   textByValue = false;
   token = '';
+  myJSON: string ='';
 private idScenario: number;
 
 public careActivityByTime: CareActivityByTime[] = null;
@@ -52,8 +54,11 @@ public careActivityByTime: CareActivityByTime[] = null;
   .subscribe((res: CareActivityByTime[])=>{
     this.careActivityByTime = res;
     console.log(this.careActivityByTime);
-    const myJSON = JSON.stringify(this.careActivityByTime);
-    console.log(myJSON);
+    this.myJSON = JSON.stringify(this.careActivityByTime,['Name','Description','TimeAct']);
+    console.log(this.myJSON);
+     this.myJSON = this.myJSON.replace(/[&\/\\#,+()$~%.'":*?<>{}&//[////]/g, ' ');
+    console.log(this.myJSON);
+    this.storage.set('notification',this.myJSON);
     this.load = true;
 });
 }

@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
-
+import { ToastController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-voice',
@@ -15,9 +16,14 @@ import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 export class VoicePage implements OnInit {
 
   text_sentences = [];
+  notification: string;
   constructor(public speechRecognition: SpeechRecognition,
     public textToSpeech: TextToSpeech,
-    private router: Router) {
+    private router: Router,
+    public toastController: ToastController,
+    private storage: Storage
+    )
+    {
       this.text_sentences = [
         "There is no such thing as fun for the whole family",
         "If you can't have fun, there's no sense in doing it.",
@@ -34,6 +40,7 @@ export class VoicePage implements OnInit {
       .then(() => console.log('Success'))
       .catch((reason: any) => console.log(reason));
   }
+
 
   checkPermission(){
     this.speechRecognition.hasPermission().then((permission)=>{
@@ -56,21 +63,49 @@ export class VoicePage implements OnInit {
 
     }
 
+    async presentToast(color: string , message: string) {
+      const toast = await this.toastController.create({
+        color: `${color}`,
+        message: `Here is what I heard: ${message}`,
+        duration: 3500,
+        position: 'bottom'
+      });
+      await toast.present();
+    }
+
       startListening(){
         this.speechRecognition.startListening().subscribe((speeches: Array<string>)=>{
           console.log(speeches);
-          alert(speeches[0]);
+         // alert();
+        this.presentToast('success' , speeches[0]);
+        /*  window.setTimeout(()=>{
+            console.log(speeches[0]);
+          }, 2000); */
+
           if(speeches[0] === "open"){
+            this.startReading(`going to noitification`);
             this.router.navigateByUrl('/tabs', { replaceUrl:true });
           }
-          if(speeches[0] === "logout"){
+          else if(speeches[0] === "logout" || speeches[0] === "log out"){
+            this.startReading(`going out of the application`);
             this.router.navigateByUrl('/login', { replaceUrl:true });
           }
-          if(speeches[0] === "notification"){
-
+          else if(speeches[0] === "Santiago" || speeches[0] === "santee"){
+            this.startReading(`hello senior`);
+          }
+          else if(speeches[0] === "notification"  ){
+            this.storage.get('notification').then(async val => {
+              this.notification = val;
+              console.log(this.notification);
+            });
+            this.startReading(this.notification);
+          }else{
+            this.startReading(`I did not understand your command, please repeat again`);
           }
         },(err)=>{
           alert(JSON.stringify(err));
         });
       }
 }
+
+
