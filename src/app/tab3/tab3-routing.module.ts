@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'voice',
     loadChildren: () => import('../voice/voice.module').then( m => m.VoicePageModule)
   },
+  {
+    path: 'telemetry',
+    loadChildren: () => import('../telemetry/telemetry.module').then( m => m.TelemetryPageModule)
+  }
 ];
 
 @NgModule({

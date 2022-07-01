@@ -82,9 +82,21 @@ export class VoicePage implements OnInit {
             console.log(speeches[0]);
           }, 2000); */
 
-          if(speeches[0] === "open"){
+          if(speeches[0] === "open" || speeches[0] === "home" || speeches[0] === "Home"){
             this.startReading(`going to noitification`);
             this.router.navigateByUrl('/tabs', { replaceUrl:true });
+          }
+         else if(speeches[0] === "profile"){
+            this.startReading(`going to profile section`);
+            this.router.navigateByUrl('/tabs/tab1', { replaceUrl:true });
+          }
+          else if(speeches[0] === "care plan" || speeches[0] === "care"){
+            this.startReading(`going to Care plan section`);
+            this.router.navigateByUrl('/tabs/tab2', { replaceUrl:true });
+          }
+          else if(speeches[0] === "device" || speeches[0] === "devices"){
+            this.startReading(`going to device section`);
+            this.router.navigateByUrl('/tabs/tab3', { replaceUrl:true });
           }
           else if(speeches[0] === "logout" || speeches[0] === "log out"){
             this.startReading(`going out of the application`);

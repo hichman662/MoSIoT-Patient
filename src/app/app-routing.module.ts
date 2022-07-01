@@ -70,6 +70,10 @@ const routes: Routes = [
   {
     path: 'practitioner',
     loadChildren: () => import('./practitioner/practitioner.module').then( m => m.PractitionerPageModule)
+  },
+  {
+    path: 'telemetry',
+    loadChildren: () => import('./telemetry/telemetry.module').then( m => m.TelemetryPageModule)
   }
 ];
 @NgModule({

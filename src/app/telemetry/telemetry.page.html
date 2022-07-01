@@ -1,0 +1,81 @@
+<ion-header>
+    <ion-toolbar id="mainToolbar">
+        <ion-buttons slot="start">
+            <ion-back-button id="return" text="Device Section" defaultHref="/tabs/tab3" icon="chevron-back-outline"></ion-back-button>
+        </ion-buttons>
+        <ion-card slot="end" color="transparent" class="pati-card">
+            <ion-img src='assets/icon/telemetriesW.png'></ion-img>
+            <ion-label id="title"><strong>Telemetry</strong></ion-label>
+        </ion-card>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <section id="dashboardSection" *ngFor="let telemetry of imTelemetry">
+        <ion-row *ngIf="telemetry['Name'] === 'HeartRate'">
+            <ion-card [routerLink]="['heart-rate',heartRate]">
+                <ion-row>
+                    <ion-col size="2">
+                        <ion-img src='assets/icon/heartRate.png'></ion-img>
+                    </ion-col>
+                    <ion-col size="7">
+                        <div class="card-title">Heart Rate</div>
+                    </ion-col>
+                    <ion-col size="3" class="v">
+                        <div class="card-subtitle">{{heartRate}}</div>
+                    </ion-col>
+                </ion-row>
+            </ion-card>
+        </ion-row>
+        <ion-row *ngIf="telemetry['Name'] === 'BloodPressure'">
+            <ion-card [routerLink]="['blood-pressure',systolic,diastolic]">
+                <ion-row>
+                    <ion-col size="2">
+                        <ion-img src='assets/icon/bloodPressure.png'></ion-img>
+                    </ion-col>
+                    <ion-col size="7">
+                        <div class="card-title">Blood Pressure</div>
+                    </ion-col>
+                    <ion-col size="3" class="v">
+                        <div class="card-subtitle">
+                            <div class="h">{{systolic}}</div>
+
+                            <div>{{diastolic}}</div>
+
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-card>
+        </ion-row>
+        <ion-row *ngIf="telemetry['Name'] === 'BodyTemperature'">
+            <ion-card [routerLink]="['body-temperature',bodyTemperature]">
+                <ion-row>
+                    <ion-col size="2">
+                        <ion-img src='assets/icon/BodyTemperature.png'></ion-img>
+                    </ion-col>
+                    <ion-col size="7">
+                        <div class="card-title">Body Temperature</div>
+                    </ion-col>
+                    <ion-col size="3" class="v">
+                        <div class="card-subtitle">{{bodyTemperature}}</div>
+                    </ion-col>
+                </ion-row>
+            </ion-card>
+        </ion-row>
+        <ion-row *ngIf="telemetry['Name'] === 'RespiratoryRate'">
+            <ion-card [routerLink]="['respiratory-rate',respiratoryRate]">
+                <ion-row>
+                    <ion-col size="2">
+                        <ion-img src='assets/icon/RespiratoryRate.png'></ion-img>
+                    </ion-col>
+                    <ion-col size="7">
+                        <div class="card-title">Respiratory Rate</div>
+                    </ion-col>
+                    <ion-col size="3" class="v">
+                        <div class="card-subtitle">{{respiratoryRate}}</div>
+                    </ion-col>
+                </ion-row>
+            </ion-card>
+        </ion-row>
+    </section>
+
+</ion-content>
