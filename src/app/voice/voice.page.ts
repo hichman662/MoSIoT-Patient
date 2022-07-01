@@ -17,6 +17,7 @@ export class VoicePage implements OnInit {
 
   text_sentences = [];
   notification: string;
+  bloodPressure: string;
   constructor(public speechRecognition: SpeechRecognition,
     public textToSpeech: TextToSpeech,
     private router: Router,
@@ -111,6 +112,13 @@ export class VoicePage implements OnInit {
               console.log(this.notification);
             });
             this.startReading(this.notification);
+          }
+          else if(speeches[0] === "blood pressure" ||  speeches[0] === "pressure" ){
+            this.storage.get('bloodPressure').then(async val => {
+              this.bloodPressure = val;
+              console.log(this.bloodPressure);
+            });
+            this.startReading(this.bloodPressure);
           }else{
             this.startReading(`I did not understand your command, please repeat again`);
           }
