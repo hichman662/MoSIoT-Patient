@@ -1,9 +1,34 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>blood-pressure</ion-title>
-  </ion-toolbar>
+    <ion-toolbar id="mainToolbar">
+        <ion-buttons slot="start">
+            <ion-back-button id="return" text="Telemetries" defaultHref="/tabs/tab3/telemetry" icon="chevron-back-outline"></ion-back-button>
+        </ion-buttons>
+
+        <ion-card slot="end" color="transparent" class="pati-card">
+            <ion-img src='assets/icon/bloodPressure.png'></ion-img>
+
+            <ion-label id="title" *ngIf="systolic !== undefined">
+                <h4><strong>Systolic: {{systolic}}</strong> </h4>
+                <h4> <strong>Diastolic: {{diastolic}}</strong></h4>
+            </ion-label>
+        </ion-card>
+
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-card>
+        <ion-card-header>
+            Blood Pressure History Chart
+        </ion-card-header>
+        <ion-card-content>
+            <canvas #lineCanvas style="position: fix; height:30vh; width:60vw; margin-bottom: 20px;"></canvas>
+        </ion-card-content>
+    </ion-card>
+
 
 </ion-content>

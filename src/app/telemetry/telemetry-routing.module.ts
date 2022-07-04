@@ -9,19 +9,19 @@ const routes: Routes = [
     component: TelemetryPage
   },
   {
-    path: 'blood-pressure',
+    path: 'blood-pressure/:systolic/:diastolic',
     loadChildren: () => import('./blood-pressure/blood-pressure.module').then( m => m.BloodPressurePageModule)
   },
   {
-    path: 'body-temperature',
+    path: 'body-temperature/:bodyTemperature',
     loadChildren: () => import('./body-temperature/body-temperature.module').then( m => m.BodyTemperaturePageModule)
   },
   {
-    path: 'heart-rate',
+    path: 'heart-rate/:heartRate',
     loadChildren: () => import('./heart-rate/heart-rate.module').then( m => m.HeartRatePageModule)
   },
   {
-    path: 'respiratory-rate',
+    path: 'respiratory-rate/:respiratoryRate',
     loadChildren: () => import('./respiratory-rate/respiratory-rate.module').then( m => m.RespiratoryRatePageModule)
   }
 ];
