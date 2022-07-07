@@ -18,35 +18,40 @@
     <ion-spinner class="spin" *ngIf="!load" name="bubbles"></ion-spinner>
     <ion-list *ngIf="load">
         <ion-row *ngFor="let careActivity of careActivityByTime">
-            <ion-item [routerLink]="['detail-care-activity',careActivity['Id']]">
-                <ion-col size="3">
-                    {{careActivity.TimeAct|date:'shortTime'}}<br>
-                    <br> {{careActivity.TimeAct|date}}
-                    <br>
-                </ion-col>
-                <ion-col size="2">
+            <ion-item>
+
+
+                <ion-col size="2" [routerLink]="['detail-care-activity',careActivity['Id']]">
                     <ion-img *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 1 " src='assets/icon/medication.png'></ion-img>
                     <ion-img *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 2 " src='assets/icon/nutrition.png'></ion-img>
                     <ion-img *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 3 " src='assets/icon/communication.png'></ion-img>
                     <ion-img *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 4 " src='assets/icon/appointment.png'></ion-img>
+                    <ion-img *ngIf="careActivity.ValueCareActivity === null " src='assets/icon/sinDefinicion.png'></ion-img>
                     <br>
                 </ion-col>
-                <ion-col size="7">
+                <ion-col size="6" [routerLink]="['detail-care-activity',careActivity['Id']]">
 
-                    <ion-item *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 1 "><strong>Medication</strong></ion-item>
-                    <ion-item *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 2"><strong>Nutrition</strong></ion-item>
-                    <ion-item *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 3"><strong>Communication</strong></ion-item>
-                    <ion-item *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 4"><strong>Appointment</strong></ion-item>
-                    <ion-item class="h6">{{careActivity.Name}}</ion-item>
-                    <ion-select class="align-left">
-                        <ion-select-option value="u">Discard</ion-select-option>
-                        <ion-select-option value="c">Complete</ion-select-option>
-                        <ion-select-option value="r">Pendent</ion-select-option>
+                    <ion-item lines="none" *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 1 "><strong>Medication</strong></ion-item>
+                    <ion-item lines="none" *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 2"><strong>Nutrition</strong></ion-item>
+                    <ion-item lines="none" *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 3"><strong>Communication</strong></ion-item>
+                    <ion-item lines="none" *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 4"><strong>Appointment</strong></ion-item>
+                    <ion-item lines="none" class="h6">{{careActivity.Name}}</ion-item>
 
-
-                    </ion-select>
                     <!-- <ion-toggle class="" toggle-class="toggle-assertive" color="danger"> </ion-toggle>-->
 
+                </ion-col>
+                <ion-col size="4">
+                    <ion-row>
+                        <ion-select>
+                            <ion-select-option value="u">Discard</ion-select-option>
+                            <ion-select-option value="c">Complete</ion-select-option>
+                            <ion-select-option value="r">Pendent</ion-select-option>
+                        </ion-select>
+                        <hr>
+                    </ion-row>
+                    <ion-row>
+                        {{careActivity.TimeAct|date:'shortTime'}} {{careActivity.TimeAct|date}}
+                    </ion-row>
                 </ion-col>
             </ion-item>
         </ion-row>

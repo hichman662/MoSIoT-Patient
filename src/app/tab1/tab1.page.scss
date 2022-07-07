@@ -25,7 +25,7 @@ ion-title {
     margin-left: 0px;
     margin-bottom: 6px;
     border-radius: 20px;
-    box-shadow: 20px;
+    /* box-shadow: 20px; */
 }
 
 ion-header {
@@ -74,8 +74,8 @@ ion-toolbar {
 #image-toolbar {
     align-content: flex-end;
     width: 50px;
-    box-shadow: none;
-    border: none;
+    /*     box-shadow: none;
+    border: none;*/
 }
 
 #title {
