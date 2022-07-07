@@ -52,10 +52,6 @@ const routes: Routes = [
     loadChildren: () => import('./appointment/appointment.module').then( m => m.AppointmentPageModule)
   },
   {
-    path: 'messenger',
-    loadChildren: () => import('./messenger/messenger.module').then( m => m.MessengerPageModule)
-  },
-  {
     path: 'voice',
     loadChildren: () => import('./voice/voice.module').then( m => m.VoicePageModule)
   },

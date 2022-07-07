@@ -1,3 +1,5 @@
+import { Patient } from 'src/app/models/patient.model';
+import { PatientService } from './../services/patient.service';
 /* eslint-disable no-debugger */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { UserService } from './../services/user.service';
@@ -17,7 +19,7 @@ export class LoginPage implements OnInit {
   public formSubmit = false;
   public waiting = false;
   public token = '';
-
+  public patientName: '';
   public loginForm = this.fb.group({
     Email: ['', [Validators.required, Validators.email]],
     Pass: ['', Validators.required ]
@@ -25,7 +27,8 @@ export class LoginPage implements OnInit {
   constructor(private router: Router,
     private storage: Storage,
     private fb: FormBuilder,
-    private userService: UserService) { }
+    private userService: UserService,
+    private patientService: PatientService) { }
 
 async  ngOnInit() {
    await this.storage.clear();
@@ -78,13 +81,26 @@ async  ngOnInit() {
 
 getEscenarioDePaciente(token: string){
     this.userService.getEscenarioByCliente(token)
-    .subscribe((res: any)=>{
+    .subscribe((res: number)=>{
 
       if (res != null){
         this.storage.set('idScenario',res);
         this.userService.setIdEscenario(res);
+        this.callingPatient(res);
         this.router.navigateByUrl('/tabs', { replaceUrl:true });
       }
+    });
+  }
+
+
+  callingPatient(idEscenario: number){
+    this.patientService.getPatientByIdScenario(idEscenario)
+    .subscribe((res: Patient ) => {
+      console.log(res);
+      this.storage.set('idPatient',res[0].Id);
+       this.storage.set('NamePatient',res[0].Name);
+    }, (err) => {
+      console.log(err);
     });
   }
 

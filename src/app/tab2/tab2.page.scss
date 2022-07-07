@@ -37,6 +37,9 @@ ion-header {
 ion-img {
     align-content: flex-end;
     width: 90px;
+    filter: brightness(90%);
+    filter: contrast(90%);
+    filter: drop-shadow(3px 3px 3px gray);
 }
 
 ion-avatar {
