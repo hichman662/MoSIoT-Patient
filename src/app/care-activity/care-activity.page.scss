@@ -193,10 +193,6 @@ ion-segment-button {
     --width: 500px;
 }
 
-ion-select {
-    --width: 500%;
-}
-
 #title {
     font-size: 20px;
     color: #fff;
@@ -205,4 +201,45 @@ ion-select {
 .pati-card {
     width: 25%;
     height: 10%;
+}
+
+.spin {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ion-spinner {
+    width: 28px;
+    height: 28px;
+    stroke: #444;
+    fill: #222;
+}
+
+ion-img {
+    filter: brightness(90%);
+    filter: contrast(90%);
+    filter: drop-shadow(3px 3px 3px gray);
+}
+
+hr {
+    border-top: 1px dashergb(38, 39, 38);
+}
+
+ion-row {
+    margin-top: 1px;
+}
+
+ion-select {
+    max-width: 120% !important;
+}
+
+.red {
+    color: red;
+    font-weight: bold;
+}
+
+.h6 {
+    margin-top: -15px;
 }

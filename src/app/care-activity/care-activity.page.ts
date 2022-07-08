@@ -1,3 +1,4 @@
+import { ToastController } from '@ionic/angular';
 import { UserService } from './../services/user.service';
 import { Router } from '@angular/router';
 /* eslint-disable @typescript-eslint/member-ordering */
@@ -12,13 +13,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./care-activity.page.scss'],
 })
 export class CareActivityPage implements OnInit {
-
+  public color: string = 'Pendent';
+  load = true;
   textByValue = false;
+  loadNotification = false;
   private idScenario: number ;
   public careActivityByTime: CareActivityByTime[] = [];
     constructor(
       private careplanService: CarePlanService,
-      private userService: UserService
+      private userService: UserService,
+    public toastController: ToastController
     ) { }
 
     ngOnInit() {
@@ -34,5 +38,39 @@ export class CareActivityPage implements OnInit {
   });
 
   }
+  handleChange(ev,id) {
+    if(ev.detail.value === '1'){
+      this.presentToast('warning','can not change Complete Activity or Discard Activity to Pendent');
+      return;
+    }else{
+
+    }
+    this.loadNotification = true;
+    console.log(id);
+    console.log(ev.detail.value);
+    if(ev.detail.value === 2){
+      this.color='Discard';
+    }
+    else if((ev.detail.value === 3)){
+      this.color='Complete';
+    }
+this.careplanService.changeStateNotification(id,ev.detail.value)
+  .subscribe((res: any)=>{
+    this.presentToast('success','The notification state has changed successfully.');
+    this.loadNotification = false;
+
+});
+
+}
+async presentToast(color: string , message: string) {
+  const toast = await this.toastController.create({
+    color: `${color}`,
+    message: `${message}`,
+    duration: 3500,
+    position: 'bottom'
+  });
+  await toast.present();
+}
+
 
 }
