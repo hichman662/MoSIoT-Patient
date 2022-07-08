@@ -18,6 +18,7 @@ import { CareActivity } from '../models/careActivity.model';
 })
 export class CarePlanService {
 
+  color: string;
 constructor(private http: HttpClient) {
 
 }
@@ -26,6 +27,14 @@ constructor(private http: HttpClient) {
   if (!uid) { uid = null; }
   return this.http.get <CarePlanTemplate>(`${environment.base_url}/CarePlanTemplate/PatientProfileCarePlanTemplate?idPatientProfile=${uid}` );
 } */
+
+public getColor(): string{
+  return this.color;
+}
+
+public setColor(color: string){
+this.color = color;
+}
 
 // Care Plan
 public getAllCarePlan(): Observable<object>{

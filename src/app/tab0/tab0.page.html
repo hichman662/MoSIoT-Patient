@@ -16,7 +16,7 @@
 
 <ion-content [fullscreen]="true">
     <ion-spinner class="spin" *ngIf="!load" name="bubbles"></ion-spinner>
-    <ion-list *ngIf="load">
+    <ion-list *ngIf="load" class="animate__animated animate__slideInDown animate__slow">
         <ion-row *ngFor="let careActivity of careActivityByTime">
             <ion-item>
 

@@ -1,4 +1,4 @@
-import { ToastController } from '@ionic/angular';
+import { ToastController, ViewWillEnter } from '@ionic/angular';
 /* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable @typescript-eslint/member-ordering */
@@ -15,7 +15,7 @@ import { DeviceService } from './../services/device.service';
   templateUrl: './tab0.page.html',
   styleUrls: ['./tab0.page.scss'],
 })
-export class Tab0Page implements OnInit {
+export class Tab0Page implements OnInit ,ViewWillEnter{
 
   //Telemetries
   public imTelemetry: any[] = [];
@@ -47,19 +47,21 @@ public careActivityByTime: CareActivityByTime[] = null;
 
   ) {}
 
+  ionViewWillEnter(): void {
+    this.idScenario = this.userService.getIdEscenario();
+    this.callCareActivityByTime();
+    this.callImTelemetry();
+  }
+
  ngOnInit(){
   /* this.storage.get('idScenario').then(async val => {
       this.idScenario = val;
       await this.callCareActivityByTime();
     }); */
-}
-ionViewWillEnter(){
-
-  this.idScenario = this.userService.getIdEscenario();
-  this.callCareActivityByTime();
-  this.callImTelemetry();
 
 }
+
+
 
  callCareActivityByTime() {
   this.load = false;
@@ -143,14 +145,14 @@ ionViewWillEnter(){
     if(ev.detail.value === 2){
       this.color='Discard';
     }
-    else{
+    else if((ev.detail.value === 3)){
       this.color='Complete';
     }
 this.careplanService.changeStateNotification(id,ev.detail.value)
   .subscribe((res: any)=>{
     this.presentToast('success','The notification state has changed successfully.');
     this.loadNotification = false;
-    this.callCareActivityByTime();
+
 });
 
 }

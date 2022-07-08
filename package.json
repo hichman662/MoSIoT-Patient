@@ -31,6 +31,7 @@
     "@ionic/storage": "^3.0.6",
     "@ionic/storage-angular": "^3.0.6",
     "@microsoft/signalr": "^6.0.6",
+    "animate.css": "^4.1.1",
     "chart.js": "^3.8.0",
     "rxjs": "~6.6.0",
     "sweetalert2": "^11.4.14",
