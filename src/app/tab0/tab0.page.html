@@ -35,6 +35,7 @@
                     <ion-item lines="none" *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 2"><strong>Nutrition</strong></ion-item>
                     <ion-item lines="none" *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 3"><strong>Communication</strong></ion-item>
                     <ion-item lines="none" *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 4"><strong>Appointment</strong></ion-item>
+                    <ion-item lines="none" *ngIf="careActivity.ValueCareActivity === null "><strong>Undefiend</strong></ion-item>
                     <ion-item lines="none" class="h6">{{careActivity.Name}}</ion-item>
 
                     <!-- <ion-toggle class="" toggle-class="toggle-assertive" color="danger"> </ion-toggle>-->
@@ -42,10 +43,10 @@
                 </ion-col>
                 <ion-col size="4">
                     <ion-row>
-                        <ion-select>
-                            <ion-select-option value="u">Discard</ion-select-option>
-                            <ion-select-option value="c">Complete</ion-select-option>
-                            <ion-select-option value="r">Pendent</ion-select-option>
+                        <ion-select interface="popover" (ionChange)="handleChange($event,careActivity.Id)" value="{{careActivity.State}}" [class.red]="careActivity.State === 1" [class.blue]="careActivity.State === 2" [class.green]="careActivity.State === 3">
+                            <ion-select-option value="1">Pendent</ion-select-option>
+                            <ion-select-option value="2">Discard</ion-select-option>
+                            <ion-select-option value="3">Complete</ion-select-option>
                         </ion-select>
                         <hr>
                     </ion-row>

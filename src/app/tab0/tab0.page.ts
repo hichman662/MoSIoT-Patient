@@ -1,3 +1,4 @@
+import { ToastController } from '@ionic/angular';
 /* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable @typescript-eslint/member-ordering */
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { UserService } from './../services/user.service';
 import { DeviceService } from './../services/device.service';
+
 @Component({
   selector: 'app-tab0',
   templateUrl: './tab0.page.html',
@@ -23,11 +25,13 @@ export class Tab0Page implements OnInit {
   public respiratoryRate: number;
   public systolic: any;
   public diastolic: any;
+  public color: string = 'Pendent';
   arraySystolic: number[]=[];
   arrayDistolic: number[]=[];
   telemetryText: string='';
   //
   load = false;
+  loadNotification = false;
   textByValue = false;
   token = '';
   myJSON: string ='';
@@ -39,6 +43,7 @@ public careActivityByTime: CareActivityByTime[] = null;
     private userService: UserService,
     private storage: Storage,
     private deviceService: DeviceService,
+    public toastController: ToastController
 
   ) {}
 
@@ -47,9 +52,12 @@ public careActivityByTime: CareActivityByTime[] = null;
       this.idScenario = val;
       await this.callCareActivityByTime();
     }); */
-    this.idScenario = this.userService.getIdEscenario();
-    this.callCareActivityByTime();
-    this.callImTelemetry();
+}
+ionViewWillEnter(){
+
+  this.idScenario = this.userService.getIdEscenario();
+  this.callCareActivityByTime();
+  this.callImTelemetry();
 
 }
 
@@ -121,6 +129,40 @@ public careActivityByTime: CareActivityByTime[] = null;
     }, ( err) => {
         console.log(err);
     });
+  }
+  handleChange(ev,id) {
+    if(ev.detail.value === '1'){
+      this.presentToast('warning','can not change Complete Activity or Discard Activity to Pendent');
+      return;
+    }else{
+
+    }
+    this.loadNotification = true;
+    console.log(id);
+    console.log(ev.detail.value);
+    if(ev.detail.value === 2){
+      this.color='Discard';
+    }
+    else{
+      this.color='Complete';
+    }
+this.careplanService.changeStateNotification(id,ev.detail.value)
+  .subscribe((res: any)=>{
+    this.presentToast('success','The notification state has changed successfully.');
+    this.loadNotification = false;
+    this.callCareActivityByTime();
+});
+
+}
+
+async presentToast(color: string , message: string) {
+    const toast = await this.toastController.create({
+      color: `${color}`,
+      message: `${message}`,
+      duration: 3500,
+      position: 'bottom'
+    });
+    await toast.present();
   }
 
 

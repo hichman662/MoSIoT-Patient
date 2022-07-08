@@ -94,6 +94,10 @@ public getCareActivityByTimeByIdScenario( uid: number): Observable<object>{
   return this.http.get <CareActivity>(`${environment.base_url}/IMCareActivity/ReadByTime?idscenario=${uid}`);
 }
 
+public changeStateNotification( id: number , newState: number): Observable<object> {
+  return this.http.post(`${environment.base_url}/IMCareActivity/ChangeState?p_oid=${id}&originstate=1&targetstate=${newState}`,null);
+}
+
 
 /* public createCareActivity( data: CareActivity ): Observable<object> {
   return this.http.post(`${environment.base_url}/IMCareActivity/New_`, data);
