@@ -45,7 +45,8 @@
     ion-header {
         text-align: center;
         align-content: center;
-        background-color: rgba(219, 125, 96) !important;
+        background: url('/assets/icon/backBlue.jpg') 0 0/100% 100% no-repeat;
+        /* background-color: rgba(219, 125, 96) !important; */
     }
 
     ion-icon {
@@ -214,8 +215,8 @@
     } */
 
     #title {
-        font-size: 20px;
-        color: #fff;
+        font-size: 25px;
+        color: rgb(19, 18, 18);
     }
 
     .pati-card {

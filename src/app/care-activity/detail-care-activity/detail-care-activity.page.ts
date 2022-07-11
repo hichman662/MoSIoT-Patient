@@ -16,6 +16,10 @@ export class DetailCareActivityPage implements OnInit {
   public idCareActivity: number;
   segmentModel = 'main';
   load: boolean = false;
+  isNutrition: boolean = false;
+  isCommunication: boolean = false;
+  isMedication: boolean = false;
+  isAppointment: boolean = false;
   public detailActivity: CareActivityByTime;
   constructor( private carePlanService: CarePlanService,
     public router: Router,
@@ -36,6 +40,9 @@ export class DetailCareActivityPage implements OnInit {
   .subscribe((res: CareActivityByTime ) => {
     console.log(res);
     this.detailActivity= res;
+    console.log(res.ValueCareActivity);
+
+
     this.load= true;
   }, (err) => {
     console.log(err);

@@ -54,7 +54,7 @@
     <div class="segment" *ngIf="segmentModel === 'main'">
         <ion-list *ngIf="load">
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Type of activity</ion-list-header>
+                <ion-icon class="segmentIcon" name="bicycle-outline"></ion-icon>Type of activity</ion-list-header>
             <ion-item>
 
                 <ion-label text-wrap *ngIf="detailActivity.ValueCareActivity.TypeActivity === 1"> Medication</ion-label>
@@ -65,31 +65,31 @@
             </ion-item>
 
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Name</ion-list-header>
+                <ion-icon class="segmentIcon" name="medkit-outline"></ion-icon>Name</ion-list-header>
             <ion-item>
 
                 <ion-label text-wrap>{{detailActivity.ValueCareActivity.Name}}</ion-label>
             </ion-item>
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Description</ion-list-header>
+                <ion-icon class="segmentIcon" name="document-outline"></ion-icon>Description</ion-list-header>
             <ion-item>
 
                 <ion-label text-wrap>{{detailActivity.ValueCareActivity.Description}}</ion-label>
             </ion-item>
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Duration</ion-list-header>
+                <ion-icon class="segmentIcon" name="timer-outline"></ion-icon>Duration</ion-list-header>
             <ion-item>
 
                 <ion-label text-wrap>{{detailActivity.ValueCareActivity.Duration}}</ion-label>
             </ion-item>
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Location</ion-list-header>
+                <ion-icon class="segmentIcon" name="map-outline"></ion-icon>Location</ion-list-header>
             <ion-item>
 
                 <ion-label text-wrap>{{detailActivity.ValueCareActivity.Location}}</ion-label>
             </ion-item>
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Periodicity</ion-list-header>
+                <ion-icon class="segmentIcon" name="people-circle-outline"></ion-icon>Periodicity</ion-list-header>
             <ion-item>
 
                 <ion-label text-wrap *ngIf="detailActivity.ValueCareActivity.Periodicity === 1"> High</ion-label>
@@ -97,13 +97,13 @@
                 <ion-label text-wrap *ngIf="detailActivity.ValueCareActivity.Periodicity === 3"> low</ion-label>
             </ion-item>
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Activity Code</ion-list-header>
+                <ion-icon class="segmentIcon" name="qr-code-outline"></ion-icon>Activity Code</ion-list-header>
             <ion-item>
 
                 <ion-label text-wrap>{{detailActivity.ValueCareActivity.ActivityCode}}</ion-label>
             </ion-item>
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Outcome Code</ion-list-header>
+                <ion-icon class="segmentIcon" name="barcode-outline"></ion-icon>Outcome Code</ion-list-header>
             <ion-item>
 
                 <ion-label text-wrap>{{detailActivity.ValueCareActivity.OutcomeCode}}</ion-label>
@@ -112,44 +112,62 @@
         </ion-list>
     </div>
     <div class="segment" *ngIf="segmentModel === 'details'">
-        <ion-list *ngIf="load">
+        <!--nutrition-->
+        <ion-list *ngIf="load && detailActivity.ValueCareActivity.NutritionOrders">
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Type of activity</ion-list-header>
+                <ion-icon class="segmentIcon" name="medkit-outline"></ion-icon>Name</ion-list-header>
             <ion-item>
 
-                <ion-label text-wrap *ngIf="detailActivity.ValueCareActivity.TypeActivity === 1"> Medication</ion-label>
-                <ion-label text-wrap *ngIf="detailActivity.ValueCareActivity.TypeActivity === 2"> Nutrition order</ion-label>
-                <ion-label text-wrap *ngIf="detailActivity.ValueCareActivity.TypeActivity === 3"> Communication</ion-label>
-                <ion-label text-wrap *ngIf="detailActivity.ValueCareActivity.TypeActivity === 4"> Appointment</ion-label>
-                <ion-label text-wrap *ngIf="detailActivity.ValueCareActivity.TypeActivity === 5"> Sport Activity</ion-label>
+                <ion-label text-wrap>{{detailActivity.ValueCareActivity.NutritionOrders.Name}}</ion-label>
             </ion-item>
-
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Name</ion-list-header>
+                <ion-icon class="segmentIcon" name="document-outline"></ion-icon>Description</ion-list-header>
             <ion-item>
 
-                <ion-label text-wrap>{{detailActivity.ValueCareActivity.Name}}</ion-label>
+                <ion-label text-wrap>{{detailActivity.ValueCareActivity.NutritionOrders.Description}}</ion-label>
             </ion-item>
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Description</ion-list-header>
+                <ion-icon class="segmentIcon" name="qr-code-outline"></ion-icon>Diet Code</ion-list-header>
             <ion-item>
 
-                <ion-label text-wrap>{{detailActivity.ValueCareActivity.Description}}</ion-label>
+                <ion-label text-wrap>{{detailActivity.ValueCareActivity.NutritionOrders.DietCode}}</ion-label>
             </ion-item>
+
+        </ion-list>
+
+        <!--Appointment-->
+        <ion-list *ngIf="load && detailActivity.ValueCareActivity.Appointments">
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Duration</ion-list-header>
+                <ion-icon class="segmentIcon" name="desktop-outline"></ion-icon>Is Virtual</ion-list-header>
             <ion-item>
 
-                <ion-label text-wrap>{{detailActivity.ValueCareActivity.Duration}}</ion-label>
+                <ion-label text-wrap>{{detailActivity.ValueCareActivity.Appointments.IsVirtual}}</ion-label>
             </ion-item>
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Location</ion-list-header>
+                <ion-icon class="segmentIcon" name="document-outline"></ion-icon>Description</ion-list-header>
             <ion-item>
 
-                <ion-label text-wrap>{{detailActivity.ValueCareActivity.Location}}</ion-label>
+                <ion-label text-wrap>{{detailActivity.ValueCareActivity.Appointments.Description}}</ion-label>
             </ion-item>
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Periodicity</ion-list-header>
+                <ion-icon class="segmentIcon" name="at-outline"></ion-icon>Direction</ion-list-header>
+            <ion-item>
+
+                <ion-label text-wrap>{{detailActivity.ValueCareActivity.Appointments.Direction}}</ion-label>
+            </ion-item>
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="barcode-outline"></ion-icon>Reason Code</ion-list-header>
+            <ion-item>
+
+                <ion-label text-wrap>{{detailActivity.ValueCareActivity.Appointments.ReasonCode}}</ion-label>
+            </ion-item>
+
+        </ion-list>
+
+        <!--Comunication-->
+        <ion-list *ngIf="load && detailActivity.ValueCareActivity.Comunications.length > 0">
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="people-circle-outline"></ion-icon>Periodicity</ion-list-header>
             <ion-item>
 
                 <ion-label text-wrap *ngIf="detailActivity.ValueCareActivity.Periodicity === 1"> High</ion-label>
@@ -157,18 +175,59 @@
                 <ion-label text-wrap *ngIf="detailActivity.ValueCareActivity.Periodicity === 3"> low</ion-label>
             </ion-item>
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Activity Code</ion-list-header>
+                <ion-icon class="segmentIcon" name="qr-code-outline"></ion-icon>Activity Code</ion-list-header>
             <ion-item>
 
                 <ion-label text-wrap>{{detailActivity.ValueCareActivity.ActivityCode}}</ion-label>
             </ion-item>
             <ion-list-header>
-                <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Outcome Code</ion-list-header>
+                <ion-icon class="segmentIcon" name="barcode-outline"></ion-icon>Outcome Code</ion-list-header>
             <ion-item>
 
                 <ion-label text-wrap>{{detailActivity.ValueCareActivity.OutcomeCode}}</ion-label>
             </ion-item>
 
         </ion-list>
+        <!--Medication-->
+        <ion-list *ngIf="load && detailActivity.ValueCareActivity.Medications">
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="desktop-outline"></ion-icon>Medication Name</ion-list-header>
+            <ion-item>
+
+                <ion-label text-wrap>{{detailActivity.ValueCareActivity.Medications.Name}}</ion-label>
+            </ion-item>
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="document-outline"></ion-icon>Description</ion-list-header>
+            <ion-item>
+
+                <ion-label text-wrap>{{detailActivity.ValueCareActivity.Medications.Description}}</ion-label>
+            </ion-item>
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="at-outline"></ion-icon>Manufacturer</ion-list-header>
+            <ion-item>
+
+                <ion-label text-wrap>{{detailActivity.ValueCareActivity.Medications.Manufacturer}}</ion-label>
+            </ion-item>
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="eyedrop-outline"></ion-icon>Dosage</ion-list-header>
+            <ion-item>
+
+                <ion-label text-wrap>{{detailActivity.ValueCareActivity.Medications.Dosage}}</ion-label>
+            </ion-item>
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="flask-outline"></ion-icon>Form</ion-list-header>
+            <ion-item>
+
+                <ion-label text-wrap>{{detailActivity.ValueCareActivity.Medications.Form}}</ion-label>
+            </ion-item>
+            <ion-list-header>
+                <ion-icon class="segmentIcon" name="barcode-outline"></ion-icon>Medication Code</ion-list-header>
+            <ion-item>
+
+                <ion-label text-wrap>{{detailActivity.ValueCareActivity.Medications.MedicationCode}}</ion-label>
+            </ion-item>
+
+        </ion-list>
+
     </div>
 </ion-content>

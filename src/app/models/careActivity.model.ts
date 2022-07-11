@@ -13,8 +13,8 @@ export class CareActivity {
     OutcomeCode: string;
     TypeActivity: number;
     ActivityCode: string;
-    Communications: Communication[];
-    Appointments: Appointment[];
+    Comunications: Communication[];
+    Appointments: Appointment;
     Medications: Medication | null;
     NutritionOrders: any;
 }

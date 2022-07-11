@@ -1,4 +1,4 @@
-import { ToastController } from '@ionic/angular';
+import { ToastController, ViewWillEnter } from '@ionic/angular';
 import { UserService } from './../services/user.service';
 import { Router } from '@angular/router';
 /* eslint-disable @typescript-eslint/member-ordering */
@@ -6,13 +6,14 @@ import { Router } from '@angular/router';
 import { CarePlanService } from './../services/careplan.service';
 import { CareActivityByTime } from './../models/careActivityByTime.model';
 import { Component, OnInit } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-care-activity',
   templateUrl: './care-activity.page.html',
   styleUrls: ['./care-activity.page.scss'],
 })
-export class CareActivityPage implements OnInit {
+export class CareActivityPage implements OnInit,ViewWillEnter {
   public color: string = 'Pendent';
   load = true;
   textByValue = false;
@@ -22,12 +23,25 @@ export class CareActivityPage implements OnInit {
     constructor(
       private careplanService: CarePlanService,
       private userService: UserService,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private storage: Storage
     ) { }
 
+  ionViewWillEnter(): void {
+    this.storage.get('idScenario').then(async val => {
+      this.idScenario = val;
+      console.log(this.idScenario);
+      if(this.idScenario === null){
+        this.idScenario = this.userService.getIdEscenario();
+      }else{
+        this.callCareActivityByTime() ;
+      }
+    });
+
+  }
+
     ngOnInit() {
-      this.idScenario = this.userService.getIdEscenario();
-      this.callCareActivityByTime() ;
+
     }
 
     callCareActivityByTime() {
