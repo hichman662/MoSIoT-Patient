@@ -16,5 +16,9 @@
         </ion-list>
     </ion-content>
 </ion-menu>
+<ion-item *ngIf="showModal" class="timerIdle">
+    <div class="idle"> {{idleState}}</div>
+
+</ion-item>
 
 <ion-router-outlet id="main-content" main></ion-router-outlet>

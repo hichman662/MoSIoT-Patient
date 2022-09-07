@@ -17,6 +17,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 import { Platform } from '@ionic/angular';
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,11 +33,11 @@ import { Platform } from '@ionic/angular';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    NgIdleKeepaliveModule.forRoot()
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SpeechRecognition,TextToSpeech,Platform],
   bootstrap: [AppComponent],

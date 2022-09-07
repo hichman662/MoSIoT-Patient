@@ -78,6 +78,8 @@ ion-toolbar {
     width: 50px;
     box-shadow: none;
     border: none;
+    width: 100px;
+    height: 100px;
 }
 
 #title {
@@ -86,8 +88,9 @@ ion-toolbar {
 }
 
 .pati-card {
-    width: 15%;
+    width: 25%;
     height: 10%;
+    box-shadow: none !important;
 }
 
 .text-top {

@@ -3,32 +3,32 @@
         //--background: url('/') 0 0/100% 100% no-repeat;
         border-radius: 20px;
     }
-
+    
     ion-menu-button {
         color: rgb(0, 47, 255);
     }
-
+    
     ion-title {
         text-align: left;
         font-size: 18px;
         color: black;
         background-color: rgba(192, 219, 96, 0.938);
     }
-
+    
     .text-top {
         font-weight: bold;
         font-size: 22px;
         margin-right: 10px;
     }
-
+    
     ion-item {
         --border-color: rgba(0, 0, 0, 0.315);
     }
-
+    
     .h6 {
         margin-top: -15px;
     }
-
+    
     #dashboardSection {
         max-width: 100%;
         max-height: auto;
@@ -41,19 +41,19 @@
         border-radius: 20px;
         box-shadow: 10px;
     }
-
+    
     ion-header {
         text-align: center;
         align-content: center;
         background: url('/assets/icon/backBlue.jpg') 0 0/100% 100% no-repeat;
         /* background-color: rgba(219, 125, 96) !important; */
     }
-
+    
     ion-icon {
         width: 30px;
         height: 30px;
     }
-
+    
     ion-card {
         align-content: center;
         --ion-background-color: transparent !important;
@@ -63,7 +63,7 @@
         height: 60%;
         margin-left: 30px;
     }
-
+    
     ion-label {
         justify-content: center;
         align-content: center;
@@ -71,21 +71,21 @@
         font-size: 16px;
         color: black;
     }
-
+    
     .pati-card {
-        margin-left: 10px;
+        margin-left: 100px;
         width: 15%;
         height: 10%;
     }
-
+    
     .bottomRow {
         margin-top: -30px;
     }
-
+    
     .topRow {
         margin-top: -20px;
     }
-
+    
     ion-toggle {
         width: 60px;
         height: 30px;
@@ -93,7 +93,7 @@
         margin-left: 50px;
         --background: rgb(238, 207, 207);
     }
-
+    
     ion-toggle[aria-checked="false"] {
         width: 85px;
         &::before {
@@ -110,7 +110,7 @@
             color: black
         }
     }
-
+    
     ion-toggle[aria-checked="true"] {
         width: 85px;
         &::before {
@@ -129,26 +129,26 @@
     }
     /* DOES NOT WORK - not specific enough */
     /* Works - pass "my-custom-class" in cssClass to increase specificity */
-
+    
     ion-card {
         box-shadow: none !important
     }
-
+    
     #mainToolbar {
         --background: rgba(133, 116, 110, 0.253) !important;
     }
-
+    
     .text-top {
         text-align: center;
         margin-top: -11px;
         font-size: 20px;
         font-family: Arial, Helvetica, sans-serif;
     }
-
+    
     .ion-align-self-end {
         margin-top: 2px;
     }
-
+    
      :root {
         ion-tab-button:nth-child(1) {
             ion-icon {
@@ -163,25 +163,25 @@
             }
         }
     }
-
+    
     ion-loading {
         color: green;
     }
-
+    
     .iconText>ion-col>ion-icon {
         margin-left: 25px;
     }
-
+    
     .iconText>ion-col>ion-label {
         position: flex;
         font-size: 20px;
         margin-left: 10px;
     }
-
+    
     app-component-telemetry {
         width: 100%;
     }
-
+    
     ion-segment-button {
         width: 10px;
         margin-top: 2px;
@@ -192,15 +192,15 @@
         background-color: rgb(27, 25, 25);
         border-radius: 50%;
     }
-
+    
     .my-custom-menu {
         --width: 500px;
     }
-
+    
     ion-select {
         max-width: 120% !important;
     }
-
+    
     .red {
         color: red;
         font-weight: bold;
@@ -213,41 +213,41 @@
     .blue {
         color: blue;
     } */
-
+    
     #title {
         font-size: 25px;
         color: rgb(19, 18, 18);
     }
-
+    
     .pati-card {
         width: 25%;
         height: 10%;
     }
-
+    
     .spin {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
-
+    
     ion-spinner {
         width: 28px;
         height: 28px;
         stroke: #444;
         fill: #222;
     }
-
+    
     ion-img {
         filter: brightness(90%);
         filter: contrast(90%);
         filter: drop-shadow(3px 3px 3px gray);
     }
-
+    
     hr {
         border-top: 1px dashergb(38, 39, 38);
     }
-
+    
     ion-row {
         margin-top: 1px;
     }
