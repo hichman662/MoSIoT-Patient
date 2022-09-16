@@ -1,3 +1,5 @@
+import { UserData } from './../models/userData.model';
+import { UserService } from './../services/user.service';
 import { AlertController, LoadingController, IonItemSliding } from '@ionic/angular';
 import { Router } from '@angular/router';
 /* eslint-disable @typescript-eslint/no-inferrable-types */
@@ -13,10 +15,12 @@ import { Storage } from '@ionic/storage';
 export class RelPersonPage implements OnInit {
 
   public relatedPersons: RelatedPerson[] = [];
+  public allUsers: UserData[] = [];
   public idScenario: number;
   relPersonNull= false;
 
   constructor(
+    private userService: UserService,
     private patientService: PatientService,
     public router: Router,
     public alertController: AlertController,
@@ -33,11 +37,29 @@ export class RelPersonPage implements OnInit {
       this.idScenario = val;
       console.log('aqui id escenario: ' ,this.idScenario);
       if(this.idScenario != null){
-        this.callRelatedPerson();
+       // this.callRelatedPerson();
+       this.callAllUsers();
       }
     });
 
   }
+
+callAllUsers(){
+this.userService.getAllUsersByIdEscenario(this.idScenario).subscribe((res: UserData[])=>{
+  if(res != null){
+  this.allUsers = res;
+  }else
+  {
+    this.allUsers = null;
+    this.relPersonNull= true;
+  }
+  console.log(res);
+}, ( err) => {
+    console.log(err);
+});
+}
+
+
 
   callRelatedPerson(){
     this.patientService.getRelatedPersonByIdScenario(this.idScenario)

@@ -1,16 +1,21 @@
+import { RelatedPerson } from './relatedPerson.model';
+import { Practitioner } from './practitioner.model';
+import { Patient } from './patient.model';
 /* eslint-disable @typescript-eslint/naming-convention */
 export class UserData {
-   public Id: number;
-   public BirthDate: Date;
-   public Surnames: string;
-   public Address: string;
-   public Phone: string;
-   public Photo: string;
-   public IsActive: boolean;
-   public Type: number;
-   public IsDiseased: boolean;
-   public Email: string;
-   public Name: string;
-   public Description: string;
+  Id?:            number;
+  BirthDate?:     null;
+  Surnames?:      string;
+  Address?:       null;
+  Phone?:         null;
+  Photo?:         null;
+  IsActive?:      boolean;
+  Type?:          number;
+  IsDiseased?:    boolean;
+  Name?:          string;
+  Description?:   string;
+  RelatedPerson?: RelatedPerson;
+  Patient?:       Patient;
+  Practitioner?:  Practitioner;
 
 }

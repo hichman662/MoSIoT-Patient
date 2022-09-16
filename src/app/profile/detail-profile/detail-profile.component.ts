@@ -29,6 +29,7 @@ export class DetailProfileComponent implements OnInit {
   public idScenario: number = 720896;
   segmentModel = 'details';
   load: boolean = false;
+  email: string = '';
 
   constructor( private patientService: PatientService,
     public navCtrl: NavController,
@@ -36,16 +37,23 @@ export class DetailProfileComponent implements OnInit {
     private router: Router,
     private storage: Storage) { }
 
-  ngOnInit() {
-this.callingPatientDetails();
+  async ngOnInit() {
+
     /* this.storage.get('idUsuario').then((val) => {
       this.idScenario = val;
         this.callingPatient();
     });*/
+    await this.storage.get('email').then((val) => {
+      this.email = val;
+
+    });
+    if(this.email !== ''){
+      this.callingPatientDetails();
+    }
   }
 
   callingPatientDetails(){
-  this.patientService.getPatientByIdScenario(this.idScenario)
+    this.patientService.getPatientByEmail(this.email)
   .subscribe((res: Patient ) => {
     console.log(res);
     this.load= true;

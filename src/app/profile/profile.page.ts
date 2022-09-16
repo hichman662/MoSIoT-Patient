@@ -20,6 +20,7 @@ export class ProfilePage implements OnInit {
   public idScenario: number ;
   segmentModel = 'details';
   load: boolean = false;
+  email: string = '';
 
   constructor( private patientService: PatientService,
     public router: Router,
@@ -31,11 +32,18 @@ export class ProfilePage implements OnInit {
       this.idScenario = val;
 
     });
-    this.callingPatient();
+    await this.storage.get('email').then((val) => {
+      this.email = val;
+
+    });
+    if(this.email !== ''){
+      this.callingPatient();
+    }
+
   }
 
 callingPatient(){
-  this.patientService.getPatientByIdScenario(this.idScenario)
+  this.patientService.getPatientByEmail(this.email)
   .subscribe((res: Patient ) => {
     console.log(res);
     this.load= true;

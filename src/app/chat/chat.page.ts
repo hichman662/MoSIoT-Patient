@@ -15,19 +15,19 @@ import { Storage } from '@ionic/storage';
 })
 export class ChatPage implements OnInit {
 
-idUsuario: number = 0;
- nameUsuario: string = '';
+idUsuario: number = 786432;
+ nameUsuario: string = 'Lucas';
   constructor(private chatService: ChatAppService,
     private storage: Storage) {}
 
   ngOnInit(): void {
     this.chatService.retrieveMappedObject().subscribe( (receivedObj: MessageDto) => { this.addToInbox(receivedObj);});  // calls the service method to get the new messages sent
-    this.storage.get('idPatient').then((val) => {
+   /*  this.storage.get('idPatient').then((val) => {
       this.idUsuario = val;
     });
     this.storage.get('NamePatient').then((val) => {
       this.nameUsuario = val;
-    });
+    }); */
 
   }
 

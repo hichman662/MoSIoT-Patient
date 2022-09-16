@@ -1,3 +1,5 @@
+import { UserData } from 'src/app/models/userData.model';
+import { UserService } from './../../services/user.service';
 import { PatientService } from './../../services/patient.service';
 import { PractitionerData } from './../../models/practitionerData.model';
 import { Component, OnInit } from '@angular/core';
@@ -13,11 +15,14 @@ export class DetailPractitionerPage implements OnInit {
   public practitionerName: '';
   public practitionerDescrip: '';
   public practitionerData: PractitionerData;
+  public practitioner: UserData;
   segmentModel = 'details';
   load = false;
   private idPassedByURL: number = null;
   constructor(
     private patientService: PatientService,
+
+    private userService: UserService,
     private route: ActivatedRoute
 
   ) { }
@@ -26,7 +31,7 @@ export class DetailPractitionerPage implements OnInit {
   ngOnInit() {
     this.load = false;
     this.idPassedByURL = this.route.snapshot.params.Id;
-    this.patientService.getPractitionerById(this.idPassedByURL)
+  /*   this.patientService.getPractitionerById(this.idPassedByURL)
     .subscribe((res: any ) => {
       console.log(res);
 
@@ -39,6 +44,19 @@ export class DetailPractitionerPage implements OnInit {
     }, (err) => {
       console.log(err);
     });
+  } */
+
+  console.log(this.idPassedByURL);
+  this.userService.getUserById(this.idPassedByURL)
+  .subscribe((res: UserData ) => {
+    console.log(res);
+    this.load = true;
+     this.practitioner = res;
+     console.log(this.practitioner);
+
+  }, (err) => {
+    console.log(err);
+  });
   }
 
 }

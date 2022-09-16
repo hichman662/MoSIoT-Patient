@@ -17,21 +17,22 @@
 
 <ion-content>
     <ion-list>
-        <div class="patient" *ngFor="let practitioner of practitioners">
+        <div class="patient" *ngFor="let practitioner of allUsers">
+            <div *ngIf="practitioner.Practitioner !== null">
+                <ion-item-sliding #slidingItem>
 
-            <ion-item-sliding #slidingItem>
+                    <ion-item class="item" detail [routerLink]="['detail-practitioner',practitioner['Id']]">
+                        <ion-avatar slot="start">
+                            <img src="assets/icon/practitioner.png">
 
-                <ion-item class="item" detail [routerLink]="['detail-practitioner',practitioner['Id']]">
-                    <ion-avatar slot="start">
-                        <img src="assets/icon/practitioner.png">
+                        </ion-avatar>
 
-                    </ion-avatar>
-
-                    <ion-label> {{practitioner['Name']}}</ion-label>
+                        <ion-label> {{practitioner['Surnames']}}</ion-label>
 
 
-                </ion-item>
-            </ion-item-sliding>
+                    </ion-item>
+                </ion-item-sliding>
+            </div>
         </div>
     </ion-list>
 </ion-content>

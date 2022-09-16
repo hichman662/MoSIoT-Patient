@@ -47,6 +47,7 @@ async  ngOnInit() {
     this.waiting = true;
     this.userService.login( this.loginForm.value)
       .subscribe( (res: any) => {
+        this.storage.set('email', this.loginForm.get('Email').value);
         this.waiting = false;
         this.storage.set('token', res);
 
@@ -86,19 +87,19 @@ getEscenarioDePaciente(token: string){
       if (res != null){
         this.storage.set('idScenario',res);
         this.userService.setIdEscenario(res);
-        this.callingPatient(res);
+        this.callingPatient(this.loginForm.get('Email').value);
         this.router.navigateByUrl('/tabs', { replaceUrl:true });
       }
     });
   }
 
 
-  callingPatient(idEscenario: number){
-    this.patientService.getPatientByIdScenario(idEscenario)
+  callingPatient(email: string){
+    this.patientService.getPatientByEmail(email)
     .subscribe((res: Patient ) => {
       console.log(res);
       this.storage.set('idPatient',res[0].Id);
-       this.storage.set('NamePatient',res[0].Name);
+       this.storage.set('NamePatient',res[0].UserData.Name);
     }, (err) => {
       console.log(err);
     });

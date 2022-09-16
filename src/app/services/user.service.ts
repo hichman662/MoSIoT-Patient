@@ -49,15 +49,24 @@ public getAllUsers(): Observable<object>{
   return this.http.get(`${environment.base_url}/User/ReadAll`);
 }
 
+public getAllUsersByIdEscenario(idEscenario: number): Observable<object>{
+  return this.http.get(`${environment.base_url}/User/UsersScenario?idIoTScenario=${idEscenario}`);
+}
+
+public getUserById(idUser: number): Observable<object>{
+  return this.http.get(`${environment.base_url}/User/${idUser}`);
+}
+
 public createUser( data: UserData ): Observable<object> {
   return this.http.post(`${environment.base_url}/User/New_`, data);
 }
 
  login( formData: loginForm) {
-  return this.http.post(`${environment.base_url}/UserAnonimous/Login`, formData)
+  return this.http.post(`${environment.base_url}/PatientAnonimous/Login`, formData)
           .pipe(
             tap( (res: any) => {
               this.isLoggedIn = true;
+              console.log(this.isLoggedIn);
 
               })
           );

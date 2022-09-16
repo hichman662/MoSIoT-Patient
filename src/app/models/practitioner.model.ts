@@ -5,7 +5,5 @@ import { PractitionerData} from './practitionerData.model';
 
 export class Practitioner {
       Id: number;
-      Name?: string;
-      Description?: string;
-      PractitionerData?: PractitionerData;
+      Email?: string;
 }
