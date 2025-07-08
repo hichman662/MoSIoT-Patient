@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
 import { IonItemSliding, AlertController, LoadingController } from '@ionic/angular';
+
 @Component({
   selector: 'app-patient-access',
   templateUrl: './patient-access.page.html',
@@ -40,9 +41,9 @@ export class PatientAccessPage implements OnInit {
 
   callPatientAccess(){
     this.patientService.getPatientAccessByIdScenario(this.idScenario)
-    .subscribe( (res: any) => {
+    .subscribe( (res: PatientAccess[]) => {
       if(res != null){
-        this.patientAccess = res;
+        this.patientAccess = res ;
         this.patientAccessNull = false;
       }else{
         this.patientAccess = null;

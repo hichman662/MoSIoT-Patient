@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 export class Disability {
-    Id: number;
-    Description: string;
-    Name: string;
-    Type?: number;
-    Severity?: number;
+    id: number;
+    description: string;
+    name: string;
+    type?: number;
+    severity?: number;
 }

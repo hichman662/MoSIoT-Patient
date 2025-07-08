@@ -17,38 +17,40 @@
     <ion-list *ngIf="load">
 
         <ion-list-header>
-            <ion-icon class="segmentIcon" name="person-outline"></ion-icon>{{patientProfile.Name}}</ion-list-header>
-        <!-- <ion-item-sliding #slidingItem> -->
+            <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Profile Name</ion-list-header>
         <ion-item>
 
-            <ion-label *ngIf="patientProfile.PreferredLanguage === 1"> ES</ion-label>
-            <ion-label *ngIf="patientProfile.PreferredLanguage === 2"> EN</ion-label>
-            <ion-label *ngIf="patientProfile.PreferredLanguage === 3"> FR</ion-label>
-            <ion-label *ngIf="patientProfile.PreferredLanguage === 4"> IT</ion-label>
-            <ion-label *ngIf="patientProfile.PreferredLanguage === 5"> PR</ion-label>
-            <ion-label *ngIf="patientProfile.PreferredLanguage === 6"> DE</ion-label>
-            <ion-label *ngIf="patientProfile.PreferredLanguage === 7"> JA</ion-label>
-            <ion-label *ngIf="patientProfile.PreferredLanguage === 8"> KO</ion-label>
-            <ion-label *ngIf="patientProfile.PreferredLanguage === 9"> ZH</ion-label>
+            <ion-label text-wrap> {{patientProfile.name}}</ion-label>
         </ion-item>
 
         <ion-list-header>
-            <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Name</ion-list-header>
+            <ion-icon class="segmentIcon" name="globe-outline"></ion-icon>Preferred Language</ion-list-header>
+        <!-- <ion-item-sliding #slidingItem> -->
         <ion-item>
-
-            <ion-label text-wrap> {{patientProfile.Name}}</ion-label>
+            
+            <ion-label *ngIf="patientProfile.preferredLanguage === 1"> ES</ion-label>
+            <ion-label *ngIf="patientProfile.preferredLanguage === 2"> EN</ion-label>
+            <ion-label *ngIf="patientProfile.preferredLanguage === 3"> FR</ion-label>
+            <ion-label *ngIf="patientProfile.preferredLanguage === 4"> IT</ion-label>
+            <ion-label *ngIf="patientProfile.preferredLanguage === 5"> PR</ion-label>
+            <ion-label *ngIf="patientProfile.preferredLanguage === 6"> DE</ion-label>
+            <ion-label *ngIf="patientProfile.preferredLanguage === 7"> JA</ion-label>
+            <ion-label *ngIf="patientProfile.preferredLanguage === 8"> KO</ion-label>
+            <ion-label *ngIf="patientProfile.preferredLanguage === 9"> ZH</ion-label>
         </ion-item>
+
+       
         <ion-list-header>
             <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Description</ion-list-header>
         <ion-item>
 
-            <ion-label text-wrap> {{patientProfile.Description}}</ion-label>
+            <ion-label text-wrap> {{patientProfile.description}}</ion-label>
         </ion-item>
         <ion-list-header>
             <ion-icon class="segmentIcon" name="at-outline"></ion-icon>Region</ion-list-header>
         <ion-item>
 
-            <ion-label> {{patientProfile.Region}}</ion-label>
+            <ion-label> {{patientProfile.region}}</ion-label>
 
         </ion-item>
 
@@ -75,7 +77,7 @@
                     <ion-item>
                         <ion-icon class="segmentIcon" name="list-circle-outline"></ion-icon>
                         <ion-label>name</ion-label>
-                        <ion-label>{{disease.Name}}</ion-label>
+                        <ion-label>{{disease.name}}</ion-label>
                     </ion-item>
                 </mat-panel-title>
 
@@ -94,20 +96,20 @@
 
                     <ion-label>Disease</ion-label>
 
-                    <ion-badge *ngIf="disease.Disease === 1"> Alzheimer</ion-badge>
-                    <ion-badge *ngIf="disease.Disease === 2"> Parkinson</ion-badge>
-                    <ion-badge *ngIf="disease.Disease === 3"> Cancer</ion-badge>
-                    <ion-badge *ngIf="disease.Disease === 4"> Heart Disease</ion-badge>
-                    <ion-badge *ngIf="disease.Disease === 5"> Obesity</ion-badge>
-                    <ion-badge *ngIf="disease.Disease === 6"> Diabetes</ion-badge>
-                    <ion-badge *ngIf="disease.Disease === 7"> Epilepsy</ion-badge>
-                    <ion-badge *ngIf="disease.Disease === 8"> Apnea Sleep</ion-badge>
-                    <ion-badge *ngIf="disease.Disease === 9"> Narcolepsy</ion-badge>
-                    <ion-badge *ngIf="disease.Disease === 10"> Eating disorders</ion-badge>
-                    <ion-badge *ngIf="disease.Disease === 11"> Osteoporosis</ion-badge>
-                    <ion-badge *ngIf="disease.Disease === 12"> Asthma</ion-badge>
-                    <ion-badge *ngIf="disease.Disease === 13"> Fibrosis</ion-badge>
-                    <ion-badge *ngIf="disease.Disease === 14"> Oral_Health</ion-badge>
+                    <ion-badge *ngIf="disease.disease === 1"> Alzheimer</ion-badge>
+                    <ion-badge *ngIf="disease.disease === 2"> Parkinson</ion-badge>
+                    <ion-badge *ngIf="disease.disease === 3"> Cancer</ion-badge>
+                    <ion-badge *ngIf="disease.disease === 4"> Heart Disease</ion-badge>
+                    <ion-badge *ngIf="disease.disease === 5"> Obesity</ion-badge>
+                    <ion-badge *ngIf="disease.disease === 6"> Diabetes</ion-badge>
+                    <ion-badge *ngIf="disease.disease === 7"> Epilepsy</ion-badge>
+                    <ion-badge *ngIf="disease.disease === 8"> Apnea Sleep</ion-badge>
+                    <ion-badge *ngIf="disease.disease === 9"> Narcolepsy</ion-badge>
+                    <ion-badge *ngIf="disease.disease === 10"> Eating disorders</ion-badge>
+                    <ion-badge *ngIf="disease.disease === 11"> Osteoporosis</ion-badge>
+                    <ion-badge *ngIf="disease.disease === 12"> Asthma</ion-badge>
+                    <ion-badge *ngIf="disease.disease === 13"> Fibrosis</ion-badge>
+                    <ion-badge *ngIf="disease.disease === 14"> Oral_Health</ion-badge>
 
                 </ion-item>
 
@@ -123,7 +125,7 @@
                 <mat-panel-title>
                     <ion-item>
                         <ion-icon class="segmentIcon" name="list-circle-outline"></ion-icon>
-                        <ion-label>{{disability.Name}}</ion-label>
+                        <ion-label>{{disability.name}}</ion-label>
                     </ion-item>
                 </mat-panel-title>
             </mat-expansion-panel-header>
@@ -137,17 +139,17 @@
             <ion-card>
                 <ion-item>
                     <ion-label>Disability type</ion-label>
-                    <ion-badge *ngIf="disability.Type === 1"> Auditory</ion-badge>
-                    <ion-badge *ngIf="disability.Type === 2"> Cognitive</ion-badge>
-                    <ion-badge *ngIf="disability.Type === 3"> Physical</ion-badge>
-                    <ion-badge *ngIf="disability.Type === 4"> Speech</ion-badge>
-                    <ion-badge *ngIf="disability.Type === 5"> Visual</ion-badge>
+                    <ion-badge *ngIf="disability.type === 1"> Auditory</ion-badge>
+                    <ion-badge *ngIf="disability.type === 2"> Cognitive</ion-badge>
+                    <ion-badge *ngIf="disability.type === 3"> Physical</ion-badge>
+                    <ion-badge *ngIf="disability.type === 4"> Speech</ion-badge>
+                    <ion-badge *ngIf="disability.type === 5"> Visual</ion-badge>
                 </ion-item>
                 <ion-item>
                     <ion-label>Severity</ion-label>
-                    <ion-badge *ngIf="disability.Severity === 1"> Severe</ion-badge>
-                    <ion-badge *ngIf="disability.Severity === 2"> Moderate</ion-badge>
-                    <ion-badge *ngIf="disability.Severity === 3"> Mild</ion-badge>
+                    <ion-badge *ngIf="disability.severity === 1"> Severe</ion-badge>
+                    <ion-badge *ngIf="disability.severity === 2"> Moderate</ion-badge>
+                    <ion-badge *ngIf="disability.severity === 3"> Mild</ion-badge>
                 </ion-item>
             </ion-card>
         </mat-expansion-panel>

@@ -2,19 +2,21 @@
 import { Medication } from './medication.model';
 import { Communication } from './communication.model';
 import { Appointment } from './appointment.model';
+import { Nutrition } from './nutrition.model';
+import { ValueCommunication } from './valueCommunication.model';
 export class CareActivity {
 
-    Id: number;
-    Name: string;
-    Description: string;
-    Periodicity: number;
-    Duration: number;
-    Location: string;
-    OutcomeCode: string;
-    TypeActivity: number;
-    ActivityCode: string;
-    Comunications: Communication[];
-    Appointments: Appointment;
-    Medications: Medication | null;
-    NutritionOrders: any;
+    id: number;
+    name: string;
+    description: string;
+    periodicity: number;
+    duration: number;
+    location: string;
+    outcomeCode: string;
+    typeActivity: number;
+    activityCode: string;
+    comunications: ValueCommunication[];
+    appointments: Appointment;
+    medications: Medication | null;
+    nutritionOrders: Nutrition;
 }

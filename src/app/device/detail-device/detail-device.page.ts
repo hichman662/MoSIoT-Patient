@@ -25,16 +25,16 @@ export class DetailDevicePage implements OnInit {
 
   ngOnInit() {
     this.load = true;
-    this.idPassedByURL = this.route.snapshot.params.Id;
+    this.idPassedByURL = this.route.snapshot.params.id;
     this.deviceService.getDeviceById(this.idPassedByURL)
     .subscribe((res: Device ) => {
       console.log(res);
     if(res != null){
       this.load = false;
-       this.deviceName = res.Name;
-       this.deviceDescrip = res.Description;
+       this.deviceName = res.name;
+       this.deviceDescrip = res.description;
        this.deviceData = res;
-       this.deviceTemplate = res.DeviceTemplate;
+       this.deviceTemplate = res.deviceTemplate;
 
     }
     }, (err) => {

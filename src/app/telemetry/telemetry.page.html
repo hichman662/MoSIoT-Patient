@@ -11,7 +11,7 @@
 </ion-header>
 <ion-content [fullscreen]="true">
     <section id="dashboardSection" *ngFor="let telemetry of imTelemetry">
-        <ion-row *ngIf="telemetry['Name'] === 'HeartRate'">
+        <ion-row *ngIf="telemetry['name'] === 'HeartRate'">
             <ion-card [routerLink]="['heart-rate',heartRate]">
                 <ion-row>
                     <ion-col size="2">
@@ -26,7 +26,7 @@
                 </ion-row>
             </ion-card>
         </ion-row>
-        <ion-row *ngIf="telemetry['Name'] === 'BloodPressure'">
+        <ion-row *ngIf="telemetry['name'] === 'BloodPressure'">
             <ion-card [routerLink]="['blood-pressure',systolic,diastolic]">
                 <ion-row>
                     <ion-col size="2">
@@ -45,7 +45,7 @@
                 </ion-row>
             </ion-card>
         </ion-row>
-        <ion-row *ngIf="telemetry['Name'] === 'BodyTemperature'">
+        <ion-row *ngIf="telemetry['name'] === 'BodyTemperature'">
             <ion-card [routerLink]="['body-temperature',bodyTemperature]">
                 <ion-row>
                     <ion-col size="2">
@@ -60,7 +60,7 @@
                 </ion-row>
             </ion-card>
         </ion-row>
-        <ion-row *ngIf="telemetry['Name'] === 'RespiratoryRate'">
+        <ion-row *ngIf="telemetry['name'] === 'RespiratoryRate'">
             <ion-card [routerLink]="['respiratory-rate',respiratoryRate]">
                 <ion-row>
                     <ion-col size="2">

@@ -8,7 +8,7 @@
         <ion-card slot="end" color="transparent" class="pati-card">
             <ion-img src='assets/icon/practitionerW.png'></ion-img>
 
-            <ion-label id="title" *ngIf="practitioner !== undefined"><strong>{{practitioner.Surnames}}</strong></ion-label>
+            <ion-label id="title" *ngIf="practitioner !== undefined"><strong>{{practitioner.surnames}}</strong></ion-label>
         </ion-card>
 
     </ion-toolbar>
@@ -25,23 +25,23 @@
             <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Surname</ion-list-header>
         <ion-item>
 
-            <ion-label text-wrap> {{practitioner.Surnames}}</ion-label>
+            <ion-label text-wrap> {{practitioner.surnames}}</ion-label>
         </ion-item>
         <ion-list-header>
             <ion-icon class="segmentIcon" name="at-outline"></ion-icon>Email</ion-list-header>
         <ion-item>
 
-            <ion-label> {{practitioner.Practitioner.Email}}</ion-label>
+            <ion-label> {{practitioner.practitioner.email}}</ion-label>
 
         </ion-item>
         <ion-list-header>
 
             <ion-icon class="segmentIcon" name="power-outline"></ion-icon>Active Status</ion-list-header>
         <ion-item>
-            <ion-item [hidden]="practitioner.IsActive === true">
+            <ion-item [hidden]="practitioner.isActive === true">
                 <ion-label>Disactive</ion-label>
             </ion-item>
-            <ion-item [hidden]="practitioner.IsActive === false">
+            <ion-item [hidden]="practitioner.isActive === false">
                 <ion-label>Active</ion-label>
             </ion-item>
 
@@ -52,10 +52,10 @@
             <ion-icon class="segmentIcon" name="heart-half-outline"></ion-icon>Is Diseased</ion-list-header>
         <ion-item>
 
-            <ion-item [hidden]="practitioner.IsDiseased === false">
+            <ion-item [hidden]="practitioner.isDiseased === false">
                 <ion-label>Yes</ion-label>
             </ion-item>
-            <ion-item [hidden]="practitioner.IsDiseased === true">
+            <ion-item [hidden]="practitioner.isDiseased === true">
                 <ion-label>No</ion-label>
             </ion-item>
 

@@ -1,13 +1,14 @@
 /* eslint-disable max-len */
 import { PatientAccess } from './../models/patientAccess.model';
 /* eslint-disable @typescript-eslint/ban-types */
-import { Patient } from './../models/patient.model';
+
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {of, Observable} from 'rxjs';
 import { RelatedPerson } from '../models/relatedPerson.model';
 import { Practitioner } from '../models/practitioner.model';
+import { Patient } from '../models/userData.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,38 +21,13 @@ constructor(private http: HttpClient) {
 
 }
 
-// Patient
-public getAllPatient(): Observable<object>{
-  return this.http.get(`${environment.base_url}/Patient/ReadAll`);
-}
 
-public getPatientById( uid: number): Observable<object>{
-  if (!uid) { uid = null; }
-  return this.http.get <Patient>(`${environment.base_url}/Patient/${uid}` );
-}
-
-public getPatientByIdScenario( uid: number): Observable<object>{
-  if (!uid) { uid = null; }
-  return this.http.get <Patient>(`${environment.base_url}/Patient/PatientScenario?idIoTScenario=${uid}` );
-}
-
-public getPatientByEmail( email: string): Observable<object>{
-  return this.http.get <Patient>(`${environment.base_url}/Patient/DamePorEmail?p_email=${email}` );
- }
-
-public createPatient( data: Patient ): Observable<object> {
-  return this.http.post(`${environment.base_url}/Patient/New_`, data);
-}
 
 // Get All PATIENT PROFILE
 public getAllPatientProfile(): Observable<object>{
   return this.http.get(`${environment.base_url}/PatientProfile/ReadAll`);
 }
 
-// Assign Patient profile to patient
-public assignPatientProfile(patientId: number, patientProfileId: number): Observable<object> {
-  return this.http.put(`${environment.base_url}/Patient/AssignPatientProfile?p_patient_oid=${patientId}&p_patientprofile_oid=${patientProfileId}`,null);
-}
 
 // Practitioner
 public getPractitionerById( uid: number): Observable<object>{

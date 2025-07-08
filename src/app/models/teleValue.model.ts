@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/type-annotation-spacing */
 
 export class TeleValue {
-    Id: number;
-    TimeStamp?: Date;
-    Valu?: string;
+    id: number;
+    timeStamp?: Date;
+    valu?: string;
 }

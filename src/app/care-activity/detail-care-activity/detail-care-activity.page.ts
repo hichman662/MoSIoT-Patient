@@ -27,7 +27,7 @@ export class DetailCareActivityPage implements OnInit {
     private storage: Storage) { }
 
   ngOnInit() {
-    this.idCareActivity = this.route.snapshot.params.Id;
+    this.idCareActivity = this.route.snapshot.params.id;
     this.callingCareActivity();
     /* this.storage.get('idUsuario').then((val) => {
       this.idScenario = val;
@@ -40,7 +40,7 @@ export class DetailCareActivityPage implements OnInit {
   .subscribe((res: CareActivityByTime ) => {
     console.log(res);
     this.detailActivity= res;
-    console.log(res.ValueCareActivity);
+    console.log(res.valueCareActivity);
 
 
     this.load= true;

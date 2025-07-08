@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlertController, NavController } from '@ionic/angular';
+import { PatientAccess } from 'src/app/models/patientAccess.model';
 
 @Component({
   selector: 'app-detail-patient-access',
@@ -15,12 +16,11 @@ import { AlertController, NavController } from '@ionic/angular';
 })
 export class DetailPatientAccessPage implements OnInit {
 
-  public patientAccessName: '';
-  public patientAccessDescrip: '';
+  public patientAccessName: string = '';
+  public patientAccessDescrip: string = '';
   public accessMode: AccessMode;
   patientProfileId: number;
   segmentModel = 'details';
-  public allAccessMode: AccessMode []= [];
   patientAccessDetailNull = false;
   private idPassedByURL: number = null;
   idAccessMode: number;
@@ -36,21 +36,22 @@ export class DetailPatientAccessPage implements OnInit {
 
 
   ngOnInit() {
-    this.idPassedByURL = this.route.snapshot.params.Id;
+    this.idPassedByURL = this.route.snapshot.params.id;
     this.callingAccessdatil();
   }
 
   callingAccessdatil(){
     this.loading = true;
     this.patientService.getPatientAccessById(this.idPassedByURL)
-    .subscribe((res: any ) => {
-      console.log(res);
+    .subscribe((res: PatientAccess) => {
+     // console.log(res);
       this.loading = false;
       this.patientAccessDetailNull = false;
-      this.patientAccessDescrip = res.Description;
-      this.patientAccessName = res.Name;
-       if(res.AccessMode != null){
-       this.accessMode = res.AccessMode;
+      /* this.patientAccessDescrip = res.description;
+      this.patientAccessName = res.name;  */
+       if(res != null){
+       this.accessMode = res.accessMode;
+       console.log(res);
        this.patientAccessDetailNull = false;
 
     }else{
@@ -64,19 +65,19 @@ export class DetailPatientAccessPage implements OnInit {
     this.storage.get('idPatientProfile').then((val) => {
       if(val != null){
         this.patientProfileId= val;
-        this.accessModeId();
+        //this.accessModeId();
       }
     });
 
   }
-accessModeId() {
+/* accessModeId() {
   this.patientService.getAccessModeByIdPatientprofile(this.patientProfileId)
     .subscribe((res: any ) => {
       this.allAccessMode = res;
     }, (err) => {
       console.log(err);
     });
-  }
+  } */
 
 
 }

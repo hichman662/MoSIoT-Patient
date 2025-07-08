@@ -18,16 +18,16 @@
 <ion-content>
     <ion-list>
         <div class="patient" *ngFor="let practitioner of allUsers">
-            <div *ngIf="practitioner.Practitioner !== null">
+            <div *ngIf="practitioner.practitioner !== null">
                 <ion-item-sliding #slidingItem>
 
-                    <ion-item class="item" detail [routerLink]="['detail-practitioner',practitioner['Id']]">
+                    <ion-item class="item" detail [routerLink]="['detail-practitioner',practitioner['id']]">
                         <ion-avatar slot="start">
                             <img src="assets/icon/practitioner.png">
 
                         </ion-avatar>
 
-                        <ion-label> {{practitioner['Surnames']}}</ion-label>
+                        <ion-label> {{practitioner['surnames']}}</ion-label>
 
 
                     </ion-item>

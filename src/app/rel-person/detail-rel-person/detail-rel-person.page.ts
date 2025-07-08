@@ -32,7 +32,7 @@ export class DetailRelPersonPage implements OnInit {
 
   ngOnInit() {
     this.loading = false;
-    this.idPassedByURL = this.route.snapshot.params.Id;
+    this.idPassedByURL = this.route.snapshot.params.id;
     /* this.patientService.getRelatedPersonById(this.idPassedByURL)
     .subscribe((res: RelatedPerson ) => {
       console.log(res);

@@ -18,11 +18,11 @@
     <ion-card-header [hidden]="!carePlanNull" color="warning" class="animate__animated animate__fadeInLeft animate__slow">No Care Plan has been added to this scenario. To add Care Plan, press the Add button.</ion-card-header>
     <ion-list>
         <div class="carePlan" *ngFor="let carePlan of carePlans">
-            <ion-item class="item" detail [routerLink]="['detail-care-plan',carePlan['Id']]">
+            <ion-item class="item" detail [routerLink]="['detail-care-plan',carePlan['id']]">
                 <ion-avatar slot="start">
                     <img src="assets/icon/carePlans.png">
                 </ion-avatar>
-                <ion-label> {{carePlan['Name']}}</ion-label>
+                <ion-label> {{carePlan['name']}}</ion-label>
             </ion-item>
         </div>
     </ion-list>

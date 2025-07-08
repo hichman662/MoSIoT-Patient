@@ -8,7 +8,7 @@
         <ion-card slot="end" color="transparent" class="pati-card">
             <ion-img src='assets/icon/vitalSignsW.png'></ion-img>
 
-            <ion-label id="title" *ngIf="vitalSign!== undefined"><strong>{{vitalSign.Name}}</strong></ion-label>
+            <ion-label id="title" *ngIf="vitalSign!== undefined"><strong>{{vitalSign.name}}</strong></ion-label>
         </ion-card>
 
     </ion-toolbar>
@@ -23,20 +23,20 @@
                 <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Name</ion-list-header>
             <ion-item>
 
-                <ion-label text-wrap> {{measureVitalSign.Name}}</ion-label>
+                <ion-label text-wrap> {{measureVitalSign.name}}</ion-label>
             </ion-item>
             <ion-list-header>
                 <ion-icon class="segmentIcon" name="at-outline"></ion-icon>Description</ion-list-header>
             <ion-item>
 
-                <ion-label> {{measureVitalSign.Description}}</ion-label>
+                <ion-label> {{measureVitalSign.description}}</ion-label>
 
             </ion-item>
             <ion-list-header>
 
                 <ion-icon class="segmentIcon" name="power-outline"></ion-icon>LOINCcode</ion-list-header>
             <ion-item>
-                <ion-label> {{measureVitalSign.LOINCcode}}</ion-label>
+                <ion-label> {{measureVitalSign.loinCcode}}</ion-label>
 
             </ion-item>
 

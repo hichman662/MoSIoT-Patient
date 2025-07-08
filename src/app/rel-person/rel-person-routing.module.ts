@@ -9,7 +9,7 @@ const routes: Routes = [
     component: RelPersonPage
   },
   {
-    path: 'detail-rel-person/:Id',
+    path: 'detail-rel-person/:id',
     loadChildren: () => import('./detail-rel-person/detail-rel-person.module').then( m => m.DetailRelPersonPageModule)
   }
 ];

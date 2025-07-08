@@ -18,15 +18,16 @@ ion-content {
 
 ion-input {
     --background: white;
+    color: black;
     --padding-bottom: 15px;
     font-size: 14px;
 }
 
 ion-title {
-    color: rgb(29, 126, 236);
+    color: black;
     font-size: 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: rgba(255, 255, 255, 0.767);
+    background-color: rgba(28, 95, 230, 0.767);
     border-radius: 00px;
     padding-top: 12px;
     padding-bottom: 12px;

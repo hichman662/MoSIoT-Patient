@@ -4,9 +4,9 @@ import { Measure } from './measure.model';
 
 export class VitalSign {
 
-    Id: number;
-    Name?: string;
-    Description?: string;
-    MeasureVitalSign?: Measure;
+    id: number;
+    name?: string;
+    description?: string;
+    measureVitalSign?: Measure;
 
 }

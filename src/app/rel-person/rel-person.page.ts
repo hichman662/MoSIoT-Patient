@@ -61,7 +61,7 @@ this.userService.getAllUsersByIdEscenario(this.idScenario).subscribe((res: UserD
 
 
 
-  callRelatedPerson(){
+/*   callRelatedPerson(){
     this.patientService.getRelatedPersonByIdScenario(this.idScenario)
     .subscribe( (res: any) => {
       if(res != null){
@@ -76,7 +76,7 @@ this.userService.getAllUsersByIdEscenario(this.idScenario).subscribe((res: UserD
     }, ( err) => {
         console.log(err);
     });
-  }
+  } */
   closeSliding(slidingItem: IonItemSliding){
     slidingItem.close();
   }

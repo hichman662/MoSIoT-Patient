@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 export class RelatedPersonData {
-    Id: number;
-    BirthDate?: Date;
-    Surnames?: string;
-    Address?: string;
-    Phone?: string;
-    Photo?: string;
-    IsActive?: boolean;
-    Type?: number;
-    IsDiseased?: boolean;
-    Email?: string;
-    Name?: string;
-    Description?: string;
+    id: number;
+    birthDate?: Date;
+    surnames?: string;
+    address?: string;
+    phone?: string;
+    photo?: string;
+    isActive?: boolean;
+    type?: number;
+    isDiseased?: boolean;
+    email?: string;
+    name?: string;
+    description?: string;
 }

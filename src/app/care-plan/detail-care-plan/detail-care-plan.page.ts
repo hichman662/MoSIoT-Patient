@@ -44,7 +44,7 @@ export class DetailCarePlanPage implements OnInit {
 
 
   ngOnInit() {
-    this.idPassedByURL = this.route.snapshot.params.Id;
+    this.idPassedByURL = this.route.snapshot.params.id;
     this.callCarePlanDetail();
 
   }
@@ -53,15 +53,15 @@ export class DetailCarePlanPage implements OnInit {
     this.load = true;
     this.carePlanService.getCarePlanById(this.idPassedByURL)
     .subscribe((res: CarePlan ) => {
-    if(res.CarePlanTemplate != null){
+    if(res.carePlanTemplate != null){
       this.load = false;
       this.carePlanDetailNull = false;
       console.log(res);
-      this.carePlanName = res.Name;
-      this.carePlanDescription = res.Description;
-      this.carePlanTemplate = res.CarePlanTemplate;
-       this.goals = res.CarePlanTemplate.Goals;
-       this.targets =  res.CarePlanTemplate.Goals[0].Targets;
+      this.carePlanName = res.name;
+      this.carePlanDescription = res.description;
+      this.carePlanTemplate = res.carePlanTemplate;
+       this.goals = res.carePlanTemplate.goals;
+       this.targets =  res.carePlanTemplate.goals[0].targets;
        console.log(this.targets);
     }else{
       this.carePlanDetailNull = true;

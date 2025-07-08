@@ -2,9 +2,10 @@ import { Router } from '@angular/router';
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from '../services/patient.service';
-import { Patient } from 'src/app/models/patient.model';
-import { UserData } from 'src/app/models/userData.model';
+
+import { Patient, UserData } from 'src/app/models/userData.model';
 import { Storage } from '@ionic/storage';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -21,8 +22,9 @@ export class ProfilePage implements OnInit {
   segmentModel = 'details';
   load: boolean = false;
   email: string = '';
+  token: string = '';
 
-  constructor( private patientService: PatientService,
+  constructor( private patientService: UserService,
     public router: Router,
     private storage: Storage) { }
 
@@ -36,6 +38,10 @@ export class ProfilePage implements OnInit {
       this.email = val;
 
     });
+    await this.storage.get('token').then((val) => {
+      this.token = val;
+
+    });
     if(this.email !== ''){
       this.callingPatient();
     }
@@ -43,14 +49,14 @@ export class ProfilePage implements OnInit {
   }
 
 callingPatient(){
-  this.patientService.getPatientByEmail(this.email)
+  this.patientService.getPatientByEmail(this.email, this.token)
   .subscribe((res: Patient ) => {
     console.log(res);
     this.load= true;
-    this.storage.set('idPatient',res[0].Id);
-     this.patientName = res[0].Name;
-     this.patientDescrip = res[0].Description;
-     this.patientData = res[0].UserData;
+    this.storage.set('idPatient',res[0].id);
+     this.patientName = res[0].name;
+     this.patientDescrip = res[0].description;
+     this.patientData = res[0].userData;
     console.log(this.patientData);
 
   }, (err) => {

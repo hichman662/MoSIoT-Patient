@@ -27,13 +27,13 @@ export class DetailAccessModeComponent implements OnInit {
 
 
   ngOnInit() {
-    this.idPassedByURL = this.route.snapshot.params.Id;
+    this.idPassedByURL = this.route.snapshot.params.id;
     this.patientService.getPatientAccessById(this.idPassedByURL)
     .subscribe((res: PatientAccess ) => {
     if(res != null){
-      this.AdaptationTypes = res.AccessMode.AdaptationType;
-      this.AdaptationRequests = res.AccessMode.AdaptationRequest;
-      this.AdaptationDetails = res.AccessMode.AdaptationDetail;
+      this.AdaptationTypes = res.accessMode.adaptationType;
+      this.AdaptationRequests = res.accessMode.adaptationRequest;
+      this.AdaptationDetails = res.accessMode.adaptationDetail;
     }
     }, (err) => {
       console.log(err);

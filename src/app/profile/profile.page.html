@@ -39,7 +39,7 @@
                 <ion-icon class="segmentIcon" name="person-outline"></ion-icon>Surname</ion-list-header>
             <ion-item>
 
-                <ion-label text-wrap> {{patientData.Surnames}}</ion-label>
+                <ion-label text-wrap> {{patientData.surnames}}</ion-label>
             </ion-item>
             <ion-list-header>
                 <ion-icon class="segmentIcon" name="at-outline"></ion-icon>Email</ion-list-header>
@@ -52,10 +52,10 @@
 
                 <ion-icon class="segmentIcon" name="power-outline"></ion-icon>Active Status</ion-list-header>
             <ion-item>
-                <ion-item [hidden]="patientData.IsActive === true">
+                <ion-item [hidden]="patientData.isActive === true">
                     <ion-label>Disactive</ion-label>
                 </ion-item>
-                <ion-item [hidden]="patientData.IsActive === false">
+                <ion-item [hidden]="patientData.isActive === false">
                     <ion-label>Active</ion-label>
                 </ion-item>
 
@@ -66,10 +66,10 @@
                 <ion-icon class="segmentIcon" name="heart-half-outline"></ion-icon>Is Diseased</ion-list-header>
             <ion-item>
 
-                <ion-item [hidden]="patientData.IsDiseased === false">
+                <ion-item [hidden]="patientData.isDiseased === false">
                     <ion-label>Yes</ion-label>
                 </ion-item>
-                <ion-item [hidden]="patientData.IsDiseased === true">
+                <ion-item [hidden]="patientData.isDiseased === true">
                     <ion-label>No</ion-label>
                 </ion-item>
 
@@ -77,10 +77,10 @@
             <ion-list-header>
                 <ion-icon class="segmentIcon" name="male-female-outline"></ion-icon>Gender</ion-list-header>
             <ion-item>
-                <ion-label *ngIf="patientData.Type === 1"> Male</ion-label>
-                <ion-label *ngIf="patientData.Type === 2"> Female</ion-label>
-                <ion-label *ngIf="patientData.Type === 3"> Other</ion-label>
-                <ion-label *ngIf="patientData.Type === 4"> Unknown</ion-label>
+                <ion-label *ngIf="patientData.type === 1"> Male</ion-label>
+                <ion-label *ngIf="patientData.type === 2"> Female</ion-label>
+                <ion-label *ngIf="patientData.type === 3"> Other</ion-label>
+                <ion-label *ngIf="patientData.type === 4"> Unknown</ion-label>
 
             </ion-item>
         </ion-list>

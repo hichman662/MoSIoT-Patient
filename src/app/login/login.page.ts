@@ -1,4 +1,4 @@
-import { Patient } from 'src/app/models/patient.model';
+
 import { PatientService } from './../services/patient.service';
 /* eslint-disable no-debugger */
 /* eslint-disable @typescript-eslint/naming-convention */
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Storage } from '@ionic/storage';
+import { UserData, ScenarioUser, Patient } from '../models/userData.model';
 
 
 @Component({
@@ -18,7 +19,8 @@ import { Storage } from '@ionic/storage';
 export class LoginPage implements OnInit {
   public formSubmit = false;
   public waiting = false;
-  public token = '';
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  public token!: string;
   public patientName: '';
   public loginForm = this.fb.group({
     Email: ['', [Validators.required, Validators.email]],
@@ -46,12 +48,24 @@ async  ngOnInit() {
     }
     this.waiting = true;
     this.userService.login( this.loginForm.value)
-      .subscribe( (res: any) => {
+      .subscribe( (token: string) => {
         this.storage.set('email', this.loginForm.get('Email').value);
         this.waiting = false;
-        this.storage.set('token', res);
+        this.storage.set('token', token);
 
-        this.getEscenarioDePaciente(res);
+        this.userService.getPatientByEmail(this.loginForm.get('Email').value, token).
+        subscribe ((patient: Patient)=>{
+          console.log("inja Patient: ", patient[0]);
+         if (patient != null){
+            this.storage.set('patientId',patient[0].id);
+          console.log(patient);
+           this.userService.setIdEscenario(patient[0].userData.scenarioUser.id);
+           this.storage.set('idScenario', patient[0].userData.scenarioUser.id);
+         //   this.callingPatient(this.loginForm.get('Email').value);
+            this.router.navigateByUrl('/tabs', { replaceUrl:true });
+          }
+
+        });
       }, (err: any) => {
         console.warn('Error respuesta api', err);
         if(err.status === 401) {
@@ -80,7 +94,7 @@ async  ngOnInit() {
     return this.loginForm.get(campo)?.valid || !this.formSubmit;
   }
 
-getEscenarioDePaciente(token: string){
+/*getEscenarioDePaciente(token: string){
     this.userService.getEscenarioByCliente(token)
     .subscribe((res: number)=>{
 
@@ -92,10 +106,10 @@ getEscenarioDePaciente(token: string){
       }
     });
   }
-
+*/
 
   callingPatient(email: string){
-    this.patientService.getPatientByEmail(email)
+    this.userService.getPatientByEmail(email, this.token)
     .subscribe((res: Patient ) => {
       console.log(res);
       this.storage.set('idPatient',res[0].Id);

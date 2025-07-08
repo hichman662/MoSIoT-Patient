@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 export class Device {
-    Id: number;
-    Description: string;
-    Name: string;
-    DeviceSwitch?: boolean;
-    Tag?: string;
-    IsSimulated?: boolean;
-    SerialNumber?: string;
-    FirmVersion?: string;
-    Trademark?: string;
-    DeviceTemplate?: any;
+    id: number;
+    description: string;
+    name: string;
+    deviceSwitch?: boolean;
+    tag?: string;
+    isSimulated?: boolean;
+    serialNumber?: string;
+    firmVersion?: string;
+    trademark?: string;
+    deviceTemplate?: any;
 }

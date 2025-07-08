@@ -19,7 +19,7 @@
                 <mat-panel-title>
                     <ion-item>
                         <ion-icon class="segmentIcon" name="list-circle-outline"></ion-icon>
-                        <ion-label>{{AdaptationRequest['Description']}}</ion-label>
+                        <ion-label>{{AdaptationRequest['description']}}</ion-label>
                     </ion-item>
                 </mat-panel-title>
 
@@ -38,31 +38,31 @@
 
                     <ion-label>Access Mode Target</ion-label>
 
-                    <ion-badge *ngIf="AdaptationRequest.AccessModeTarget === 1"> Auditory</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.AccessModeTarget === 2"> Colour</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.AccessModeTarget === 3"> ItemSize</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.AccessModeTarget === 4"> Olfactory</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.AccessModeTarget === 5"> Orientation</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.AccessModeTarget === 6"> Position</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.AccessModeTarget === 7"> Tactile</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.AccessModeTarget === 8"> Text on image</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.AccessModeTarget === 9"> Textual</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.AccessModeTarget === 10"> Visual</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.accessModeTarget === 1"> Auditory</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.accessModeTarget === 2"> Colour</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.accessModeTarget === 3"> ItemSize</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.accessModeTarget === 4"> Olfactory</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.accessModeTarget === 5"> Orientation</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.accessModeTarget === 6"> Position</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.accessModeTarget === 7"> Tactile</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.accessModeTarget === 8"> Text on image</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.accessModeTarget === 9"> Textual</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.accessModeTarget === 10"> Visual</ion-badge>
 
                 </ion-item>
                 <ion-item>
 
                     <ion-label>Language Of Adaptation</ion-label>
 
-                    <ion-badge *ngIf="AdaptationRequest.LanguageOfAdaptation === 1">ES</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.LanguageOfAdaptation === 2">EN</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.LanguageOfAdaptation === 3">FR</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.LanguageOfAdaptation === 4">IT</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.LanguageOfAdaptation === 5">PR</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.LanguageOfAdaptation === 6">DE</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.LanguageOfAdaptation === 7">JA</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.LanguageOfAdaptation === 8">KO</ion-badge>
-                    <ion-badge *ngIf="AdaptationRequest.LanguageOfAdaptation === 9">ZH</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.languageOfAdaptation === 1">ES</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.languageOfAdaptation === 2">EN</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.languageOfAdaptation === 3">FR</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.languageOfAdaptation === 4">IT</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.languageOfAdaptation === 5">PR</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.languageOfAdaptation === 6">DE</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.languageOfAdaptation === 7">JA</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.languageOfAdaptation === 8">KO</ion-badge>
+                    <ion-badge *ngIf="AdaptationRequest.languageOfAdaptation === 9">ZH</ion-badge>
 
 
                 </ion-item>
@@ -82,7 +82,7 @@
                 <mat-panel-title>
                     <ion-item>
                         <ion-icon class="segmentIcon" name="list-circle-outline"></ion-icon>
-                        <ion-label>{{AdaptationType['Description']}}</ion-label>
+                        <ion-label>{{AdaptationType['description']}}</ion-label>
                     </ion-item>
                 </mat-panel-title>
             </mat-expansion-panel-header>
@@ -96,15 +96,15 @@
             <ion-card>
                 <ion-item>
                     <ion-label>Adaption Request</ion-label>
-                    <ion-badge *ngIf="AdaptationType.AdaptionRequest === 1"> Alternative Text</ion-badge>
-                    <ion-badge *ngIf="AdaptationType.AdaptionRequest === 2"> Audio description</ion-badge>
-                    <ion-badge *ngIf="AdaptationType.AdaptionRequest === 3"> Captions</ion-badge>
-                    <ion-badge *ngIf="AdaptationType.AdaptionRequest === 4"> E_book</ion-badge>
-                    <ion-badge *ngIf="AdaptationType.AdaptionRequest === 5"> Haptic</ion-badge>
-                    <ion-badge *ngIf="AdaptationType.AdaptionRequest === 6"> HighContrast</ion-badge>
-                    <ion-badge *ngIf="AdaptationType.AdaptionRequest === 7"> LongDescription</ion-badge>
-                    <ion-badge *ngIf="AdaptationType.AdaptionRequest === 8"> Sign Language</ion-badge>
-                    <ion-badge *ngIf="AdaptationType.AdaptionRequest === 9"> Transcript</ion-badge>
+                    <ion-badge *ngIf="AdaptationType.adaptionRequest === 1"> Alternative Text</ion-badge>
+                    <ion-badge *ngIf="AdaptationType.adaptionRequest === 2"> Audio description</ion-badge>
+                    <ion-badge *ngIf="AdaptationType.adaptionRequest === 3"> Captions</ion-badge>
+                    <ion-badge *ngIf="AdaptationType.adaptionRequest === 4"> E_book</ion-badge>
+                    <ion-badge *ngIf="AdaptationType.adaptionRequest === 5"> Haptic</ion-badge>
+                    <ion-badge *ngIf="AdaptationType.adaptionRequest === 6"> HighContrast</ion-badge>
+                    <ion-badge *ngIf="AdaptationType.adaptionRequest === 7"> LongDescription</ion-badge>
+                    <ion-badge *ngIf="AdaptationType.adaptionRequest === 8"> Sign Language</ion-badge>
+                    <ion-badge *ngIf="AdaptationType.adaptionRequest === 9"> Transcript</ion-badge>
                 </ion-item>
             </ion-card>
         </mat-expansion-panel>
@@ -117,7 +117,7 @@
                 <mat-panel-title>
                     <ion-item>
                         <ion-icon class="segmentIcon" name="list-circle-outline"></ion-icon>
-                        <ion-label>{{AdaptationDetail['Description']}}</ion-label>
+                        <ion-label>{{AdaptationDetail['description']}}</ion-label>
                     </ion-item>
                 </mat-panel-title>
             </mat-expansion-panel-header>
@@ -131,12 +131,12 @@
             <ion-card>
                 <ion-item>
                     <ion-label>Adaptation Request</ion-label>
-                    <ion-badge *ngIf="AdaptationDetail.AdaptationRequest === 1"> Enhanced</ion-badge>
-                    <ion-badge *ngIf="AdaptationDetail.AdaptationRequest === 2"> RealTime</ion-badge>
-                    <ion-badge *ngIf="AdaptationDetail.AdaptationRequest === 3"> Record</ion-badge>
-                    <ion-badge *ngIf="AdaptationDetail.AdaptationRequest === 4"> Symbolic</ion-badge>
-                    <ion-badge *ngIf="AdaptationDetail.AdaptationRequest === 5"> Synthesized</ion-badge>
-                    <ion-badge *ngIf="AdaptationDetail.AdaptationRequest === 6"> Verbatim</ion-badge>
+                    <ion-badge *ngIf="AdaptationDetail.adaptationRequest === 1"> Enhanced</ion-badge>
+                    <ion-badge *ngIf="AdaptationDetail.adaptationRequest === 2"> RealTime</ion-badge>
+                    <ion-badge *ngIf="AdaptationDetail.adaptationRequest === 3"> Record</ion-badge>
+                    <ion-badge *ngIf="AdaptationDetail.adaptationRequest === 4"> Symbolic</ion-badge>
+                    <ion-badge *ngIf="AdaptationDetail.adaptationRequest === 5"> Synthesized</ion-badge>
+                    <ion-badge *ngIf="AdaptationDetail.adaptationRequest === 6"> Verbatim</ion-badge>
 
                 </ion-item>
             </ion-card>

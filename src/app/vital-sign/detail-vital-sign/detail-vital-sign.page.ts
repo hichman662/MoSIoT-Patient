@@ -26,7 +26,7 @@ load = false;
 
   ngOnInit() {
     this.load= true;
-    this.idPassedByURL = this.route.snapshot.params.Id;
+    this.idPassedByURL = this.route.snapshot.params.id;
     this.carePlanService.getVitalSignById(this.idPassedByURL)
     .subscribe((res: VitalSign ) => {
       console.log(res);
@@ -34,9 +34,9 @@ load = false;
       this.load= false;
 
       this.vitalSign = res;
-       this.vitalSignName = res.Name;
-       this.vitalSignDescrip = res.Description;
-       this.measureVitalSign = this.vitalSign.MeasureVitalSign;
+       this.vitalSignName = res.name;
+       this.vitalSignDescrip = res.description;
+       this.measureVitalSign = this.vitalSign.measureVitalSign;
 
     }
     }, (err) => {

@@ -10,7 +10,7 @@ const routes: Routes = [
     component: Tab0Page
   },
   {
-    path: 'detail-care-activity/:Id',
+    path: 'detail-care-activity/:id',
     loadChildren: () => import('../care-activity/detail-care-activity/detail-care-activity.module').then( m => m.DetailCareActivityPageModule)
   }
 ];

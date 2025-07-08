@@ -8,7 +8,7 @@
         <ion-card slot="end" color="transparent" class="pati-card">
             <ion-img src='assets/icon/carePlansW.png'></ion-img>
 
-            <ion-label id="title" *ngIf="!load"><strong>{{carePlanTemplate.Name}}</strong></ion-label>
+            <ion-label id="title" *ngIf="!load"><strong>{{carePlanTemplate.name}}</strong></ion-label>
         </ion-card>
 
     </ion-toolbar>
@@ -39,13 +39,13 @@
                 <ion-icon class="segmentIcon" name="receipt-outline"></ion-icon>Name</ion-list-header>
             <ion-item>
 
-                <ion-label text-wrap> {{carePlanTemplate.Name}}</ion-label>
+                <ion-label text-wrap> {{carePlanTemplate.name}}</ion-label>
             </ion-item>
             <ion-list-header>
                 <ion-icon class="segmentIcon" name="receipt-outline"></ion-icon>Description</ion-list-header>
             <ion-item>
 
-                <ion-label> {{carePlanTemplate.Description}}</ion-label>
+                <ion-label> {{carePlanTemplate.description}}</ion-label>
 
             </ion-item>
 
@@ -53,7 +53,7 @@
                 <ion-icon class="segmentIcon" name="heart-half-outline"></ion-icon>Duration Days</ion-list-header>
             <ion-item>
 
-                <ion-label> {{carePlanTemplate.DurationDays}}</ion-label>
+                <ion-label> {{carePlanTemplate.durationDays}}</ion-label>
 
             </ion-item>
 
@@ -61,22 +61,22 @@
             <ion-list-header>
                 <ion-icon class="segmentIcon" name="male-female-outline"></ion-icon>Intent</ion-list-header>
             <ion-item>
-                <ion-label *ngIf="carePlanTemplate.Intent === 1"> Proposal</ion-label>
-                <ion-label *ngIf="carePlanTemplate.Intent === 2"> Plan</ion-label>
-                <ion-label *ngIf="carePlanTemplate.Intent === 3"> Order</ion-label>
-                <ion-label *ngIf="carePlanTemplate.Intent === 4"> Option</ion-label>
+                <ion-label *ngIf="carePlanTemplate.intent === 1"> Proposal</ion-label>
+                <ion-label *ngIf="carePlanTemplate.intent === 2"> Plan</ion-label>
+                <ion-label *ngIf="carePlanTemplate.intent === 3"> Order</ion-label>
+                <ion-label *ngIf="carePlanTemplate.intent === 4"> Option</ion-label>
             </ion-item>
 
 
             <ion-list-header>
                 <ion-icon class="segmentIcon" name="male-female-outline"></ion-icon>Status</ion-list-header>
             <ion-item>
-                <ion-label *ngIf="carePlanTemplate.Status === 1"> Draft</ion-label>
-                <ion-label *ngIf="carePlanTemplate.Status === 2"> Active</ion-label>
-                <ion-label *ngIf="carePlanTemplate.Status === 3"> On Hold</ion-label>
-                <ion-label *ngIf="carePlanTemplate.Status === 4"> Revoked</ion-label>
-                <ion-label *ngIf="carePlanTemplate.Status === 5"> Completed</ion-label>
-                <ion-label *ngIf="carePlanTemplate.Status === 6"> Canceled</ion-label>
+                <ion-label *ngIf="carePlanTemplate.status === 1"> Draft</ion-label>
+                <ion-label *ngIf="carePlanTemplate.status === 2"> Active</ion-label>
+                <ion-label *ngIf="carePlanTemplate.status === 3"> On Hold</ion-label>
+                <ion-label *ngIf="carePlanTemplate.status === 4"> Revoked</ion-label>
+                <ion-label *ngIf="carePlanTemplate.status === 5"> Completed</ion-label>
+                <ion-label *ngIf="carePlanTemplate.status === 6"> Canceled</ion-label>
             </ion-item>
 
 
@@ -90,7 +90,7 @@
                     <mat-panel-title>
                         <ion-item>
                             <ion-icon class="segmentIcon" name="list-circle-outline"></ion-icon>
-                            <ion-label>{{goal.Name}}</ion-label>
+                            <ion-label>{{goal.name}}</ion-label>
                         </ion-item>
                     </mat-panel-title>
 
@@ -107,35 +107,35 @@
                     <ion-item>
 
                         <ion-label>Description</ion-label>
-                        <ion-badge text-wrap> {{goal.Description}}</ion-badge>
+                        <ion-badge text-wrap> {{goal.description}}</ion-badge>
                     </ion-item>
                     <ion-item>
 
                         <ion-label>Priority</ion-label>
 
-                        <ion-badge *ngIf="goal.Priority === 1"> High</ion-badge>
-                        <ion-badge *ngIf="goal.Priority === 2"> Medium</ion-badge>
-                        <ion-badge *ngIf="goal.Priority === 3"> Low</ion-badge>
+                        <ion-badge *ngIf="goal.priority === 1"> High</ion-badge>
+                        <ion-badge *ngIf="goal.priority === 2"> Medium</ion-badge>
+                        <ion-badge *ngIf="goal.priority === 3"> Low</ion-badge>
                     </ion-item>
                     <ion-item>
 
                         <ion-label>Status</ion-label>
 
-                        <ion-badge *ngIf="goal.Status === 1"> Draft</ion-badge>
-                        <ion-badge *ngIf="goal.Status === 2"> Active</ion-badge>
-                        <ion-badge *ngIf="goal.Status === 3"> On Hold</ion-badge>
-                        <ion-badge *ngIf="goal.Status === 4"> Revoked</ion-badge>
-                        <ion-badge *ngIf="goal.Status === 5"> Completed</ion-badge>
-                        <ion-badge *ngIf="goal.Status === 6"> Canceled</ion-badge>
+                        <ion-badge *ngIf="goal.status === 1"> Draft</ion-badge>
+                        <ion-badge *ngIf="goal.status === 2"> Active</ion-badge>
+                        <ion-badge *ngIf="goal.status === 3"> On Hold</ion-badge>
+                        <ion-badge *ngIf="goal.status === 4"> Revoked</ion-badge>
+                        <ion-badge *ngIf="goal.status === 5"> Completed</ion-badge>
+                        <ion-badge *ngIf="goal.status === 6"> Canceled</ion-badge>
                     </ion-item>
                     <ion-item>
 
                         <ion-label>Category</ion-label>
 
-                        <ion-badge *ngIf="goal.Category === 1"> Dietary</ion-badge>
-                        <ion-badge *ngIf="goal.Category === 2"> Safety</ion-badge>
-                        <ion-badge *ngIf="goal.Category === 3"> Behavioral</ion-badge>
-                        <ion-badge *ngIf="goal.Category === 4"> Physiotherapy</ion-badge>
+                        <ion-badge *ngIf="goal.category === 1"> Dietary</ion-badge>
+                        <ion-badge *ngIf="goal.category === 2"> Safety</ion-badge>
+                        <ion-badge *ngIf="goal.category === 3"> Behavioral</ion-badge>
+                        <ion-badge *ngIf="goal.category === 4"> Physiotherapy</ion-badge>
 
                     </ion-item>
                     <!--  <ion-item>
@@ -153,7 +153,7 @@
                     <mat-panel-title>
                         <ion-item>
                             <ion-icon class="segmentIcon" name="list-circle-outline"></ion-icon>
-                            <ion-label>{{target.Description}}</ion-label>
+                            <ion-label>{{target.description}}</ion-label>
                         </ion-item>
                     </mat-panel-title>
 
@@ -171,14 +171,14 @@
                     <ion-item>
 
                         <ion-label text-wrap>DesiredValue</ion-label>
-                        <ion-badge text-wrap> {{target.DesiredValue}}</ion-badge>
+                        <ion-badge text-wrap> {{target.desiredValue}}</ion-badge>
                     </ion-item>
 
                     <ion-item>
 
                         <ion-label>Due Date</ion-label>
 
-                        <ion-badge> {{target.DueDate | date}}</ion-badge>
+                        <ion-badge> {{target.dueDate | date}}</ion-badge>
                     </ion-item>
                 </ion-card>
             </mat-expansion-panel>

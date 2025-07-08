@@ -34,37 +34,37 @@
                 <ion-icon class="segmentIcon" name="logo-apple"></ion-icon>Trademark</ion-list-header>
             <ion-item>
 
-                <ion-label text-wrap> {{deviceData.Trademark}}</ion-label>
+                <ion-label text-wrap> {{deviceData.trademark}}</ion-label>
             </ion-item>
             <ion-list-header>
                 <ion-icon class="segmentIcon" name="hardware-chip-outline"></ion-icon>Firm Version</ion-list-header>
             <ion-item>
 
-                <ion-label> {{$any(deviceData)?.FirmVersion}}</ion-label>
+                <ion-label> {{$any(deviceData)?.firmVersion}}</ion-label>
 
             </ion-item>
             <ion-list-header>
                 <ion-icon class="segmentIcon" name="barcode-outline"></ion-icon>Serial Number</ion-list-header>
             <ion-item>
 
-                <ion-label> {{$any(deviceData)?.SerialNumber}}</ion-label>
+                <ion-label> {{$any(deviceData)?.serialNumber}}</ion-label>
 
             </ion-item>
             <ion-list-header>
                 <ion-icon class="segmentIcon" name="pricetag-outline"></ion-icon>Tag</ion-list-header>
             <ion-item>
 
-                <ion-label> {{$any(deviceData)?.Tag}}</ion-label>
+                <ion-label> {{$any(deviceData)?.tag}}</ion-label>
 
             </ion-item>
             <ion-list-header>
 
                 <ion-icon class="segmentIcon" name="power-outline"></ion-icon>Device Switch</ion-list-header>
             <ion-item>
-                <ion-item [hidden]="$any(deviceData)?.DeviceSwitch === true">
+                <ion-item [hidden]="$any(deviceData)?.deviceSwitch === true">
                     <ion-label>Off</ion-label>
                 </ion-item>
-                <ion-item [hidden]="$any(deviceData)?.DeviceSwitch === false">
+                <ion-item [hidden]="$any(deviceData)?.deviceSwitch === false">
                     <ion-label>On</ion-label>
                 </ion-item>
 
@@ -75,10 +75,10 @@
                 <ion-icon class="segmentIcon" name="invert-mode-outline"></ion-icon>Is Simulated</ion-list-header>
             <ion-item>
 
-                <ion-item [hidden]="$any(deviceData)?.IsSimulated === false">
+                <ion-item [hidden]="$any(deviceData)?.isSimulated === false">
                     <ion-label>Yes</ion-label>
                 </ion-item>
-                <ion-item [hidden]="$any(deviceData)?.IsSimulated === true">
+                <ion-item [hidden]="$any(deviceData)?.isSimulated === true">
                     <ion-label>No</ion-label>
                 </ion-item>
 
@@ -91,7 +91,7 @@
                 <ion-icon class="segmentIcon" name="reader-outline"></ion-icon>Name</ion-list-header>
             <ion-item>
 
-                <ion-label text-wrap> {{$any(deviceTemplate)?.Name}}</ion-label>
+                <ion-label text-wrap> {{$any(deviceTemplate)?.name}}</ion-label>
             </ion-item>
 
 
@@ -99,10 +99,10 @@
                 <ion-icon class="segmentIcon" name="triangle-outline"></ion-icon>Is Edge</ion-list-header>
             <ion-item>
 
-                <ion-item [hidden]="$any(deviceTemplate)?.IsEdge === false">
+                <ion-item [hidden]="$any(deviceTemplate)?.isEdge === false">
                     <ion-label>Yes</ion-label>
                 </ion-item>
-                <ion-item [hidden]="$any(deviceTemplate)?.IsEdge === true">
+                <ion-item [hidden]="$any(deviceTemplate)?.isEdge === true">
                     <ion-label>No</ion-label>
                 </ion-item>
 
@@ -110,9 +110,9 @@
             <ion-list-header>
                 <ion-icon class="segmentIcon" name="prism-outline"></ion-icon>Type</ion-list-header>
             <ion-item>
-                <ion-label *ngIf="$any(deviceTemplate)?.Type === 1"> Sensor</ion-label>
-                <ion-label *ngIf="$any(deviceTemplate)?.Type === 2"> Actuator</ion-label>
-                <ion-label *ngIf="$any(deviceTemplate)?.Type === 3"> Gateway</ion-label>
+                <ion-label *ngIf="$any(deviceTemplate)?.type === 1"> Sensor</ion-label>
+                <ion-label *ngIf="$any(deviceTemplate)?.type === 2"> Actuator</ion-label>
+                <ion-label *ngIf="$any(deviceTemplate)?.type === 3"> Gateway</ion-label>
             </ion-item>
         </ion-list>
     </div>

@@ -36,13 +36,13 @@
                 <ion-icon class="segmentIcon" name="accessibility-outline"></ion-icon>Access Mode Name</ion-list-header>
             <ion-item>
 
-                <ion-label text-wrap> {{accessMode.Name}}</ion-label>
+                <ion-label text-wrap> {{accessMode.name}}</ion-label>
             </ion-item>
             <ion-list-header>
                 <ion-icon class="segmentIcon" name="clipboard-outline"></ion-icon>Description</ion-list-header>
             <ion-item>
 
-                <ion-label text-wrap> {{accessMode.Description}}</ion-label>
+                <ion-label text-wrap> {{accessMode.description}}</ion-label>
 
             </ion-item>
             <ion-list-header>
@@ -50,16 +50,16 @@
                 <ion-icon class="segmentIcon" name="qr-code-outline"></ion-icon>Access Mode Type</ion-list-header>
             <ion-item>
 
-                <ion-label *ngIf="accessMode.TypeAccessMode === 1"> Auditory</ion-label>
-                <ion-label *ngIf="accessMode.TypeAccessMode === 2"> Colour</ion-label>
-                <ion-label *ngIf="accessMode.TypeAccessMode === 3"> ItemSize</ion-label>
-                <ion-label *ngIf="accessMode.TypeAccessMode === 4"> Olfactory</ion-label>
-                <ion-label *ngIf="accessMode.TypeAccessMode === 5"> Orientation</ion-label>
-                <ion-label *ngIf="accessMode.TypeAccessMode === 6"> Position</ion-label>
-                <ion-label *ngIf="accessMode.TypeAccessMode === 7"> Tactile</ion-label>
-                <ion-label *ngIf="accessMode.TypeAccessMode === 8"> Text on image</ion-label>
-                <ion-label *ngIf="accessMode.TypeAccessMode === 9"> Textual</ion-label>
-                <ion-label *ngIf="accessMode.TypeAccessMode === 10"> Visual</ion-label>
+                <ion-label *ngIf="accessMode.typeAccessMode === 1"> Auditory</ion-label>
+                <ion-label *ngIf="accessMode.typeAccessMode === 2"> Colour</ion-label>
+                <ion-label *ngIf="accessMode.typeAccessMode === 3"> ItemSize</ion-label>
+                <ion-label *ngIf="accessMode.typeAccessMode === 4"> Olfactory</ion-label>
+                <ion-label *ngIf="accessMode.typeAccessMode === 5"> Orientation</ion-label>
+                <ion-label *ngIf="accessMode.typeAccessMode === 6"> Position</ion-label>
+                <ion-label *ngIf="accessMode.typeAccessMode === 7"> Tactile</ion-label>
+                <ion-label *ngIf="accessMode.typeAccessMode === 8"> Text on image</ion-label>
+                <ion-label *ngIf="accessMode.typeAccessMode === 9"> Textual</ion-label>
+                <ion-label *ngIf="accessMode.typeAccessMode === 10"> Visual</ion-label>
 
 
 

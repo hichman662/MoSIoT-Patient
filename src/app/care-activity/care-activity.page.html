@@ -22,21 +22,21 @@
             <ion-item>
 
 
-                <ion-col size="2" [routerLink]="['detail-care-activity',careActivity['Id']]">
-                    <ion-img *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 1 " src='assets/icon/medication.png'></ion-img>
-                    <ion-img *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 2 " src='assets/icon/nutrition.png'></ion-img>
-                    <ion-img *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 3 " src='assets/icon/communication.png'></ion-img>
-                    <ion-img *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 4 " src='assets/icon/appointment.png'></ion-img>
-                    <ion-img *ngIf="careActivity.ValueCareActivity === null " src='assets/icon/sinDefinicion.png'></ion-img>
+                <ion-col size="2" [routerLink]="['detail-care-activity',careActivity['id']]">
+                    <ion-img *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 1 " src='assets/icon/medication.png'></ion-img>
+                    <ion-img *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 2 " src='assets/icon/nutrition.png'></ion-img>
+                    <ion-img *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 3 " src='assets/icon/communication.png'></ion-img>
+                    <ion-img *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 4 " src='assets/icon/appointment.png'></ion-img>
+                    <ion-img *ngIf="careActivity.valueCareActivity === null " src='assets/icon/sinDefinicion.png'></ion-img>
                     <br>
                 </ion-col>
-                <ion-col size="6" [routerLink]="['detail-care-activity',careActivity['Id']]">
+                <ion-col size="6" [routerLink]="['detail-care-activity',careActivity['id']]">
 
-                    <ion-item lines="none" *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 1 "><strong>Medication</strong></ion-item>
-                    <ion-item lines="none" *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 2"><strong>Nutrition</strong></ion-item>
-                    <ion-item lines="none" *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 3"><strong>Communication</strong></ion-item>
-                    <ion-item lines="none" *ngIf="careActivity.ValueCareActivity !== null && careActivity.ValueCareActivity.TypeActivity === 4"><strong>Appointment</strong></ion-item>
-                    <ion-item lines="none" *ngIf="careActivity.ValueCareActivity === null "><strong>Undefiend</strong></ion-item>
+                    <ion-item lines="none" *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 1 "><strong>Medication</strong></ion-item>
+                    <ion-item lines="none" *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 2"><strong>Nutrition</strong></ion-item>
+                    <ion-item lines="none" *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 3"><strong>Communication</strong></ion-item>
+                    <ion-item lines="none" *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 4"><strong>Appointment</strong></ion-item>
+                    <ion-item lines="none" *ngIf="careActivity.valueCareActivity === null "><strong>Undefiend</strong></ion-item>
                     <ion-item lines="none" class="h6">{{careActivity.Name}}</ion-item>
 
                     <!-- <ion-toggle class="" toggle-class="toggle-assertive" color="danger"> </ion-toggle>-->
@@ -44,7 +44,7 @@
                 </ion-col>
                 <ion-col size="4">
                     <ion-row>
-                        <ion-select interface="popover" (ionChange)="handleChange($event,careActivity.Id)" value="{{careActivity.State}}" [class.red]="careActivity.State === 1" [class.blue]="careActivity.State === 2" [class.green]="careActivity.State === 3">
+                        <ion-select interface="popover" (ionChange)="handleChange($event,careActivity.id)" value="{{careActivity.state}}" [class.red]="careActivity.state === 1" [class.blue]="careActivity.state === 2" [class.green]="careActivity.state === 3">
                             <ion-select-option value="1">Pendent</ion-select-option>
                             <ion-select-option value="2">Discard</ion-select-option>
                             <ion-select-option value="3">Complete</ion-select-option>
@@ -52,7 +52,7 @@
                         <hr>
                     </ion-row>
                     <ion-row>
-                        {{careActivity.TimeAct|date:'shortTime'}} {{careActivity.TimeAct|date}}
+                        {{careActivity.timeAct|date:'shortTime'}} {{careActivity.timeAct|date}}
                     </ion-row>
                 </ion-col>
             </ion-item>

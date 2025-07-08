@@ -6,13 +6,13 @@ import { Disability } from './disability.model';
 
 export class PatientProfile {
 
-      Id: number;
-      Name?: string;
-      Description?: string;
-      PreferredLanguage?: number;
-      Region?: string;
-      HazardAvoidance?: number;
-      Disability?: Disability[];
-      Diseases?: Condition[];
+      id: number;
+      name?: string;
+      description?: string;
+      preferredLanguage?: number;
+      region?: string;
+      hazardAvoidance?: number;
+      disability?: Disability[];
+      diseases?: Condition[];
 
 }

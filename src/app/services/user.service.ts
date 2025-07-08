@@ -6,12 +6,13 @@
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {of, Observable} from 'rxjs';
+import {of, Observable, throwError} from 'rxjs';
 import { loginForm  } from '../interfaces/loginForm.interface';
 import { Router } from '@angular/router';
 import { tap, map, catchError } from 'rxjs/operators';
-import { UserData } from '../models/userData.model';
+import { Patient, UserData } from '../models/userData.model';
 import { Storage } from '@ionic/storage';
+
 
 
 
@@ -61,12 +62,13 @@ public createUser( data: UserData ): Observable<object> {
   return this.http.post(`${environment.base_url}/User/New_`, data);
 }
 
- login( formData: loginForm) {
-  return this.http.post(`${environment.base_url}/PatientAnonimous/Login`, formData)
-          .pipe(
-            tap( (res: any) => {
-              this.isLoggedIn = true;
-              console.log(this.isLoggedIn);
+ login( formData: loginForm): Observable<any> {
+  return this.http.post(`${environment.base_url}/PatientAnonimous/Login`, formData, {responseType: 'text'})
+         .pipe(
+            catchError((err: any) => {
+              this.isLoggedIn = false;
+              console.error(err);
+              return throwError(err);
 
               })
           );
@@ -99,26 +101,57 @@ setIdEscenario(id: number){
 
 
 
-public getEscenarioByCliente(token: string): Observable<any>{
+public getPatientId(token: string): Observable<Patient>{
 
 this.headers = new HttpHeaders ({'Authorization': token});
-return this.http.post<any>(`${environment.base_url}/IoTScenario_Secure/DamePorPaciente`, null,{headers:this.headers});
+return this.http.get<any>(`${environment.base_url}/Patient`, {headers:this.headers});
 
 }
 
+// Patient
+public getAllPatient(token: string): Observable<object>{
+  this.headers = new HttpHeaders ({'Authorization': token});
+  return this.http.get(`${environment.base_url}/Patient/ReadAll`, {headers:this.headers});
+}
+
+public getPatientByIdScenario( uid: number, token: string): Observable<object>{
+  this.headers = new HttpHeaders ({'Authorization': token});
+  if (!uid) { uid = null; }
+  return this.http.get <Patient>(`${environment.base_url}/Patient/PatientScenario?idIoTScenario=${uid}`, {headers:this.headers});
+}
+
+public getPatientByEmail( email: string, token: string): Observable<object>{
+  this.headers = new HttpHeaders ({'Authorization': token});
+  return this.http.get <Patient>(`${environment.base_url}/Patient/DamePorEmail?p_email=${email}`, {headers:this.headers} );
+ }
+
+public createPatient( data: Patient, token: string ): Observable<object> {
+  this.headers = new HttpHeaders ({'Authorization': token});
+  return this.http.post(`${environment.base_url}/Patient/New_`, data, {headers:this.headers});
+}
+
+// Assign Patient profile to patient
+public assignPatientProfile(patientId: number, patientProfileId: number, token: string): Observable<object> {
+  this.headers = new HttpHeaders ({'Authorization': token});
+  // eslint-disable-next-line max-len
+  return this.http.put(`${environment.base_url}/Patient/AssignPatientProfile?p_patient_oid=${patientId}&p_patientprofile_oid=${patientProfileId}`,{headers:this.headers});
+}
+
+
+
 get idNewUser(): number {
-  return this.newUser.Id;
+  return this.newUser.id;
 }
 
 get nameNewUser(): string | undefined {
-  return this.newUser.Surnames;
+  return this.newUser.surnames;
 }
 
 removeUserId(){
-  this.newUser.Id = null;
+  this.newUser.id = null;
 }
 removeUserName(){
-  this.newUser.Surnames = null;
+  this.newUser.surnames = null;
 }
 
 }
