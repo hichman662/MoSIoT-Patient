@@ -1,211 +1,73 @@
 ion-content {
-    --background: url('/assets/icon/backW.jpg') 0 0/100% 100% no-repeat;
-    //--background: url('/') 0 0/100% 100% no-repeat;
-    border-radius: 20px;
-    align-content: center;
-}
-
-ion-menu-button {
-    color: rgb(0, 47, 255);
-}
-
-ion-title {
-    text-align: left;
-    font-size: 18px;
-    color: black;
-    background-color: rgba(192, 219, 96, 0.938);
-}
-
-.text-top {
-    font-weight: bold;
-    font-size: 22px;
-    margin-right: 10px;
-}
-
-#dashboardSection {
-    max-width: 100%;
-    max-height: auto;
-    text-align: center;
-    background-color: rgba(192, 219, 96, 0.938);
-    margin-top: 2px;
-    margin-left: 3px;
-    margin-bottom: 6px;
-    margin-right: 3px;
-    border-radius: 20px;
-    box-shadow: 10px;
-}
-
-ion-header {
-    text-align: center;
-    align-content: center;
-    background-color: rgba(192, 219, 96) !important;
-    box-shadow: 3px;
-}
-
-ion-icon {
-    width: 30px;
-    height: 30px;
-}
-
-ion-card {
-    align-content: center;
-    --ion-background-color: transparent !important;
-    --ion-border-color: transparent !important;
-    box-shadow: none;
-    width: 80%;
-    height: 80%;
-    margin-left: 30px;
-    margin-right: 30px;
-}
-
-ion-label {
-    justify-content: center;
-    align-content: center;
-    font-size: 16px;
-    color: black;
-}
-
-.pati-card {
-    margin-left: 10px;
-    width: 15%;
-    height: 10%;
-}
-
-.bottomRow {
-    margin-top: -30px;
-}
-
-.topRow {
-    margin-top: -20px;
-}
-
-ion-toggle {
-    width: 60px;
-    height: 30px;
-    margin-top: 5px;
-    margin-left: 50px;
-    --background: rgb(238, 207, 207);
-}
-
-ion-toggle[aria-checked="false"] {
-    width: 85px;
-    &::before {
-        top: 12px;
-        left: 50px;
-    }
-    &::after {
-        position: absolute;
-        content: "Complete";
-        font-size: 10px;
-        line-height: 31px;
-        top: 12px;
-        left: 50px;
-        color: black
-    }
-}
-
-ion-toggle[aria-checked="true"] {
-    width: 85px;
-    &::before {
-        position: absolute;
-        content: "";
-    }
-    &::after {
-        position: absolute;
-        content: "Descard";
-        font-size: 10px;
-        line-height: 32px;
-        top: 12px;
-        left: 25px;
-        color: #fff;
-    }
+  --background: linear-gradient(to bottom right, rgba(207, 218, 182, 0.25), rgba(255, 255, 255, 0.9));
+  font-family: 'Arial', sans-serif;
+  padding: 12px;
 }
 
 #mainToolbar {
-    --background: rgba(133, 116, 110, 0.253) !important;
+  --background: linear-gradient(to right, #e0e0e0, #d0d0d0);
+  color: black;
+
+  ion-buttons {
+    align-items: center;
+  }
+
+  ion-card.pati-card {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    box-shadow: none;
+    margin: 0 12px;
+
+    ion-img {
+      width: 48px;
+      height: 48px;
+      margin-right: 10px;
+    }
+
+    ion-label#title {
+      display: flex;
+      flex-direction: column;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+      h4 {
+        margin: 0;
+        line-height: 1.2;
+      }
+    }
+  }
 }
 
-.text-top {
+ion-card {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-top: 20px;
+
+  ion-card-header {
+    font-size: 1.1rem;
+    font-weight: 600;
     text-align: center;
-    margin-top: -11px;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    background: rgba(207, 218, 182, 0.4);
+    border-radius: 16px 16px 0 0;
+    padding: 14px;
+    color: #333;
+  }
+
+  ion-card-content {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: 260px !important;
+    max-width: 100%;
+  }
 }
 
-.ion-align-self-end {
-    margin-top: 2px;
-}
-
-:root {
-    ion-tab-button:nth-child(1) {
-        ion-icon {
-            color: var(--ion-color-secondary) !important;
-            /* --ion-color-base: var(--ion-color-secondary) !important; */
-        }
-    }
-    ion-tab-button.tab-selected:nth-child(1) {
-        ion-icon {
-            color: var(--ion-color-secondary) !important;
-            /* --ion-color-base: var(--ion-color-secondary) !important; */
-        }
-    }
-}
-
-ion-loading {
-    color: green;
-}
-
-app-component-telemetry {
-    width: 100%;
-}
-
-ion-segment-button {
-    width: 40px;
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    font-size: 8px;
-    border: none;
-    background-color: rgb(248, 248, 248);
-    border-radius: 0%;
-}
-
-.my-custom-menu {
-    --width: 500px;
-}
-
-ion-select {
-    --width: 500%;
-}
-
-#title {
-    font-size: 20px;
-    color: #fff;
-}
-
-.pati-card {
-    width: 25%;
-    height: 10%;
-}
-
-#return {
-    color: #fff;
-}
-
-h5 {
-    font-weight: bold;
-    font-size: 14px;
-}
-
-h4 {
-    font-weight: bold;
-    font-size: 18px;
-}
-
-ion-card-header {
-    margin-top: -14px;
-}
-
-ion-card-content {
-    margin-top: -8px;
+ion-refresher {
+  --background: transparent;
 }

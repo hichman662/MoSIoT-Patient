@@ -15,7 +15,7 @@ export class RespiratoryRatePage implements OnInit {
 
   @ViewChild('barCanvas') private barCanvas: ElementRef;
 
-  public respiratoryRate: any;
+  public respiratoryRate: number = 28;
   barChart: any;
   label: any [] =['2022/5/22', '2022/5/23', '2022/5/26', '2022/5/27', '2022/6/1','2022/6/2'];
   data: any[]=[15, 24, 18, 22, 17, 27];

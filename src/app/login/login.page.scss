@@ -1,77 +1,60 @@
-.input-group {
-    background: rgba(46, 83, 133, 0.884);
-    border-radius: 15px;
-    overflow: hidden;
-    margin-bottom: 25px;
-    margin-top: 25px;
-    text-align: left;
+.login-background {
+  --background: linear-gradient(to bottom right, rgba(207, 218, 182, 0.4), rgba(255, 255, 255, 0.8));
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
 }
 
-ion-content {
-    --background: url('/assets/icon/back.jpg') 0 0/100% 100% no-repeat;
-    text-align: center;
-    font-size: larger;
-    --padding-top: 1%;
-    --padding-start: 15%;
-    --padding-end: 10%;
+.login-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
 }
 
-ion-input {
-    --background: white;
-    color: black;
-    --padding-bottom: 15px;
-    font-size: 14px;
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-ion-title {
-    color: black;
-    font-size: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: rgba(28, 95, 230, 0.767);
-    border-radius: 00px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+.login-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
 }
 
-.text-danger {
-    font-size: 14px;
-    color: red;
-    border-radius: 15px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+.login-title {
+  font-size: 1.5rem;
+  color: #2d3e50;
+  font-weight: bold;
 }
 
-.grid1 {
-    height: 100%;
-    padding: 0px;
+.login-card {
+  padding: 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.contaier-login {
-    width: 90%;
-    padding: 10px;
-    background: #FFFFFF;
-    border-radius: 5px;
-    -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+ion-item {
+  --background: transparent;
+  --color: #333;
 }
 
-.row1 {
-    height: 50%;
-    background: -moz-linear-gradient(45deg, rgba(61, 66, 150, 1) 0%, rgba(84, 74, 171, 0.8) 100%);
-    background: -webkit-linear-gradient(45deg, rgba(61, 66, 150, 1) 0%, rgba(84, 74, 171, 0.8) 100%);
-    background: linear-gradient(45deg, rgba(61, 66, 150, 1) 0%, rgba(84, 74, 171, 0.8) 100%);
+ion-input::placeholder {
+  color: #999;
 }
 
-.row2 {
-    height: 50%;
+.login-errors {
+  color: #c0392b;
+  font-size: 0.85rem;
+  text-align: left;
+  padding: 8px 0;
 }
 
-ion-icon {
-    margin-right: 15px;
-}
-
-.img-container {
-    display: flex;
-    justify-content: center;
-    // align-items: center; this only if you want to vertical align it to the center too
+ion-img {
+    margin-top: 10px;
 }

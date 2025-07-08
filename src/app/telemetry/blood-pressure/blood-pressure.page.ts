@@ -14,8 +14,8 @@ import { Chart, registerables } from 'chart.js';
 export class BloodPressurePage implements OnInit {
 
   @ViewChild('lineCanvas') private lineCanvas: ElementRef;
-  public systolic: any;
-  public diastolic: any;
+  public systolic: number = 112;
+  public diastolic: number = 82;
   lineChart: any;
   label: any [] =[ '2022/5/22', '2022/5/23', '2022/5/26', '2022/5/27', '2022/6/1','2022/6/2'];
   public syst: any[]=[115, 118, 121, 119, 125, 111];

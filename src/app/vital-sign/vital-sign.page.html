@@ -1,63 +1,48 @@
 <ion-header>
-
-    <ion-toolbar id="mainToolbar">
-
-        <ion-buttons slot="start">
-            <ion-back-button id="return" text="Care Plan Section" defaultHref="/tabs/tab2" icon="chevron-back-outline"></ion-back-button>
-        </ion-buttons>
-
-        <ion-card slot="end" color="transparent" class="pati-card">
-            <ion-img src='assets/icon/vitalSignsW.png'></ion-img>
-
-
-        </ion-card>
-
-
-    </ion-toolbar>
-    <ion-row>
-        <ion-col>
-            <ion-label id="title"><strong>Vital Signs</strong></ion-label>
-        </ion-col>
-    </ion-row>
+  <ion-toolbar id="mainToolbar">
+    <ion-buttons slot="start">
+      <ion-back-button id="return" text="Care Plan Section" defaultHref="/tabs/tab2" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-card slot="end" color="transparent" class="pati-card">
+      <ion-img class="toolbar-icon-img" src="assets/icon/vitalSignsW.png"></ion-img>
+      <ion-label id="title"><strong>Vital Signs</strong></ion-label>
+    </ion-card>
+  </ion-toolbar>
 </ion-header>
+
 <ion-content>
-    <ion-card-header [hidden]="!vitalSignNull" color="warning" class="animate__animated animate__fadeInLeft animate__slow">No Vital Sign has been added to this scenario. To add Vital Sign, press the Add button.</ion-card-header>
-    <ion-list>
-        <div class="carePlan" *ngFor="let vitalSign of vitalSigns">
+  <ion-card-header [hidden]="!vitalSignNull" color="warning" class="animate__animated animate__fadeInLeft animate__slow">
+    No Vital Sign has been added to this scenario. To add Vital Sign, press the Add button.
+  </ion-card-header>
 
-            <ion-item-sliding #slidingItem>
+  <ion-list class="styled-list">
+    <ion-item-sliding *ngFor="let vitalSign of vitalSigns" class="styled-slide">
 
-                <ion-item class="item" detail [routerLink]="['detail-vital-sign',vitalSign['id']]">
-                    <ion-avatar slot="start">
-                        <img src="assets/icon/vitalSigns.png">
+      <ion-item class="styled-item" detail [routerLink]="['detail-vital-sign', vitalSign['id']]">
 
-                    </ion-avatar>
+        <ion-avatar slot="start">
+          <img src="assets/icon/vitalSigns.png" />
+        </ion-avatar>
 
-                    <ion-label text-wrap>
-                        <h3>{{vitalSign.name}}</h3>
-                        <h4>{{vitalSign.description}}</h4>
-                    </ion-label>
-                </ion-item>
+        <ion-label class="vital-label">
+          <h2>{{ vitalSign.name }}</h2>
+          <p>{{ vitalSign.description }}</p>
+        </ion-label>
 
-                <ion-item-options side="end" (ionSwipe)="deleteVitalSign(slidingItem,vitalSign['id'], vitalSign['name'])">
-                    <ion-item-option color="danger" expandable (click)="deleteVitalSign(slidingItem,vitalSign['id'], vitalSign['name'])">
+      </ion-item>
 
-                        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      <ion-item-options side="end" (ionSwipe)="deleteVitalSign(slidingItem, vitalSign['id'], vitalSign['name'])">
+        <ion-item-option color="danger" expandable (click)="deleteVitalSign(slidingItem, vitalSign['id'], vitalSign['name'])">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
 
-                    </ion-item-option>
+      <ion-item-options side="start">
+        <ion-item-option color="success" expandable (click)="closeSliding(slidingItem)" [routerLink]="['edit-vital-sign', vitalSign['id']]">
+          <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
 
-                </ion-item-options>
-
-                <ion-item-options side="start">
-
-                    <ion-item-option color="success" expandable (click)="closeSliding(slidingItem)" [routerLink]="['edit-vital-sign',vitalSign['id']]">
-                        vitalSign
-                        <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
-
-                    </ion-item-option>
-                </ion-item-options>
-            </ion-item-sliding>
-        </div>
-    </ion-list>
-
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

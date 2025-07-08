@@ -14,7 +14,7 @@ import { Chart, registerables } from 'chart.js';
 export class BodyTemperaturePage implements OnInit {
 
   @ViewChild('barCanvas') private barCanvas: ElementRef;
-  public bodyTemperature: any;
+  public bodyTemperature: number = 36.9;
   barChart: any;
   label: any [] =[' 2022/5/22', '2022/5/23', '2022/5/26', '2022/5/27', '2022/6/01','2022/6/2'];
   data: any[]=[37, 37.5, 36, 37.5, 36.5, 37,5 ];

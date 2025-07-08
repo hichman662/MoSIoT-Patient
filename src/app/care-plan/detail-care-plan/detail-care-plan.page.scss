@@ -10,35 +10,24 @@ ion-header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#mainToolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  --background: rgba(133, 116, 110, 0.253) !important;
-  padding: 0 10px;
-  color: #000;
-}
-
-ion-back-button {
-  color: #111 !important;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.pati-card {
+#mainToolbar .pati-card {
   display: flex;
   align-items: center;
   background: transparent;
   box-shadow: none;
-  width: auto;
-  height: 100%;
-  margin: 0 10px;
 
   ion-img {
-    width: 50px;          // was 40px → increase to 50px
-    height: 50px;         // same here
-    margin-right: 12px;   // add a bit more spacing
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
   }
+
+  ion-label#title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: black;
+  }
+}
 
   #title {
     font-size: 18px;
@@ -46,7 +35,7 @@ ion-back-button {
     color: #111 !important;
     text-shadow: 0 0 2px #fff;
   }
-}
+
 
 
 /* Responsive & Accessible Segment Bar */
