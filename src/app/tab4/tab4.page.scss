@@ -1,0 +1,98 @@
+ion-content {
+  --background:
+    linear-gradient(to bottom right, rgba(255, 255, 255, 0.85), rgba(245, 255, 245, 0.9)),
+    url('/assets/icon/backW.jpg') 0 0/cover no-repeat;
+  font-family: 'Arial', sans-serif;
+  padding: 0;
+}
+
+ion-header {
+  --background: rgba(192, 219, 96, 0.938);
+  position: relative;
+}
+
+#mainToolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  --background: rgba(133, 116, 110, 0.253);
+  padding: 0 10px;
+  height: 60px;
+  position: relative;
+}
+
+ion-back-button {
+  color: #000;
+  z-index: 2;
+}
+
+#title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  color: #000;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.pati-card {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  box-shadow: none;
+
+  ion-img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+#dashboardSection {
+  padding: 16px;
+}
+
+ion-card {
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.015);
+  }
+
+  .card-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  ion-img {
+    width: 45px;
+    height: 45px;
+    margin-right: 16px;
+  }
+
+  .text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+  }
+
+  .card-subtitle {
+    font-size: 13px;
+    color: #555;
+  }
+}

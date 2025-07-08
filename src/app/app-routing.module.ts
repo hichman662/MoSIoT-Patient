@@ -70,6 +70,10 @@ const routes: Routes = [
   {
     path: 'telemetry',
     loadChildren: () => import('./telemetry/telemetry.module').then( m => m.TelemetryPageModule)
+  },
+  {
+    path: 'tab4',
+    loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
   }
 ];
 @NgModule({
