@@ -1,0 +1,115 @@
+ion-content {
+  --background: url('/assets/icon/backW.jpg') 0 0/100% 100% no-repeat;
+  border-radius: 20px;
+  font-family: 'Arial', sans-serif;
+  padding: 0;
+}
+
+ion-segment {
+  display: flex;
+  flex-wrap: wrap; /* wrap instead of scroll */
+  justify-content: space-between;
+  margin: 10px;
+  background-color: rgba(248, 248, 248, 0.9);
+  border-radius: 10px;
+
+  ion-segment-button {
+    flex: 1 1 auto;
+    min-width: 100px;
+    max-width: 32%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    background: transparent;
+    white-space: normal !important;  /* ← force wrap */
+    word-break: break-word;          /* ← break long words */
+    overflow-wrap: break-word;       /* ← fallback wrap */
+    height: auto;
+
+    ion-label {
+      font-size: 12px;
+      line-height: 14px;
+      white-space: normal;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      text-align: center;
+    }
+
+    ion-icon {
+      font-size: 18px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    &.segment-button-checked {
+      background-color: rgba(207, 218, 182, 0.658);
+      color: #000;
+    }
+  }
+}
+
+
+
+.segment {
+  padding: 12px 16px;
+}
+
+mat-expansion-panel {
+  margin-top: 14px;
+  background-color: rgba(255, 255, 255, 0.92);
+  border-radius: 14px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  ion-card {
+    --background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  mat-panel-title {
+    width: 100%;
+
+    ion-item {
+      --background: transparent;
+      box-shadow: none;
+      ion-label {
+        font-size: 15px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      ion-icon {
+        margin-right: 10px;
+        color: #557;
+      }
+    }
+  }
+}
+
+ion-item {
+  --background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  ion-label {
+    font-size: 15px;
+    color: #111;
+  }
+}
+
+ion-badge {
+  font-size: 13px;
+  padding: 4px 10px;
+  margin-left: 8px;
+  border-radius: 12px;
+}
+
+ion-item-option {
+  ion-icon {
+    color: white;
+  }
+}

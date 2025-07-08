@@ -86,5 +86,28 @@ async presentToast(color: string , message: string) {
   await toast.present();
 }
 
+getIcon(careActivity: any): string {
+  if (!careActivity.valueCareActivity) return 'assets/icon/sinDefinicion.png';
+  const type = careActivity.valueCareActivity.typeActivity;
+  switch (type) {
+    case 1: return 'assets/icon/medication.png';
+    case 2: return 'assets/icon/nutrition.png';
+    case 3: return 'assets/icon/communication.png';
+    case 4: return 'assets/icon/appointment.png';
+    default: return 'assets/icon/sinDefinicion.png';
+  }
+}
+
+getActivityType(careActivity: any): string {
+  if (!careActivity.valueCareActivity) return 'Undefined';
+  const type = careActivity.valueCareActivity.typeActivity;
+  switch (type) {
+    case 1: return 'Medication';
+    case 2: return 'Nutrition';
+    case 3: return 'Communication';
+    case 4: return 'Appointment';
+    default: return 'Undefined';
+  }
+}
 
 }

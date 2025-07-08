@@ -1,98 +1,167 @@
-/* DOES NOT WORK - not specific enough */
-
-
-/* Works - pass "my-custom-class" in cssClass to increase specificity */
-
-.my-custom-class {
-    color: green;
-}
-
-.ionadd {
-    margin-right: 20px;
-    margin-top: 10px;
-}
-
-ion-card {
-    box-shadow: none !important
-}
-
-ion-toolbar {
-    --background: rgba(207, 218, 182, 0.658) !important;
+ion-content {
+  --background: url('/assets/icon/backW.jpg') 0 0/100% 100% no-repeat;
+  border-radius: 20px;
+  font-family: 'Arial', sans-serif;
+  padding: 0;
 }
 
 ion-header {
-    background-color: rgba(180, 199, 136, 0.658);
+  --background: rgba(192, 219, 96, 0.938);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-ion-img {
-    width: 60px;
-    height: 60px;
+#mainToolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  --background: rgba(133, 116, 110, 0.253) !important;
+  padding: 0 10px;
 }
 
-.text-top {
+ion-back-button {
+  color: #000000 !important;
+}
+
+.pati-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  box-shadow: none;
+  width: auto;
+  height: 100%;
+  margin: 0 10px;
+
+  ion-img {
+    width: 50px;
+    height: 50px;
+    margin: 4px auto 6px;
+  }
+
+  #title,
+  #button-label {
+    font-size: 15px;
     text-align: center;
-    margin-top: -16px;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #131212;
+  }
+
+  #button-label {
+    font-size: 13px;
+    opacity: 0.9;
+  }
 }
 
-.ion-align-self-center {
-    margin-top: -15px;
-}
+ion-segment {
+  margin: 10px;
+  background-color: rgba(248, 248, 248, 0.95);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 
-:root {
-    ion-tab-button:nth-child(1) {
-        ion-icon {
-            color: var(--ion-color-secondary) !important;
-            /* --ion-color-base: var(--ion-color-secondary) !important; */
-        }
+  ion-segment-button {
+    font-size: 13px;
+    padding: 8px 6px;
+    color: #444;
+    border-radius: 8px;
+    min-width: 120px;
+
+    ion-icon {
+      font-size: 18px;
+      margin-bottom: 4px;
     }
-    ion-tab-button.tab-selected:nth-child(1) {
-        ion-icon {
-            color: var(--ion-color-secondary) !important;
-            /* --ion-color-base: var(--ion-color-secondary) !important; */
-        }
+
+    &.segment-button-checked {
+      background-color: rgba(207, 218, 182, 0.658);
+      color: #000;
     }
+  }
 }
 
-ion-loading {
-    color: green;
-}
-
-.iconText>ion-col>ion-icon {
-    margin-left: 25px;
-}
-
-.iconText>ion-col>ion-label {
-    position: flex;
-    font-size: 12px;
-    margin-left: 14px;
-}
-
-.segmentIcon {
-    margin-right: 7px;
-    height: 14px;
-}
-
-#button-label {
-    font-size: 16px;
+.segment {
+  padding: 12px 16px;
 }
 
 ion-list-header {
-    margin-bottom: -9px;
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  margin-top: 14px;
+  margin-bottom: 6px;
+  color: #333;
+
+  ion-icon {
+    margin-right: 8px;
+    color: #557;
+    font-size: 20px;
+  }
 }
 
-app-component-telemetry {
-    width: 100%;
+ion-item {
+  --background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  ion-label {
+    font-size: 15px;
+    color: #111;
+  }
 }
 
-ion-segment-button {
+ion-badge {
+  font-size: 13px;
+  padding: 4px 10px;
+  margin-left: 8px;
+  border-radius: 12px;
+}
+
+mat-expansion-panel {
+  margin-top: 14px;
+  background-color: rgba(255, 255, 255, 0.92);
+  border-radius: 14px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  ion-card {
+    --background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  mat-panel-title {
     width: 100%;
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    font-size: 10px;
-    border: none;
-    background-color: rgb(248, 248, 248);
-    border-radius: 0%;
+    ion-item {
+      --background: transparent;
+      box-shadow: none;
+      ion-label {
+        font-size: 15px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      ion-icon {
+        margin-right: 10px;
+        color: #557;
+      }
+    }
+  }
+}
+
+ion-item-option {
+  ion-icon {
+    color: rgb(0, 0, 0);
+  }
+}
+
+ion-spinner {
+  display: block;
+  margin: 20px auto;
+  width: 28px;
+  height: 28px;
+  stroke: #444;
+  fill: #222;
 }

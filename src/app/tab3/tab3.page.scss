@@ -1,157 +1,96 @@
 ion-content {
-    --background: url('/assets/icon/backW.jpg') 0 0/100% 100% no-repeat;
-    //--background: url('/') 0 0/100% 100% no-repeat;
-    border-radius: 20px;
-}
-
-ion-title {
-    text-align: left;
-    font-size: 18px;
-}
-
-.text-top {
-    font-weight: bold;
-    font-size: 22px;
-    margin-right: 10px;
-}
-
-#dashboardSection {
-    max-width: 100%;
-    max-height: auto;
-    text-align: center;
-    background-color: rgba(255, 254, 254, 0);
-    margin-top: 2px;
-    margin-left: 0px;
-    margin-bottom: 6px;
-    border-radius: 20px;
-    box-shadow: 20px;
+  --background: url('/assets/icon/backW.jpg') 0 0/100% 100% no-repeat;
+  font-family: 'Arial', sans-serif;
+  padding: 0;
 }
 
 ion-header {
-    text-align: center;
-    align-content: center;
-    background: url('/assets/icon/backBlue.jpg') 0 0/100% 100% no-repeat;
-    /* background-color: rgba(180, 199, 136) !important; */
+  --background: rgba(192, 219, 96, 0.938);
+  position: relative;
 }
 
-ion-img {
-    align-content: flex-end;
-    width: 90px;
-    filter: brightness(90%);
-    filter: contrast(90%);
-    filter: drop-shadow(3px 3px 3px gray);
+#mainToolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  --background: rgba(133, 116, 110, 0.253);
+  padding: 0 10px;
+  height: 60px;
+  position: relative;
 }
 
-ion-avatar {
-    border-radius: 100px;
-}
-
-ion-card {
-    --ion-background-color: rgba(255, 255, 255, 0.349) !important;
-    width: 100%;
-    height: 100%;
-    margin-left: 10px;
-}
-
-ion-label {
-    justify-content: left;
-    align-content: left;
-    text-align: left;
-    font-size: 16px;
-    color: black;
-}
-
-
-/* DOES NOT WORK - not specific enough */
-
-
-/* Works - pass "my-custom-class" in cssClass to increase specificity */
-
-ion-toolbar {
-    --background: rgb(220, 230, 198) !important;
-}
-
-#image-toolbar {
-    align-content: flex-end;
-    width: 100%;
-    height: 100%;
-    box-shadow: none;
-    border: none;
-    margin-right: 40px;
+ion-back-button {
+  color: #000;
+  z-index: 2;
 }
 
 #title {
-    font-size: 20px;
-    color: rgb(0, 0, 0);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  color: #000;
+  font-weight: bold;
+  z-index: 1;
 }
 
 .pati-card {
-    width: 15%;
-    height: 10%;
-    box-shadow: none !important;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  box-shadow: none;
+
+  ion-img {
+    width: 36px;
+    height: 36px;
+  }
 }
 
-.text-top {
-    text-align: center;
-    margin-top: -11px;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+#dashboardSection {
+  padding: 16px;
 }
 
-.ion-align-self-end {
-    margin-top: 2px;
-}
+ion-card {
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
 
-:root {
-    ion-tab-button:nth-child(1) {
-        ion-icon {
-            color: var(--ion-color-secondary) !important;
-            /* --ion-color-base: var(--ion-color-secondary) !important; */
-        }
-    }
-    ion-tab-button.tab-selected:nth-child(1) {
-        ion-icon {
-            color: var(--ion-color-secondary) !important;
-            /* --ion-color-base: var(--ion-color-secondary) !important; */
-        }
-    }
-}
+  &:hover {
+    transform: scale(1.015);
+  }
 
-ion-loading {
-    color: green;
-}
+  .card-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
 
-.iconText>ion-col>ion-icon {
-    margin-left: 25px;
-}
+  ion-img {
+    width: 45px;
+    height: 45px;
+    margin-right: 16px;
+  }
 
-.iconText>ion-col>ion-label {
-    position: flex;
-    font-size: 20px;
-    margin-left: 10px;
-}
+  .text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-ion-segment-button {
-    width: 10px;
-    margin-top: 2px;
-    margin-left: 4px;
-    margin-right: 4px;
-    font-size: 10px;
-    border: none;
-    background-color: rgb(27, 25, 25);
-    border-radius: 50%;
-}
-
-.card-title {
-    font-size: 24px;
+  .card-title {
+    font-size: 16px;
     font-weight: bold;
-    margin-top: -25%;
-    margin-left: 5%;
-}
+    color: #333;
+    margin-bottom: 4px;
+  }
 
-.card-subtitle {
-    font-size: medium;
-    margin-top: 5%;
-    margin-left: 20%;
-    text-align: center;
+  .card-subtitle {
+    font-size: 13px;
+    color: #555;
+  }
 }

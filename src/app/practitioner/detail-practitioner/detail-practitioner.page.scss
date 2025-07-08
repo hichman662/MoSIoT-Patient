@@ -1,211 +1,86 @@
 ion-content {
-    --background: url('/assets/icon/backW.jpg') 0 0/100% 100% no-repeat;
-    //--background: url('/') 0 0/100% 100% no-repeat;
-    border-radius: 20px;
-}
-
-ion-menu-button {
-    color: rgb(0, 47, 255);
-}
-
-ion-title {
-    text-align: left;
-    font-size: 18px;
-    color: black;
-    background-color: rgba(192, 219, 96, 0.938);
-}
-
-.text-top {
-    font-weight: bold;
-    font-size: 22px;
-    margin-right: 10px;
-}
-
-#dashboardSection {
-    max-width: 100%;
-    max-height: auto;
-    text-align: center;
-    background-color: rgba(192, 219, 96, 0.938);
-    margin-top: 2px;
-    margin-left: 3px;
-    margin-bottom: 6px;
-    margin-right: 3px;
-    border-radius: 20px;
-    box-shadow: 10px;
+  --background: url('/assets/icon/backW.jpg') 0 0/100% 100% no-repeat;
+  border-radius: 20px;
+  font-family: 'Arial', sans-serif;
+  padding: 0;
 }
 
 ion-header {
-    text-align: center;
-    align-content: center;
-    background-color: rgba(192, 219, 96) !important;
-    box-shadow: 3px;
-}
-
-ion-icon {
-    width: 30px;
-    height: 30px;
-}
-
-ion-card {
-    align-content: center;
-    --ion-background-color: transparent !important;
-    --ion-border-color: transparent !important;
-    box-shadow: none;
-    width: 60%;
-    height: 60%;
-    margin-left: 30px;
-}
-
-ion-label {
-    justify-content: center;
-    align-content: center;
-    font-size: 16px;
-    color: black;
-}
-
-.pati-card {
-    margin-left: 10px;
-    width: 15%;
-    height: 10%;
-}
-
-.bottomRow {
-    margin-top: -30px;
-}
-
-.topRow {
-    margin-top: -20px;
-}
-
-ion-toggle {
-    width: 60px;
-    height: 30px;
-    margin-top: 5px;
-    margin-left: 50px;
-    --background: rgb(238, 207, 207);
-}
-
-ion-toggle[aria-checked="false"] {
-    width: 85px;
-    &::before {
-        top: 12px;
-        left: 50px;
-    }
-    &::after {
-        position: absolute;
-        content: "Complete";
-        font-size: 10px;
-        line-height: 31px;
-        top: 12px;
-        left: 50px;
-        color: black
-    }
-}
-
-ion-toggle[aria-checked="true"] {
-    width: 85px;
-    &::before {
-        position: absolute;
-        content: "";
-    }
-    &::after {
-        position: absolute;
-        content: "Descard";
-        font-size: 10px;
-        line-height: 32px;
-        top: 12px;
-        left: 25px;
-        color: #fff;
-    }
+  --background: rgba(192, 219, 96, 0.938);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 
-/* DOES NOT WORK - not specific enough */
 
-
-/* Works - pass "my-custom-class" in cssClass to increase specificity */
-
-ion-card {
-    box-shadow: none !important
-}
 
 #mainToolbar {
-    --background: rgba(133, 116, 110, 0.253) !important;
+  --background: rgba(133, 116, 110, 0.253) !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  color: #000; // fallback
 }
 
-.text-top {
-    text-align: center;
-    margin-top: -11px;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.ion-align-self-end {
-    margin-top: 2px;
-}
-
-:root {
-    ion-tab-button:nth-child(1) {
-        ion-icon {
-            color: var(--ion-color-secondary) !important;
-            /* --ion-color-base: var(--ion-color-secondary) !important; */
-        }
-    }
-    ion-tab-button.tab-selected:nth-child(1) {
-        ion-icon {
-            color: var(--ion-color-secondary) !important;
-            /* --ion-color-base: var(--ion-color-secondary) !important; */
-        }
-    }
-}
-
-ion-loading {
-    color: green;
-}
-
-.iconText>ion-col>ion-icon {
-    margin-left: 25px;
-}
-
-.iconText>ion-col>ion-label {
-    position: flex;
-    font-size: 20px;
-    margin-left: 10px;
-}
-
-app-component-telemetry {
-    width: 100%;
-}
-
-ion-segment-button {
-    width: 40px;
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    font-size: 8px;
-    border: none;
-    background-color: rgb(248, 248, 248);
-    border-radius: 0%;
-}
-
-.my-custom-menu {
-    --width: 500px;
-}
-
-ion-select {
-    --width: 500%;
-}
-
-#title {
-    font-size: 20px;
-    color: #fff;
+ion-back-button {
+  color: #111 !important;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .pati-card {
-    width: 25%;
-    height: 10%;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  box-shadow: none;
+  width: auto;
+  height: 100%;
+  margin: 0 10px;
+
+  ion-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  #title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #111 !important; // << FIX: high contrast text
+    text-shadow: 0px 0px 2px #fff; // optional soft edge
+  }
 }
 
-#return {
-    color: #fff;
+ion-list {
+  padding: 16px;
+}
+
+.patient {
+  margin-bottom: 12px;
+
+  ion-item {
+    --background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 8px;
+
+    ion-label {
+      font-size: 15px;
+      color: #111;
+    }
+
+    ion-avatar {
+      width: 40px;
+      height: 40px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid rgba(207, 218, 182, 0.9);
+        background-color: white;
+      }
+    }
+  }
 }

@@ -98,35 +98,46 @@ public careActivityByTime: CareActivityByTime[] = null;
     this.deviceService.getImTelemetryByIdScenario(this.idScenario)
     .subscribe( (res: any) => {
         this.imTelemetry = res;
+              if (
+        this.imTelemetry.length > 0 &&
+        this.imTelemetry[0]?.teleValues &&
+        this.imTelemetry[0].teleValues.length > 0 &&
+        this.imTelemetry[0].teleValues[0].valu !== undefined
+      ) {
         console.log(this.imTelemetry[0].teleValues[0].valu);
-        for (let i = 0; i <= res.length;i++){
+      }
+       for (let i = 0; i < res.length; i++) {
+  const telemetry = this.imTelemetry[i];
+  const value = telemetry?.teleValues?.[0]?.valu;
 
-          if(this.imTelemetry[i]?.['name'] === 'HeartRate'){
-              this.heartRate = Number(this.imTelemetry[i].teleValues[0].valu);
-              console.log('heartRate: ', this.heartRate);
+  if (!value) continue;
 
-          }else if(this.imTelemetry[i]?.['name'] === 'BodyTemperature'){
+  switch (telemetry.name) {
+    case 'HeartRate':
+      this.heartRate = Number(value);
+      break;
 
-            this.bodyTemperature = parseFloat(this.imTelemetry[i].teleValues[0].valu);
-            console.log('bodyTemperature: ', this.bodyTemperature);
+    case 'BodyTemperature':
+      this.bodyTemperature = parseFloat(value);
+      break;
 
-          }else if(this.imTelemetry[i]?.['name'] === 'RespiratoryRate'){
+    case 'RespiratoryRate':
+      this.respiratoryRate = parseFloat(value);
+      break;
 
-            this.respiratoryRate = parseFloat(this.imTelemetry[i].teleValues[0].valu);
-            console.log('respiratoryRate: ', this.respiratoryRate);
+    case 'BloodPressure':
+      this.bloodPressure = value;
+      const parts = value.split(',');
+      if (parts.length >= 4) {
+        this.systolic = Number(parts[2].split(':')[1]);
+        this.diastolic = Number(parts[3].split(':')[1].slice(0, -1));
+        this.telemetryText = `Blood Pressure: systolic is ${this.systolic} and diastolic is ${this.diastolic} . `;
+        this.storage.set('bloodPressure', this.telemetryText);
+      }
+      break;
+  }
+}
 
-          }else if(this.imTelemetry[i]?.['name'] === 'BloodPressure'){
-
-            this.bloodPressure = this.imTelemetry[i].teleValues[0].valu;
-            this.systolic = Number(this.bloodPressure.split(',')[2].split(':')[1]);
-            this.diastolic = Number(this.bloodPressure.split(',')[3].split(':')[1].slice(0,-1));
-
-            this.telemetryText = `Blood Pressure: systolic is ${this.systolic} and diastolic is ${this.diastolic} . `;
-            console.log(this.systolic);
-            console.log(this.diastolic);
-            this.storage.set('bloodPressure',this.telemetryText);
-          }
-        }
         console.log(this.imTelemetry);
     }, ( err) => {
         console.log(err);

@@ -1,107 +1,57 @@
-<!-- <ion-header [translucent]="true"> -->
-
 <ion-header>
-
-    <ion-toolbar>
-
-        <ion-buttons slot="start">
-            <ion-back-button text="Home" defaultHref="/tabs" icon="chevron-back-outline"></ion-back-button>
-        </ion-buttons>
-        <ion-label id="title"><strong>Care Plan Section</strong></ion-label>
-        <ion-card slot="end" color="transparent" class="pati-card">
-            <ion-img id="image-toolbar" src='assets/icon/carePlan.png'></ion-img>
-
-        </ion-card>
-    </ion-toolbar>
-    <!--  <ion-row class="topRow">
-        <ion-col size="4" class="ion-align-self-start">
-
-        </ion-col>
-        <ion-col size="4" class="ion-align-self-center">
-            <ion-card color="transparent" class="pati-card">
-                <ion-img src='assets/icon/patientN.png'></ion-img>
-
-            </ion-card>
-        </ion-col>
-        <ion-col size="4" class="ion-align-self-end">
-        </ion-col>
-
-    </ion-row>
-    <ion-row class="bottomRow">
-        <ion-col size="1" class="ion-align-self-start">
-
-        </ion-col>
-        <ion-col size="10" class="ion-align-self-center">
-
-            <ion-list-header>
-
-            </ion-list-header>
-
-        </ion-col>
-        <ion-col size="1" class="ion-align-self-end">
-
-        </ion-col>
-
-    </ion-row> -->
+  <ion-toolbar id="mainToolbar">
+    <ion-buttons slot="start">
+      <ion-back-button text="Home" defaultHref="/tabs" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-label id="title"><strong>Care Plan Section</strong></ion-label>
+    <ion-card slot="end" color="transparent" class="pati-card">
+      <ion-img id="image-toolbar" src="assets/icon/carePlan.png"></ion-img>
+    </ion-card>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <section id="dashboardSection">
-        <ion-row>
-            <ion-card [routerLink]="['carePlan']">
-                <ion-col size="4">
-                    <ion-img src='assets/icon/carePlans.png'></ion-img>
-                </ion-col>
-                <ion-col size="8">
+  <section id="dashboardSection">
+    <ion-card [routerLink]="['carePlan']">
+      <div class="card-content">
+        <ion-img src="assets/icon/carePlans.png"></ion-img>
+        <div class="text-content">
+          <div class="card-title">Care Plan</div>
+          <div class="card-subtitle">Consult your Care Plan</div>
+        </div>
+      </div>
+    </ion-card>
 
-                    <div class="card-title">Care Plan</div>
-                    <div class="card-subtitle">Consult your Care Plan</div>
+    <ion-card [routerLink]="['vitalSign']">
+      <div class="card-content">
+        <ion-img src="assets/icon/vitalSigns.png"></ion-img>
+        <div class="text-content">
+          <div class="card-title">Vital Signs</div>
+          <div class="card-subtitle">Your vital signs telemetries</div>
+        </div>
+      </div>
+    </ion-card>
 
-                </ion-col>
-            </ion-card>
-        </ion-row>
-        <ion-row>
-            <ion-card [routerLink]="['vitalSign']">
-                <ion-col size="4">
-                    <ion-img src='assets/icon/vitalSigns.png'></ion-img>
-                </ion-col>
-                <ion-col size="8">
+    <ion-card [routerLink]="['chat']">
+      <div class="card-content">
+        <ion-img src="assets/icon/message.png"></ion-img>
+        <div class="text-content">
+          <div class="card-title">Messenger</div>
+          <div class="card-subtitle">Chat with your care giver</div>
+        </div>
+      </div>
+    </ion-card>
 
-                    <div class="card-title">Vital Signs</div>
-                    <div class="card-subtitle">Your vital signs telemetries</div>
-
-                </ion-col>
-            </ion-card>
-        </ion-row>
-        <ion-row>
-            <ion-card [routerLink]="['chat']">
-                <ion-col size="4">
-                    <ion-img src='assets/icon/message.png'></ion-img>
-                </ion-col>
-                <ion-col size="8">
-
-                    <div class="card-title">Messanger</div>
-                    <div class="card-subtitle">Chat with your care giver</div>
-
-                </ion-col>
-            </ion-card>
-        </ion-row>
-        <ion-row>
-            <ion-card [routerLink]="['careActivity']">
-                <ion-col size="4">
-                    <ion-img src='assets/icon/careActivity.png'></ion-img>
-                </ion-col>
-                <ion-col size="8">
-
-                    <div class="card-title">Care Actvities</div>
-                    <div class="card-subtitle">The list of your medications, appointments, nutrition and communication</div>
-
-                </ion-col>
-            </ion-card>
-        </ion-row>
-
-
-
-    </section>
-
+    <ion-card [routerLink]="['careActivity']">
+      <div class="card-content">
+        <ion-img src="assets/icon/careActivity.png"></ion-img>
+        <div class="text-content">
+          <div class="card-title">Care Activities</div>
+          <div class="card-subtitle">
+            The list of your medications, appointments, nutrition and communication
+          </div>
+        </div>
+      </div>
+    </ion-card>
+  </section>
 </ion-content>

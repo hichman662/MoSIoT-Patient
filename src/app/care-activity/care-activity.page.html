@@ -1,62 +1,44 @@
 <ion-header>
+  <ion-toolbar id="mainToolbar">
+    <ion-buttons slot="start">
+      <ion-back-button text="Care Plan Section" defaultHref="/tabs/tab2" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
 
-    <ion-toolbar id="mainToolbar">
-        <ion-buttons slot="start">
-            <ion-back-button text="Care Plan Section" defaultHref="/tabs/tab2" icon="chevron-back-outline"></ion-back-button>
-        </ion-buttons>
-
-        <ion-card slot="end" color="transparent" class="pati-card">
-            <ion-img src='assets/icon/careActivityW.png'></ion-img>
-
-            <ion-label id="title"><strong>Care Activities</strong></ion-label>
-        </ion-card>
-
-    </ion-toolbar>
-
+    <ion-card slot="end" color="transparent" class="pati-card">
+      <ion-img src='assets/icon/careActivityW.png' class="toolbar-icon-img"></ion-img>
+      <ion-label id="title"><strong>Care Activities</strong></ion-label>
+    </ion-card>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-spinner class="spin" *ngIf="!load" name="bubbles"></ion-spinner>
-    <ion-list *ngIf="load">
-        <ion-row *ngFor="let careActivity of careActivityByTime">
-            <ion-item>
+  <ion-spinner class="spin" *ngIf="!load" name="bubbles"></ion-spinner>
 
+  <ion-list *ngIf="load" class="styled-access-list">
+    <ion-item-sliding *ngFor="let careActivity of careActivityByTime" class="styled-slide">
+      <ion-item class="styled-item" detail [routerLink]="['detail-care-activity', careActivity['id']]">
+        <ion-avatar slot="start">
+          <ion-img [src]="getIcon(careActivity)" alt="Activity Icon"></ion-img>
+        </ion-avatar>
 
-                <ion-col size="2" [routerLink]="['detail-care-activity',careActivity['id']]">
-                    <ion-img *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 1 " src='assets/icon/medication.png'></ion-img>
-                    <ion-img *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 2 " src='assets/icon/nutrition.png'></ion-img>
-                    <ion-img *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 3 " src='assets/icon/communication.png'></ion-img>
-                    <ion-img *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 4 " src='assets/icon/appointment.png'></ion-img>
-                    <ion-img *ngIf="careActivity.valueCareActivity === null " src='assets/icon/sinDefinicion.png'></ion-img>
-                    <br>
-                </ion-col>
-                <ion-col size="6" [routerLink]="['detail-care-activity',careActivity['id']]">
+        <ion-label class="access-label">
+          <h2>{{ getActivityType(careActivity) }}</h2>
+          <p>{{ careActivity.Name }}</p>
+        </ion-label>
+      </ion-item>
 
-                    <ion-item lines="none" *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 1 "><strong>Medication</strong></ion-item>
-                    <ion-item lines="none" *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 2"><strong>Nutrition</strong></ion-item>
-                    <ion-item lines="none" *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 3"><strong>Communication</strong></ion-item>
-                    <ion-item lines="none" *ngIf="careActivity.valueCareActivity !== null && careActivity.valueCareActivity.typeActivity === 4"><strong>Appointment</strong></ion-item>
-                    <ion-item lines="none" *ngIf="careActivity.valueCareActivity === null "><strong>Undefiend</strong></ion-item>
-                    <ion-item lines="none" class="h6">{{careActivity.Name}}</ion-item>
-
-                    <!-- <ion-toggle class="" toggle-class="toggle-assertive" color="danger"> </ion-toggle>-->
-
-                </ion-col>
-                <ion-col size="4">
-                    <ion-row>
-                        <ion-select interface="popover" (ionChange)="handleChange($event,careActivity.id)" value="{{careActivity.state}}" [class.red]="careActivity.state === 1" [class.blue]="careActivity.state === 2" [class.green]="careActivity.state === 3">
-                            <ion-select-option value="1">Pendent</ion-select-option>
-                            <ion-select-option value="2">Discard</ion-select-option>
-                            <ion-select-option value="3">Complete</ion-select-option>
-                        </ion-select>
-                        <hr>
-                    </ion-row>
-                    <ion-row>
-                        {{careActivity.timeAct|date:'shortTime'}} {{careActivity.timeAct|date}}
-                    </ion-row>
-                </ion-col>
-            </ion-item>
-        </ion-row>
-
-    </ion-list>
+      <ion-item-options side="end" style="padding-right: 10px;">
+        <ion-select interface="popover" (ionChange)="handleChange($event, careActivity.id)"
+          [value]="careActivity.state"
+          [class.red]="careActivity.state === 1"
+          [class.blue]="careActivity.state === 2"
+          [class.green]="careActivity.state === 3">
+          <ion-select-option value="1">Pendent</ion-select-option>
+          <ion-select-option value="2">Discard</ion-select-option>
+          <ion-select-option value="3">Complete</ion-select-option>
+        </ion-select>
+        <small class="date-text">{{ careActivity.timeAct | date:'shortTime' }} {{ careActivity.timeAct | date }}</small>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

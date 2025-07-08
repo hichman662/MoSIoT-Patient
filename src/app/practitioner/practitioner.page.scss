@@ -1,216 +1,58 @@
 ion-content {
-    --background: url('/assets/icon/backW.jpg') 0 0/100% 100% no-repeat;
-    //--background: url('/') 0 0/100% 100% no-repeat;
-    border-radius: 20px;
+  --background: linear-gradient(to bottom right, rgba(207, 218, 182, 0.25), rgba(255, 255, 255, 0.8));
+  font-family: 'Arial', sans-serif;
 }
 
-ion-menu-button {
-    color: rgb(0, 47, 255);
+.styled-list {
+  padding: 12px;
 }
 
-ion-title {
-    text-align: left;
-    font-size: 18px;
-    color: black;
-    background-color: rgba(192, 219, 96, 0.938);
+.styled-slide {
+  margin-bottom: 8px;
 }
 
-.text-top {
-    font-weight: bold;
-    font-size: 22px;
-    margin-right: 10px;
+.styled-item {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  margin: 12px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
 }
 
-.item {
-    --ion-background-color: rgba(255, 255, 255, 0.048) !important;
+.styled-item:hover {
+  transform: translateY(-2px);
 }
 
-#dashboardSection {
-    max-width: 100%;
-    max-height: auto;
-    text-align: center;
-    background-color: rgba(192, 219, 96, 0.938);
-    margin-top: 2px;
-    margin-left: 3px;
-    margin-bottom: 6px;
-    margin-right: 3px;
-    border-radius: 20px;
-    box-shadow: 10px;
+.access-label h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
 }
 
-ion-header {
-    text-align: center;
-    align-content: center;
-    background-color: rgba(192, 219, 96) !important;
-    box-shadow: 3px;
+ion-avatar img {
+  border-radius: 50%;
+  border: 2px solid #cfdab6;
 }
-
-ion-icon {
-    width: 30px;
-    height: 30px;
-}
-
-ion-card {
-    align-content: center;
-    --ion-background-color: transparent !important;
-    --ion-border-color: transparent !important;
-    box-shadow: none;
-    width: 60%;
-    height: 60%;
-    margin-left: 30px;
-}
-
-ion-label {
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-    font-size: 16px;
-    color: black;
-}
-
-.pati-card {
-    margin-left: 10px;
-    width: 15%;
-    height: 10%;
-}
-
-.bottomRow {
-    margin-top: -30px;
-}
-
-.topRow {
-    margin-top: -20px;
-}
-
-ion-toggle {
-    width: 60px;
-    height: 30px;
-    margin-top: 5px;
-    margin-left: 50px;
-    --background: rgb(238, 207, 207);
-}
-
-ion-toggle[aria-checked="false"] {
-    width: 85px;
-    &::before {
-        top: 12px;
-        left: 50px;
-    }
-    &::after {
-        position: absolute;
-        content: "Complete";
-        font-size: 10px;
-        line-height: 31px;
-        top: 12px;
-        left: 50px;
-        color: black
-    }
-}
-
-ion-toggle[aria-checked="true"] {
-    width: 85px;
-    &::before {
-        position: absolute;
-        content: "";
-    }
-    &::after {
-        position: absolute;
-        content: "Descard";
-        font-size: 10px;
-        line-height: 32px;
-        top: 12px;
-        left: 25px;
-        color: #fff;
-    }
-}
-
-
-/* DOES NOT WORK - not specific enough */
-
-
-/* Works - pass "my-custom-class" in cssClass to increase specificity */
-
-ion-card {
-    box-shadow: none !important
-}
-
 #mainToolbar {
-    --background: rgba(133, 116, 110, 0.253) !important;
-}
+  --background: linear-gradient(to right, #e0e0e0, #d0d0d0);
+  color: black;
 
-.text-top {
-    text-align: center;
-    margin-top: -11px;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.ion-align-self-end {
-    margin-top: 2px;
-}
-
-:root {
-    ion-tab-button:nth-child(1) {
-        ion-icon {
-            color: var(--ion-color-secondary) !important;
-            /* --ion-color-base: var(--ion-color-secondary) !important; */
-        }
+  ion-card.pati-card {
+    display: flex;
+    align-items: center;
+    padding: 4px 10px;
+    background: transparent;
+    box-shadow: none;
+    ion-img {
+      width: 36px;
+      height: 36px;
+      margin-right: 8px;
     }
-    ion-tab-button.tab-selected:nth-child(1) {
-        ion-icon {
-            color: var(--ion-color-secondary) !important;
-            /* --ion-color-base: var(--ion-color-secondary) !important; */
-        }
+    ion-label#title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: black;
     }
-}
-
-ion-loading {
-    color: green;
-}
-
-.iconText>ion-col>ion-icon {
-    margin-left: 25px;
-}
-
-.iconText>ion-col>ion-label {
-    position: flex;
-    font-size: 20px;
-    margin-left: 10px;
-}
-
-app-component-telemetry {
-    width: 100%;
-}
-
-ion-segment-button {
-    width: 10px;
-    margin-top: 2px;
-    margin-left: 4px;
-    margin-right: 4px;
-    font-size: 10px;
-    border: none;
-    background-color: rgb(27, 25, 25);
-    border-radius: 50%;
-}
-
-.my-custom-menu {
-    --width: 500px;
-}
-
-ion-select {
-    --width: 500%;
-}
-
-#title {
-    font-size: 20px;
-    color: rgb(10, 10, 10);
-}
-
-.pati-card {
-    width: 25%;
-    height: 10%;
-}
-
-#return {
-    color: #fff;
+  }
 }

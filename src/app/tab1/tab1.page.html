@@ -1,73 +1,55 @@
 <ion-header>
-
-    <ion-toolbar id="mainToolbar">
-
-        <ion-buttons slot="start">
-            <ion-back-button text="Home" defaultHref="/tabs" icon="chevron-back-outline"></ion-back-button>
-        </ion-buttons>
-        <ion-label id="title"><strong>Patient Section</strong></ion-label>
-        <ion-card slot="end" color="transparent" class="pati-card">
-            <ion-img id="image-toolbar" src='assets/icon/patientN.png'></ion-img>
-
-        </ion-card>
-    </ion-toolbar>
+  <ion-toolbar id="mainToolbar">
+    <ion-buttons slot="start">
+      <ion-back-button text="Home" defaultHref="/tabs" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-label id="title"><strong>Patient Section</strong></ion-label>
+    <ion-card slot="end" color="transparent" class="pati-card">
+      <ion-img id="image-toolbar" src="assets/icon/patientN.png"></ion-img>
+    </ion-card>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <section id="dashboardSection">
-        <ion-row>
-            <ion-card [routerLink]="['profile']">
-                <ion-col size="4">
-                    <ion-img src='assets/icon/pati.png'></ion-img>
-                </ion-col>
-                <ion-col size="8">
+  <section id="dashboardSection">
+    <ion-card [routerLink]="['profile']">
+      <div class="card-content">
+        <ion-img src="assets/icon/pati.png"></ion-img>
+        <div class="text-content">
+          <div class="card-title">My Data</div>
+          <div class="card-subtitle">Consult your profile data</div>
+        </div>
+      </div>
+    </ion-card>
 
-                    <div class="card-title">My Data</div>
-                    <div class="card-subtitle">Consult your profile data</div>
+    <ion-card [routerLink]="['patientAccess']">
+      <div class="card-content">
+        <ion-img src="assets/icon/access.png"></ion-img>
+        <div class="text-content">
+          <div class="card-title">Access mode</div>
+          <div class="card-subtitle">Your access mode to the system</div>
+        </div>
+      </div>
+    </ion-card>
 
-                </ion-col>
-            </ion-card>
-        </ion-row>
-        <ion-row>
-            <ion-card [routerLink]="['patientAccess']">
-                <ion-col size="4">
-                    <ion-img src='assets/icon/access.png'></ion-img>
-                </ion-col>
-                <ion-col size="8">
+    <ion-card [routerLink]="['relatedPerson']">
+      <div class="card-content">
+        <ion-img src="assets/icon/family.png"></ion-img>
+        <div class="text-content">
+          <div class="card-title">Related person</div>
+          <div class="card-subtitle">Persons accessing to your data</div>
+        </div>
+      </div>
+    </ion-card>
 
-                    <div class="card-title">Access mode</div>
-                    <div class="card-subtitle">Your access mode to the system</div>
-
-                </ion-col>
-            </ion-card>
-        </ion-row>
-        <ion-row>
-            <ion-card [routerLink]="['relatedPerson']">
-                <ion-col size="4">
-                    <ion-img src='assets/icon/family.png'></ion-img>
-                </ion-col>
-                <ion-col size="8">
-
-                    <div class="card-title">Related person</div>
-                    <div class="card-subtitle">Persons accessing to your data</div>
-
-                </ion-col>
-            </ion-card>
-        </ion-row>
-        <ion-row>
-            <ion-card [routerLink]="['practitioner']">
-                <ion-col size="4">
-                    <ion-img src='assets/icon/practitioner.png'></ion-img>
-                </ion-col>
-                <ion-col size="8">
-
-                    <div class="card-title">Practitioner</div>
-                    <div class="card-subtitle">Caregivers who take care of your health</div>
-
-                </ion-col>
-            </ion-card>
-        </ion-row>
-
-    </section>
-
+    <ion-card [routerLink]="['practitioner']">
+      <div class="card-content">
+        <ion-img src="assets/icon/practitioner.png"></ion-img>
+        <div class="text-content">
+          <div class="card-title">Practitioner</div>
+          <div class="card-subtitle">Caregivers who take care of your health</div>
+        </div>
+      </div>
+    </ion-card>
+  </section>
 </ion-content>
