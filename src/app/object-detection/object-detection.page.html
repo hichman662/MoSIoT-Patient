@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar id="mainToolbar">
+    <ion-buttons slot="start">
+      <ion-back-button text="Assistive" defaultHref="/tabs/tab4" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-label id="title"><strong>Object Detection</strong></ion-label>
+    <ion-card slot="end" color="transparent" class="pati-card">
+      <ion-img src="assets/icon/object.png"></ion-img>
+    </ion-card>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Live Object Detection</ion-card-title>
+      <ion-card-subtitle>Point your camera to detect objects in real time</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="video-container">
+        <video #video autoplay muted playsinline></video>
+        <canvas #canvas></canvas>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" color="success" (click)="startDetection()">Start Detection</ion-button>
+  <ion-button expand="block" color="medium" fill="outline" (click)="stopDetection()">Stop Detection</ion-button>
+</ion-content>

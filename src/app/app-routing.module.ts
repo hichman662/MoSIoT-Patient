@@ -74,6 +74,26 @@ const routes: Routes = [
   {
     path: 'tab4',
     loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
+  },
+  {
+    path: 'object-detection',
+    loadChildren: () => import('./object-detection/object-detection.module').then( m => m.ObjectDetectionPageModule)
+  },
+  {
+    path: 'scene-describe',
+    loadChildren: () => import('./scene-describe/scene-describe.module').then( m => m.SceneDescribePageModule)
+  },
+  {
+    path: 'text-reader',
+    loadChildren: () => import('./text-reader/text-reader.module').then( m => m.TextReaderPageModule)
+  },
+  {
+    path: 'color-detection',
+    loadChildren: () => import('./color-detection/color-detection.module').then( m => m.ColorDetectionPageModule)
+  },
+  {
+    path: 'chat-ai',
+    loadChildren: () => import('./chat-ai/chat-ai.module').then( m => m.ChatAiPageModule)
   }
 ];
 @NgModule({

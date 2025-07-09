@@ -7,6 +7,26 @@ const routes: Routes = [
   {
     path: '',
     component: Tab4Page
+  },
+  {
+    path: 'object-detection',
+    loadChildren: () => import('../object-detection/object-detection.module').then( m => m.ObjectDetectionPageModule)
+  },
+  {
+    path: 'scene-description',
+    loadChildren: () => import('../scene-describe/scene-describe.module').then( m => m.SceneDescribePageModule)
+  },
+  {
+    path: 'text-reader',
+    loadChildren: () => import('../text-reader/text-reader.module').then( m => m.TextReaderPageModule)
+  },
+  {
+    path: 'color-detection',
+    loadChildren: () => import('../color-detection/color-detection.module').then( m => m.ColorDetectionPageModule)
+  },
+  {
+    path: 'chat-assist',
+    loadChildren: () => import('../chat-ai/chat-ai.module').then( m => m.ChatAiPageModule)
   }
 ];
 
