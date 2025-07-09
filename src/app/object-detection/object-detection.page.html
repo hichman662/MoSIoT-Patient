@@ -10,20 +10,45 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Live Object Detection</ion-card-title>
-      <ion-card-subtitle>Point your camera to detect objects in real time</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
+<ion-content [scrollY]="false" class="no-scroll">
+  <div class="page-wrapper">
+
+    <div class="camera-card">
       <div class="video-container">
         <video #video autoplay muted playsinline></video>
         <canvas #canvas></canvas>
       </div>
-    </ion-card-content>
-  </ion-card>
+    </div>
 
-  <ion-button expand="block" color="success" (click)="startDetection()">Start Detection</ion-button>
-  <ion-button expand="block" color="medium" fill="outline" (click)="stopDetection()">Stop Detection</ion-button>
+    <div class="distance-line">{{ distanceLineText }}</div>
+
+    <ion-row class="cards-row">
+      <ion-col size="6">
+        <ion-card class="info-card">
+          <ion-card-header>
+            <ion-card-title>Detected Objects</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="scrollable-content">{{ objectListText }}</div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card class="info-card">
+          <ion-card-header>
+            <ion-card-title>Distance Info</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="scrollable-content">{{ distanceLineText }}</div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <div class="button-row">
+      <ion-button expand="block" color="success" (click)="startDetection()">Start Detection</ion-button>
+      <ion-button expand="block" color="medium" fill="outline" (click)="stopDetection()">Stop Detection</ion-button>
+    </div>
+
+  </div>
 </ion-content>
