@@ -10,8 +10,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [scrollY]="false" class="no-scroll">
+<ion-content (click)="toggleDetection($event)" [scrollY]="false" class="no-scroll">
   <div class="page-wrapper">
+    <div class="instruction-text">
+      Tap anywhere to start/stop detection
+    </div>
 
     <div class="camera-card">
       <div class="video-container">
@@ -45,10 +48,27 @@
       </ion-col>
     </ion-row>
 
-    <div class="button-row">
-      <ion-button expand="block" color="success" (click)="startDetection()">Start Detection</ion-button>
-      <ion-button expand="block" color="medium" fill="outline" (click)="stopDetection()">Stop Detection</ion-button>
-    </div>
+    <ion-card class="threshold-card">
+      <ion-card-header>
+        <ion-card-title>
+          Hazard Distance Threshold: {{ distanceThreshold.toFixed(1) }}m
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-range
+          min="0.2"
+          max="2"
+          step="0.1"
+          [(ngModel)]="distanceThreshold"
+          (ionChange)="onThresholdChange($event.detail.value)">
+        </ion-range>
+      </ion-card-content>
+    </ion-card>
 
+    <div class="button-row">
+      <ion-button expand="block" fill="outline" color="medium" (click)="toggleMute()" class="mute-button">
+        {{ muted ? 'Unmute Voice' : 'Mute Voice' }}
+      </ion-button>
+    </div>
   </div>
 </ion-content>

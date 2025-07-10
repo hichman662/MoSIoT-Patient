@@ -19,6 +19,12 @@ export class AccessibilityService {
     });
   }
 
+  
+connectSocket() {
+  if (!this.socket || this.socket.disconnected) {
+    this.socket = io('http://localhost:5000'); 
+  }
+} 
   getSocket(): Socket {
     return this.socket;
   }
