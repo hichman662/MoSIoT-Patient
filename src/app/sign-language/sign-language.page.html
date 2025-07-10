@@ -1,12 +1,50 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar id="mainToolbar">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab4"></ion-back-button>
+      <ion-back-button text="Assistive" defaultHref="/tabs/tab4" icon="chevron-back-outline"></ion-back-button>
     </ion-buttons>
-    <ion-title>Sign Language</ion-title>
+    <div class="header-icon">
+      <ion-img src="assets/icon/gesture.png" class="toolbar-icon-img"></ion-img>
+    </div>
+    <ion-title class="header-title">Sign Language</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <p>This is the sign language page.</p>
+  <div class="page-wrapper">
+
+    <!-- Live video -->
+    <div class="video-container">
+      <video #video autoplay muted playsinline></video>
+      <canvas #canvas hidden></canvas>
+    </div>
+
+   <!-- Combined Gesture + Sentence Card -->
+<ion-card class="result-card">
+  <ion-card-header>
+    <ion-card-title>Detected Gesture & Sentence</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <div class="gesture-line">
+      <strong>Gesture:</strong> {{ translation || 'Waiting for gesture...' }}
+    </div>
+    <div class="sentence-line" *ngIf="sentence">
+      <strong>Sentence:</strong> {{ sentence }}
+    </div>
+  </ion-card-content>
+</ion-card>
+
+<!-- Annotated Frame -->
+<ion-card *ngIf="annotatedImageSrc" class="image-card">
+  <img [src]="annotatedImageSrc" alt="Annotated Frame" />
+</ion-card>
+
+    <!-- Clear Button -->
+    <div class="button-row">
+      <ion-button expand="block" color="danger" (click)="clearSentence()">
+        Clear Sentence
+      </ion-button>
+    </div>
+
+  </div>
 </ion-content>

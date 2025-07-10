@@ -11,7 +11,10 @@ export class AccessibilityService {
 
   private socket: Socket;
   private readonly accessibilityUrl = environment.accessibility_url;
-
+  private sentence = '';
+  private annotatedFrameBase64 = '';
+  private translation = '';
+  private signSocketInitialized = false;
   constructor(private http: HttpClient) {
     this.socket = io('http://localhost:5000');
 
@@ -24,15 +27,18 @@ export class AccessibilityService {
     });
   }
 
-  
+  // =================== Socket Setup ===================
+
 connectSocket() {
   if (!this.socket || this.socket.disconnected) {
-    this.socket = io('http://localhost:5000'); 
+    this.socket = io(this.accessibilityUrl);
   }
 } 
   getSocket(): Socket {
     return this.socket;
   }
+  
+// =================== Object Detection ===================
 
   sendFrame(base64Image: string) {
     if (this.socket?.connected) {
@@ -46,7 +52,7 @@ connectSocket() {
     }
   }
 
-    // ======= HTTP REST for Scene Description =======
+// =================== Scene Description ===================
 
    describeScene(base64Image: string): Observable<any> {
   const blob = this.base64ToBlob(base64Image, 'image/jpeg');
@@ -66,6 +72,8 @@ private base64ToBlob(base64: string, contentType: string): Blob {
   return new Blob([byteArray], { type: contentType });
 }
 
+// =================== Color Detection ===================
+
 detectColors(base64Image: string, numColors: number): Observable<any> {
   const blob = this.base64ToBlob(base64Image, 'image/jpeg');
   const formData = new FormData();
@@ -76,11 +84,43 @@ detectColors(base64Image: string, numColors: number): Observable<any> {
 }
 
 
-// chat ai
-
+// =================== Chat AI ===================
 chatWithAI(prompt: string): Observable<any> {
   const body = { prompt };
   return this.http.post<any>(`${this.accessibilityUrl}/chatbot/`, body);
+}
+
+
+// =================== Sign Language ===================
+initSignLanguageSocket() {
+  if (this.signSocketInitialized) return;
+
+  this.socket.on('translation_result', (data) => {
+    if (!data) return;
+    this.translation = data.translation;
+    this.sentence = data.sentence;
+    this.annotatedFrameBase64 = data.annotated_frame;
+  });
+
+  this.signSocketInitialized = true;
+}
+
+
+emitSignLanguageFrame(base64Image: string) {
+  this.socket.emit('sign_language', { image: base64Image });
+}
+
+clearSentence() {
+  this.sentence = '';
+  this.socket.emit('clear_sentence');
+}
+
+getSignLanguageData() {
+  return {
+    sentence: this.sentence,
+    translation: this.translation,
+    annotatedFrame: this.annotatedFrameBase64
+  };
 }
 
 
