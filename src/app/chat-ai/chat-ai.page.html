@@ -1,9 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>chat-ai</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/tabs/tab4"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Chat AI</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="mic" [class.blinking]="isRecording" class="mic-icon"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="chat-content" (click)="startVoiceRecognition()">
+  <div class="chat-wrapper">
+    <div *ngFor="let msg of messages" [ngClass]="msg.sender === 'user' ? 'user-msg' : 'bot-msg'">
+      {{ msg.text }}
+    </div>
+  </div>
 </ion-content>
+
+<ion-footer class="input-footer">
+  <ion-input [(ngModel)]="inputMessage" placeholder="Type a message" class="chat-input"></ion-input>
+  <ion-button fill="clear" (click)="sendMessage(inputMessage)">
+    <ion-icon name="send-outline"></ion-icon>
+  </ion-button>
+</ion-footer>

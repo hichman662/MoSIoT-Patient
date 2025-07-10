@@ -75,4 +75,13 @@ detectColors(base64Image: string, numColors: number): Observable<any> {
   return this.http.post(`${this.accessibilityUrl}/color-detection`, formData);
 }
 
+
+// chat ai
+
+chatWithAI(prompt: string): Observable<any> {
+  const body = { prompt };
+  return this.http.post<any>(`${this.accessibilityUrl}/chatbot/`, body);
+}
+
+
 }
