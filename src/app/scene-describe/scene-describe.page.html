@@ -1,9 +1,35 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>scene-describe</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab4" icon="chevron-back-outline" text="Back"></ion-back-button>
+    </ion-buttons>
+
+    <div class="header-icon">
+      <ion-img src="assets/icon/scene.png" class="toolbar-icon-img"></ion-img>
+      <div class="header-title">Image Description</div>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content (click)="captureImage()" [fullscreen]="true">
+  <div class="instruction">Touch the screen to capture or cancel</div>
 
+  <div class="camera-container">
+    <video #video autoplay muted playsinline></video>
+    <canvas #canvas hidden></canvas>
+  </div>
+
+  <ion-card *ngIf="capturedImage" class="image-card">
+    <img [src]="capturedImage" class="captured-img" />
+    <div class="loading-overlay" *ngIf="isAnalyzing">Analyzing...</div>
+  </ion-card>
+
+  <ion-card *ngIf="description" class="desc-card">
+    <ion-card-header>
+      <ion-card-title>Description</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="description-scroll">{{ description }}</div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -5,8 +5,9 @@
 
 export const environment = {
   production: false,
-  base_url: 'https://localhost:44358/api',
-  azure_IoT: 'http://mosiotalzheimer.azureiotcentral.com/api'
+  base_url: 'https://localhost:44358/api', // .NET
+  azure_IoT: 'http://mosiotalzheimer.azureiotcentral.com/api', // azure
+  accessibility_url: 'http://localhost:5000/api/v1' // Python
 };
 
 /*
