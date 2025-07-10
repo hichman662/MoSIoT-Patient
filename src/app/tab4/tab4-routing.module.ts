@@ -27,7 +27,12 @@ const routes: Routes = [
   {
     path: 'chat-assist',
     loadChildren: () => import('../chat-ai/chat-ai.module').then( m => m.ChatAiPageModule)
-  }
+  },
+  {
+    path: 'sign-language',
+    loadChildren: () => import('../sign-language/sign-language.module').then( m => m.SignLanguagePageModule)
+  },
+  
 ];
 
 @NgModule({

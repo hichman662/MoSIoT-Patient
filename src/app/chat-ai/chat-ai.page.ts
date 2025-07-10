@@ -37,7 +37,7 @@ export class ChatAiPage implements OnInit, OnDestroy {
 
     this.recognition.onstart = () => {
       this.isRecording = true;
-      this.speak('Recording started');
+      this.speak('Listening');
     };
 
     this.recognition.onresult = (event: any) => {
