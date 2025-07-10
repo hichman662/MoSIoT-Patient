@@ -66,4 +66,13 @@ private base64ToBlob(base64: string, contentType: string): Blob {
   return new Blob([byteArray], { type: contentType });
 }
 
+detectColors(base64Image: string, numColors: number): Observable<any> {
+  const blob = this.base64ToBlob(base64Image, 'image/jpeg');
+  const formData = new FormData();
+  formData.append('image', blob, 'colors.jpg');
+  formData.append('num_colors', numColors.toString());
+
+  return this.http.post(`${this.accessibilityUrl}/color-detection`, formData);
+}
+
 }

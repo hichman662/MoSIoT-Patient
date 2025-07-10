@@ -1,0 +1,164 @@
+ion-content {
+  --background: rgba(207, 218, 182, 0.658);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Instruction text */
+.instruction-text {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+/* Camera preview */
+.camera-card {
+  width: 100%;
+  height: 140px;
+  background: black;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+video, canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  z-index: 1;
+}
+
+canvas {
+  z-index: 2;
+}
+
+/* Dropdown selector */
+.dropdown-row {
+  margin: 4px 0;
+  padding: 4px 0;
+  --background: #fff;
+  border-radius: 10px;
+  --min-height: 40px;
+}
+
+/* Captured image preview */
+.image-card {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  margin-top: 4px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.captured-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #444;
+}
+
+/* Detected color results */
+ion-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.color-results {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.color-box {
+  width: 56px;
+  text-align: center;
+}
+
+.color-box .box {
+  width: 100%;
+  height: 30px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.color-box .label {
+  font-size: 10px;
+  margin-top: 2px;
+  word-break: break-word;
+}
+
+/* Mute button row */
+.button-row {
+  width: 100%;
+  padding-top: 6px;
+  display: flex;
+  justify-content: center;
+}
+
+ion-button {
+  --border-radius: 12px;
+  font-size: 14px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+
+/* Header icon */
+.pati-card {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  box-shadow: none;
+  margin-right: 10px;
+}
+
+.pati-card ion-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Prevent scroll */
+.no-scroll {
+  --overflow: hidden;
+}

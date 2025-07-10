@@ -1,9 +1,63 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>color-detection</ion-title>
+  <ion-toolbar id="mainToolbar">
+    <ion-buttons slot="start">
+      <ion-back-button text="Assistive" defaultHref="/tabs/tab4" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-label id="title"><strong>Color Detection</strong></ion-label>
+    <ion-card slot="end" class="pati-card">
+      <ion-img src="assets/icon/color.png"></ion-img>
+    </ion-card>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content (click)="handleScreenClick($event)" [scrollY]="false" class="no-scroll">
+  <div class="page-wrapper">
 
+    <div class="instruction-text">
+      Tap anywhere to capture and detect colors
+    </div>
+
+    <!-- Live camera -->
+    <div class="camera-card">
+      <div class="video-container">
+        <video #video autoplay muted playsinline></video>
+        <canvas #canvas hidden></canvas>
+      </div>
+    </div>
+
+    <!-- Dropdown selector -->
+    <ion-item lines="none" class="dropdown-row" (click)="$event.stopPropagation()">
+      <ion-label>Select number of colors</ion-label>
+      <ion-select [(ngModel)]="numColors" interface="popover">
+        <ion-select-option *ngFor="let n of [1,2,3,4,5]" [value]="n">{{n}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Captured image -->
+    <ion-card *ngIf="capturedImage" class="image-card">
+      <img [src]="capturedImage" class="captured-img" />
+      <div class="loading-overlay" *ngIf="isAnalyzing">Analyzing...</div>
+    </ion-card>
+
+    <!-- Detected colors -->
+    <ion-card *ngIf="detectedColors.length > 0">
+      <ion-card-header>
+        <ion-card-title>Detected Colors</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="color-results">
+        <div *ngFor="let color of detectedColors" class="color-box">
+          <div class="box" [style.background]="color.hex"></div>
+          <div class="label">{{ color.name }}<br />({{ color.hex }})</div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Mute button -->
+    <div class="button-row">
+      <ion-button expand="block" fill="outline" color="medium" (click)="toggleMute($event)">
+        {{ muted ? 'Unmute Voice' : 'Mute Voice' }}
+      </ion-button>
+    </div>
+
+  </div>
 </ion-content>
