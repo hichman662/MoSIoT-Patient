@@ -1,9 +1,43 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>text-reader</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab4" icon="chevron-back-outline" text="Back"></ion-back-button>
+    </ion-buttons>
+    <div class="header-icon">
+      <ion-img src="assets/icon/textReader.png" class="toolbar-icon-img"></ion-img>
+      <div class="header-title">Text Reader</div>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content (click)="captureAndRead()" [fullscreen]="true">
+  <div class="instruction">Touch anywhere to capture and read text</div>
 
+ <ion-item lines="none">
+  <ion-label position="stacked">Select Voice and Language</ion-label>
+  <ion-select placeholder="Choose voice" (ionChange)="onVoiceChange($event)">
+    <ion-select-option *ngFor="let v of voices; index as i" [value]="i">
+      {{ v.name }} ({{ v.lang }})
+    </ion-select-option>
+  </ion-select>
+</ion-item>
+
+
+  <div class="camera-container">
+    <video #video autoplay muted playsinline></video>
+    <canvas #canvas hidden></canvas>
+  </div>
+
+  <ion-card *ngIf="capturedImage">
+    <img [src]="capturedImage" class="captured-img" />
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Extracted Text</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ extractedText || 'Tap the screen to capture text.' }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
