@@ -32,8 +32,17 @@ export class AccessibilityService {
 connectSocket() {
   if (!this.socket || this.socket.disconnected) {
     this.socket = io(this.accessibilityUrl);
+
+    this.socket.on('connect', () => {
+      console.log('Reconnected to backend');
+    });
+
+    this.socket.on('disconnect', () => {
+      console.warn('Socket disconnected');
+    });
   }
-} 
+}
+
   getSocket(): Socket {
     return this.socket;
   }

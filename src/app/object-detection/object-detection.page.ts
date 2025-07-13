@@ -158,6 +158,6 @@ export class ObjectDetectionPage implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.stopDetection();
-    this.accessService.disconnectSocket();
+    //this.accessService.disconnectSocket();
   }
 }
